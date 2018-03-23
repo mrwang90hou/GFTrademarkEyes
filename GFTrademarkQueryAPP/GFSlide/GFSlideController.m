@@ -80,7 +80,7 @@
         if ([weakSelf.mainVc isKindOfClass:[GFTabbarController class]]) {
             
             GFBasicController *vc = [targetClass new];
-            GFNavController *nav =  (GFNavController *)[tabbarVc LX_NavController];
+            GFNavController *nav =  (GFNavController *)[tabbarVc GF_NavController];
             vc.view.backgroundColor = LXRandomColor;
             vc.title = type;
             [nav pushViewController:vc animated:YES];
@@ -189,11 +189,13 @@
         self.pan2.enabled = YES;
         self.tap.enabled = YES;
     }];
+    
+    //蒙版的阴影限定
+    self.maskView.alpha = self.mainVc.view.gf_x /MAXLEFTSLIDEWIDTH;
 }
 
 #pragma mark--关闭抽屉--
 -(void)closeDrawer{
-    
     self.mainVc.view.gf_x = 0;
     self.maskView.alpha  = 0;
     self.pan1.enabled = YES;

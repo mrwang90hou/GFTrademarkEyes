@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationBar.translucent = YES;
+    self.navigationBar.translucent = YES;       //半透明
 
     self.navigationBar.barTintColor = LXMainColor;
-    
+
     self.interactivePopGestureRecognizer.delegate = self;
 }
 #pragma mark--防止与添加到tabbar的手势冲突--

@@ -25,10 +25,10 @@
     
     GFLeftController *leftVc =[[GFLeftController alloc]init];
     GFTabbarController *mainVc =[[GFTabbarController alloc]init];
-    GFSlideController *qqSlideVc =[GFSlideController initWithLeftVC:leftVc mainVc:mainVc];
-    self.window.rootViewController = qqSlideVc;
+    GFSlideController *gfSlideVc =[GFSlideController initWithLeftVC:leftVc mainVc:mainVc];
+    self.window.rootViewController = gfSlideVc;
     
-    self.qqSlideVc = qqSlideVc;
+    self.gfSlideVc = gfSlideVc;
     self.window.backgroundColor =[UIColor whiteColor];
     return YES;
 }

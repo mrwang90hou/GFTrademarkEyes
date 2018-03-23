@@ -9,7 +9,7 @@
 
 #import "GFTabbarController.h"
 #import "GFControlRootController.h"
-#import "GFSpecialRootController.h"
+#import "GFTrademarkServiceController.h"
 #import "GFRootUseController.h"
 #import "GFNavController.h"
 
@@ -97,7 +97,7 @@
     GFNavController *assetRoot =  [self addOneChildViewController:assetVc image:[UIImage GF_imageWithOriginalName:@"ic_search_normal"] selectedImage:[UIImage GF_imageWithOriginalName:@"ic_search_pressed"] title:@"商标查询"];
     
     // 商标服务
-    GFSpecialRootController *transactionVc = [[GFSpecialRootController alloc] init];
+    GFTrademarkServiceController *transactionVc = [[GFTrademarkServiceController alloc] init];
     GFNavController *messageRoot =   [self addOneChildViewController:transactionVc image:[UIImage GF_imageWithOriginalName:@"ic_web_services_normal"] selectedImage:[UIImage GF_imageWithOriginalName:@"ic_web_services_pressed"] title:@"商标服务"];
     // 订单
 //    GFRootUseController *quotationVc = [[GFRootUseController alloc] init];
@@ -149,7 +149,7 @@
     [[tabbarbuttonArray[index] layer]
      addAnimation:animation forKey:nil];
 }
--(UINavigationController *)LX_NavController{
+-(UINavigationController *)GF_NavController{
     return self.selectedViewController;
 }
 

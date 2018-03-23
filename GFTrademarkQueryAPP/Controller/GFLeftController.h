@@ -9,5 +9,5 @@
 #import "GFBasicController.h"
 typedef void (^TypeDidClick) (NSString *type,Class targetClass);
 @interface GFLeftController : GFBasicController
-@property(nonatomic,copy)TypeDidClick typeClick;
+@property(nonatomic,copy)TypeDidClick typeClick;    //类型单击
 @end

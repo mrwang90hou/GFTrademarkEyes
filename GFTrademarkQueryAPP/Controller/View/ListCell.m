@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+//在规则和选择状态之间进行动画。
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

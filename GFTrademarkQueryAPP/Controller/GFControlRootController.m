@@ -21,14 +21,31 @@
     self.navigationItem.title = @"商标查询";
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
-   [self.view addSubview:self.tableview];
+    
+    
+    [self setup];
+    
+    [self.view addSubview:self.tableview];
 }
+-(void)setup{
+    
+    UIImageView *leftIcon = [[UIImageView alloc] initWithFrame:CGRectMake(40, 40, 80, 100)];
+    
+#pragma mark -此次加入轮番播放的图片【可实时通过网络更新的图片】
+    [leftIcon setImage:[UIImage imageNamed:@"bg_head"]];
+    [self.view addSubview:leftIcon];
+    //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:leftIcon]];
+    
+}
+
+
+
 -(void)openDrawer{
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    [appdelegate.qqSlideVc openDrawer];
+    [appdelegate.gfSlideVc openDrawer];
 }
 
-
+//设置tableView中的元素个数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 5;
 }
@@ -41,12 +58,8 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];//在索引路径中取消选定行。
     GFBasicController *vc = [GFBasicController new];
-   
-    
     vc.view.backgroundColor = LXRandomColor;
     vc.title = @"😝😝😋🌶🌶";
     [self.navigationController pushViewController:vc animated:YES];

@@ -1,18 +1,18 @@
 //
-//  GFSpecialRootController.m
+//  GFTrademarkServiceController.m
 //  GFSlide
 //
 //  Created by 王宁 on 2018/3/23.
 //  Copyright © 2018年 王宁. All rights reserved.
 //
 
-#import "GFSpecialRootController.h"
+#import "GFTrademarkServiceController.h"
 #import "GFControlRootController.h"
-@interface GFSpecialRootController ()
+@interface GFTrademarkServiceController ()
 
 @end
 
-@implementation GFSpecialRootController
+@implementation GFTrademarkServiceController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,7 +24,7 @@
 
 -(void)openDrawer{
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    [appdelegate.qqSlideVc openDrawer];
+    [appdelegate.gfSlideVc openDrawer];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

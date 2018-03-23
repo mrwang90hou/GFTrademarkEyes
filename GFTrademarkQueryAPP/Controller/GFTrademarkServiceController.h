@@ -1,5 +1,5 @@
 //
-//  GFSpecialRootController.h
+//  GFTrademarkServiceController.h
 //  GFSlide
 //
 //  Created by 王宁 on 2018/3/23.
@@ -8,6 +8,6 @@
 
 #import "GFBasicController.h"
 
-@interface GFSpecialRootController : GFBasicController
+@interface GFTrademarkServiceController : GFBasicController
 
 @end

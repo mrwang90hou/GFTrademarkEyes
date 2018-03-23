@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GFTabbarController : UITabBarController
--(UINavigationController *)LX_NavController;
+-(UINavigationController *)GF_NavController;
 @end

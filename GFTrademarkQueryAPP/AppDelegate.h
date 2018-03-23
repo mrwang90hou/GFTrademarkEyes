@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property(nonatomic,strong)GFSlideController *qqSlideVc;
+@property(nonatomic,strong)GFSlideController *gfSlideVc;
 
 @end
 
