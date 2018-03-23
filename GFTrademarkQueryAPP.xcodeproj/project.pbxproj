@@ -163,7 +163,7 @@
 				926AE8B32064E35A00FDA8C2 /* AppDelegate.h */,
 				926AE8B42064E35A00FDA8C2 /* AppDelegate.m */,
 				926AE9192064EA0300FDA8C2 /* GFBase */,
-				926AE9202064EA0300FDA8C2 /* LXQQSlide */,
+				926AE9202064EA0300FDA8C2 /* GFSlide */,
 				926AE8F82064E9F400FDA8C2 /* Controller */,
 				926AE8E52064E9F400FDA8C2 /* Category */,
 				926AE8B92064E35A00FDA8C2 /* Main.storyboard */,
@@ -261,13 +261,13 @@
 			path = GFBase;
 			sourceTree = "<group>";
 		};
-		926AE9202064EA0300FDA8C2 /* LXQQSlide */ = {
+		926AE9202064EA0300FDA8C2 /* GFSlide */ = {
 			isa = PBXGroup;
 			children = (
 				926AE9222064EA0300FDA8C2 /* GFSlideController.h */,
 				926AE9212064EA0300FDA8C2 /* GFSlideController.m */,
 			);
-			path = LXQQSlide;
+			path = GFSlide;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

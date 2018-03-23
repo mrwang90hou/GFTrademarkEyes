@@ -25,7 +25,6 @@
 }
 -(void)openDrawer{
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     [appdelegate.qqSlideVc openDrawer];
 }
 
