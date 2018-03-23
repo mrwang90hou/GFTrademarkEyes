@@ -37,9 +37,6 @@
     //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:leftIcon]];
     
 }
-
-
-
 -(void)openDrawer{
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [appdelegate.gfSlideVc openDrawer];
