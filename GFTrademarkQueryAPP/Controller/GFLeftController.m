@@ -43,6 +43,7 @@
         _tableview.showsVerticalScrollIndicator = NO;       //显示垂直滚动指标：NO
         _tableview.showsHorizontalScrollIndicator = NO;     //显示水平滚动指标：NO
         _tableview.tableFooterView = [UIView new];          //表页脚视图
+#pragma mark -tableView每个元素的高度改为：屏幕按比例分配
         _tableview.rowHeight = 50;                          //行高：50
 //        [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         [_tableview registerNib:[UINib nibWithNibName:@"ListCell" bundle:nil] forCellReuseIdentifier:@"cell"];

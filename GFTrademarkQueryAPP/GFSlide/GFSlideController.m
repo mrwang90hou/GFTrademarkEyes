@@ -11,7 +11,10 @@
 #import "GFTabbarController.h"
 #import "GFNavController.h"
 
-#define MAXLEFTSLIDEWIDTH (Device_Width -100)
+
+
+//#define MAXLEFTSLIDEWIDTH (Device_Width -100)//左滑宽度100   应该改成按照比例分配
+#define MAXLEFTSLIDEWIDTH (Device_Width -Device_Width/5)//按照屏幕宽度的1/5
 #define MAXSPEED 800
 @interface GFSlideController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong)GFBasicController *leftVc;

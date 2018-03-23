@@ -13,6 +13,12 @@
 @end
 @implementation LeftView
 
+
+
+#pragma mark -需要更改该视图的高度：按屏幕比例分配
+
+
+
 -(void)awakeFromNib{
     [super awakeFromNib];
     
