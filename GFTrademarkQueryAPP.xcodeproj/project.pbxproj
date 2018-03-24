@@ -35,6 +35,7 @@
 		926AE9242064EA0300FDA8C2 /* GFTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91D2064EA0300FDA8C2 /* GFTabbarController.m */; };
 		926AE9252064EA0300FDA8C2 /* GFNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91F2064EA0300FDA8C2 /* GFNavController.m */; };
 		926AE9262064EA0300FDA8C2 /* GFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE9212064EA0300FDA8C2 /* GFSlideController.m */; };
+		926BF76E206660770044C9BE /* AdvertisingColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 926BF76D206660770044C9BE /* AdvertisingColumn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		926AE9212064EA0300FDA8C2 /* GFSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSlideController.m; sourceTree = "<group>"; };
 		926AE9222064EA0300FDA8C2 /* GFSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSlideController.h; sourceTree = "<group>"; };
 		926AE9282064F31C00FDA8C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		926BF76C206660770044C9BE /* AdvertisingColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisingColumn.h; sourceTree = "<group>"; };
+		926BF76D206660770044C9BE /* AdvertisingColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertisingColumn.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 				926AE8FB2064E9F400FDA8C2 /* GFRootUseController.m */,
 				926AE8FE2064E9F400FDA8C2 /* GFLeftController.h */,
 				926AE8F92064E9F400FDA8C2 /* GFLeftController.m */,
+				926BF76C206660770044C9BE /* AdvertisingColumn.h */,
+				926BF76D206660770044C9BE /* AdvertisingColumn.m */,
 				926AE9002064E9F400FDA8C2 /* View */,
 			);
 			path = Controller;
@@ -412,6 +417,7 @@
 				926AE9122064E9F400FDA8C2 /* GFRootUseController.m in Sources */,
 				926AE9162064E9F400FDA8C2 /* LeftView.m in Sources */,
 				926AE9252064EA0300FDA8C2 /* GFNavController.m in Sources */,
+				926BF76E206660770044C9BE /* AdvertisingColumn.m in Sources */,
 				926AE90A2064E9F400FDA8C2 /* UILabel+GFLabel.m in Sources */,
 				926AE9092064E9F400FDA8C2 /* UIView+GF_Frame.m in Sources */,
 				926AE9112064E9F400FDA8C2 /* GFLeftController.m in Sources */,

@@ -20,7 +20,7 @@
     self.view.backgroundColor =[UIColor whiteColor];
     self.extendedLayoutIncludesOpaqueBars = YES;
     if (@available(iOS 11.0, *)) {
-        
+    
     } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -28,9 +28,6 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
 #pragma clang diagnostic pop
     }
-    
-    
-
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
