@@ -15,13 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_head" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-Cn-uZI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cycle_image5" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-Cn-uZI">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="220" id="VWx-jH-Tbh"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Vr5-LN-34F">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Vr5-LN-34F">
                     <rect key="frame" x="16" y="108" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="4bh-Nb-xbn"/>
@@ -63,7 +63,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg_head" width="1080" height="686"/>
-        <image name="icon" width="1024" height="1024"/>
+        <image name="cycle_image5" width="1146" height="678"/>
+        <image name="logo" width="35" height="34"/>
     </resources>
 </document>

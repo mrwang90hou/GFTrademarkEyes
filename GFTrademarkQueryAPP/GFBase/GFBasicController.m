@@ -55,18 +55,18 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:41/255.0 green:134/255.0 blue:227/255.0 alpha:1]];
     
     // 设置导航栏左侧图标
-    if ([[self.navigationController viewControllers] count] <= 1) {
+    if ([[self.navigationController viewControllers] count] <= 0) {
         
         // 处于根ViewControllers，仅显示Logo
         UIImageView *leftIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        [leftIcon setImage:[UIImage imageNamed:@"头像"]];
+        [leftIcon setImage:[UIImage imageNamed:@"head"]];
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:leftIcon]];
         
     } else {
         
         // 处于上层的ViewControllers显示返回按钮
         UIButton *backView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
-        [backView addTarget:self action:@selector(popViewAction:) forControlEvents:UIControlEventTouchUpInside];
+        [backView addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
         
         // 返回Icon
         UIImageView *backIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fanhui"]];
@@ -81,7 +81,7 @@
         // Logo
         UIImageView *backLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         [backView addSubview:backLogo];
-        [backLogo setImage:[UIImage imageNamed:@"头像"]];
+        [backLogo setImage:[UIImage imageNamed:@"head"]];
         [backLogo setContentMode:UIViewContentModeCenter];
         [backLogo mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(backView);
@@ -104,5 +104,9 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 /**************************/
-
+-(void)backClick
+{
+    //返回到之前的视图控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
