@@ -11,8 +11,14 @@
 #import "LeftView.h"
 #import "ListCell.h"
 
-#import "AboutUsController.h"
+
+#import "MyInformationController.h"
+#import "MyFavoriteController.h"
 #import "ShareController.h"
+#import "AdviceController.h"
+#import "UpdateController.h"
+#import "SetUpController.h"
+#import "AboutUsController.h"
 @interface GFLeftController ()<UITableViewDelegate, UITableViewDataSource ,UIAlertViewDelegate>
 @property(nonatomic,strong)LeftView *header;
 @property(nonatomic,strong)UITableView *tableview;
@@ -89,24 +95,24 @@
     GFBasicController *nextVC;
     switch (indexPath.row) {
         case 0:
-            nextVC = [[GFBasicController alloc] init];
+            nextVC = [[MyInformationController alloc] init];
             //弹出框
             [SVProgressHUD showSuccessWithStatus:@"基本信息"];
             break;
         case 1:
-            nextVC = [[GFBasicController alloc] init];
+            nextVC = [[MyFavoriteController alloc] init];
             //弹出框
             [SVProgressHUD showSuccessWithStatus:@"我的收藏"];
             break;
         case 2:
             //nextVC = [[GFMyReplaceEquipmentViewController alloc] init];
-            nextVC = [[GFBasicController alloc]init];
+            nextVC = [[ShareController alloc]init];
             [SVProgressHUD showSuccessWithStatus:@"我要分享"];
             //return;
             break;
         case 3:
             //nextVC = [[GFMyPasswordViewController alloc] init];
-            nextVC = [[GFBasicController alloc]init];
+            nextVC = [[AdviceController alloc]init];
             [SVProgressHUD showSuccessWithStatus:@"意见反馈"];
             break;
         case 4:
@@ -117,12 +123,12 @@
             break;
         case 5:
             //nextVC = [[GFMyRechargeViewController alloc] init];
-            nextVC = [[GFBasicController alloc]init];
+            nextVC = [[UpdateController alloc]init];
             [SVProgressHUD showSuccessWithStatus:@"检测升级"];
             break;
         case 6:
             //nextVC = [[GFMyOrderDetailsViewController alloc] init];
-            nextVC = [[GFBasicController alloc]init];
+            nextVC = [[SetUpController alloc]init];
             [SVProgressHUD showSuccessWithStatus:@"设置"];
             break;
         case 7:
@@ -139,7 +145,11 @@
     //判断是否被点击
     if (self.typeClick) {
         UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:nextVC];
-        nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        //设置翻转动画
+        nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
+        //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
+        //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
+        //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
         [self presentViewController:nView animated:YES completion:nil];
     }
     //    if (self.typeClick) {
