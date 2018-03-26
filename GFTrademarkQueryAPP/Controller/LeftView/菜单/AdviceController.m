@@ -1,5 +1,5 @@
 //
-//  InformationController.m
+//  AdviceController.m
 //  GFTrademarkQueryAPP
 //
 //  Created by 王宁 on 2018/3/26.
@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "InformationController.h"
-@interface InformationController()
+#import "AdviceController.h"
+@interface AdviceController()
 
 @end
 
-@implementation InformationController
+@implementation AdviceController
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.title = @"基本信息";
+    self.title = @"意见反馈";
     //设置背景颜色:黄色
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     //初始化控件
     [self initView];
     
