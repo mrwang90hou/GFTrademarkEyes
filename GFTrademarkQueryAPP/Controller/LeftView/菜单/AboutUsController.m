@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.title = @"关于我们";
     //设置背景颜色:黄色
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     //初始化控件
     [self initView];
     
