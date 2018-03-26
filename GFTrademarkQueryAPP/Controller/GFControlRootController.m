@@ -8,8 +8,10 @@
 
 #import "GFControlRootController.h"
 #import "UIBarButtonItem+SXCreate.h"
-@interface GFControlRootController ()<UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong)UITableView *tableview;
+#import "CCCycleScrollView.h"
+@interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage>//UITableViewDelegate,UITableViewDataSource,
+@property (nonatomic, strong)CCCycleScrollView *cyclePlayView;
+//@property(nonatomic,strong)UITableView *tableview;
 @end
 
 @implementation GFControlRootController
@@ -18,61 +20,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"商标查询";
+    //self.navigationItem.title = @"商标查询";
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
     
-    
-    /**
-     *  广告栏
-     */
-    _headerView = [[AdvertisingColumn alloc]initWithFrame:CGRectMake(5, 5, Device_Width-10, AD_height)];
-    _headerView.backgroundColor = [UIColor blackColor];
+    [self cycleScrollView];
     
     
-    
-   // [self setup];
+    [self setupView];
     
     //[self.view addSubview:self.tableview];
 }
--(void)setup{
-    
-    
-#pragma mark -此次加入轮番播放的图片【可实时通过网络更新的图片】
-//
-//    NSArray *imagesURLStrings = @[
-//                                  @"https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/super/whfpf%3D425%2C260%2C50/sign=a4b3d7085dee3d6d2293d48b252b5910/0e2442a7d933c89524cd5cd4d51373f0830200ea.jpg",
-//                                  @"https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/super/whfpf%3D425%2C260%2C50/sign=a41eb338dd33c895a62bcb3bb72e47c2/5fdf8db1cb134954a2192ccb524e9258d1094a1e.jpg",
-//                                  @"http://c.hiphotos.baidu.com/image/w%3D400/sign=c2318ff84334970a4773112fa5c8d1c0/b7fd5266d0160924c1fae5ccd60735fae7cd340d.jpg"];
-//
-//    SDCycleScrollView *cycleScrollView3 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 100, Device_Width, 180) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
-//    cycleScrollView3.currentPageDotImage = [UIImage imageNamed:@"pageControlCurrentDot"];
-//    cycleScrollView3.pageDotImage = [UIImage imageNamed:@"pageControlDot"];
-//    cycleScrollView3.imageURLStringsGroup = imagesURLStrings;
-//
-//    [self.view addSubview:cycleScrollView3];
-//
-//载入图片
-//    UIImageView *leftIcon = [[UIImageView alloc] initWithFrame:CGRectMake(40, 40, 80, 100)];
-//
-//    [leftIcon setImage:[UIImage imageNamed:@"bg_head"]];
-//    [self.view addSubview:leftIcon];
+-(void)setupView{
+
+//    UIButton *left_btn = [[UIButton alloc]initWithFrame:CGRectMake(-6, 10, 60, 60)];
+//    [left_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
+//    [left_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:left_btn];
     
     
     
-    //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:leftIcon]];
-    
-    
-    /**
-     *  广告栏
-     */
-    _headerView = [[AdvertisingColumn alloc]initWithFrame:CGRectMake(5, 5, Device_Width-10, AD_height)];
-    _headerView.backgroundColor = [UIColor blackColor];
-    
-    
-    
-    
-    
+    //设计查询操作
     
     
 }
@@ -80,41 +48,79 @@
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [appdelegate.gfSlideVc openDrawer];
 }
+//
+////设置tableView中的元素个数
+//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return 5;
+//}
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    if (!cell) {
+//        cell =[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//    }
+//    cell.textLabel.text = @"测试数据加载。。。";
+//    return cell;
+//}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];//在索引路径中取消选定行。
+//    GFBasicController *vc = [GFBasicController new];
+//    vc.view.backgroundColor = LXRandomColor;
+//    vc.title = @"😝😝😋🌶🌶";
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
+//-(UITableView *)tableview{
+//    
+//    if (!_tableview) {
+//        _tableview =[[UITableView alloc]initWithFrame:CGRectMake(0, NAVH, Device_Width, Device_Height - NAVH) style:UITableViewStylePlain];
+//        _tableview.delegate = self;
+//        _tableview.dataSource = self;
+//        _tableview.showsVerticalScrollIndicator = NO;
+//        _tableview.showsHorizontalScrollIndicator = NO;
+//        _tableview.tableFooterView = [UIView new];
+//        _tableview.rowHeight = 44;
+//        [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+//        
+//    }
+//    return _tableview;
+//}
+//************************************************************************************//
 
-//设置tableView中的元素个数
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if (!cell) {
-        cell =[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+- (void)cycleScrollView
+{
+    NSMutableArray *images = [[NSMutableArray alloc]init];
+    for (NSInteger i = 1; i <= 6; ++i) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"cycle_image%ld",(long)i]];
+        [images addObject:image];
     }
-    cell.textLabel.text = @"测试数据加载。。。";
-    return cell;
+    self.cyclePlayView = [[CCCycleScrollView alloc]initWithImages:images withFrame:CGRectMake(0, 0, self.view.frame.size.width, Device_Height/4)];
+    self.cyclePlayView = [[CCCycleScrollView alloc]initWithImages:images];
+    self.cyclePlayView.pageDescrips = @[@"大海",@"花",@"长灯",@"阳光下的身影",@"秋树",@"摩天轮"];
+    self.cyclePlayView.delegate = self;
+    self.cyclePlayView.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:self.cyclePlayView];
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];//在索引路径中取消选定行。
-    GFBasicController *vc = [GFBasicController new];
-    vc.view.backgroundColor = LXRandomColor;
-    vc.title = @"😝😝😋🌶🌶";
-    [self.navigationController pushViewController:vc animated:YES];
-}
--(UITableView *)tableview{
+
+- (void)cyclePageClickAction:(NSInteger)clickIndex
+{
+    NSLog(@"点击了第%ld个图片:%@",clickIndex,self.cyclePlayView.pageDescrips[clickIndex]);
+    //[SVProgressHUD showSuccessWithStatus:@"点击了第个图片:%@",self.cyclePlayView.pageDescrips[clickIndex]];
+    [SVProgressHUD showSuccessWithStatus:@"点击了图片"];
+    //跳转事件！
     
-    if (!_tableview) {
-        _tableview =[[UITableView alloc]initWithFrame:CGRectMake(0, NAVH, Device_Width, Device_Height - NAVH) style:UITableViewStylePlain];
-        _tableview.delegate = self;
-        _tableview.dataSource = self;
-        _tableview.showsVerticalScrollIndicator = NO;
-        _tableview.showsHorizontalScrollIndicator = NO;
-        _tableview.tableFooterView = [UIView new];
-        _tableview.rowHeight = 44;
-        [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-        
-    }
-    return _tableview;
 }
 
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //隐藏背景色
+    [self.navigationController.navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
+    
+//[navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
+//    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
 @end

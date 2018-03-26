@@ -7,11 +7,8 @@
 //
 
 #import "GFBasicController.h"
-#import "AdvertisingColumn.h"
 
-static float AD_height = 150;//广告栏高度
+//static float AD_height = 150;//广告栏高度
 
-@interface GFControlRootController : GFBasicController<UICollectionViewDataSource,UICollectionViewDelegate>{
-AdvertisingColumn *_headerView; //广告栏
-}
+@interface GFControlRootController : GFBasicController
 @end

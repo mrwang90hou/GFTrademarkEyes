@@ -19,6 +19,7 @@
 @end
 
 @implementation GFTabbarController
+
 +(void)load
 {
     UITabBarItem *titleItem = [UITabBarItem appearance];
@@ -31,14 +32,12 @@
     [titleItem setTitleTextAttributes:normalDict forState:UIControlStateNormal];
     //选中
     NSMutableDictionary *selectedDict = [NSMutableDictionary dictionary];
-    selectedDict[NSForegroundColorAttributeName] = LXMainColor;
+    selectedDict[NSForegroundColorAttributeName] = GFMainColor;
     [titleItem setTitleTextAttributes:selectedDict forState:UIControlStateSelected];
     [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     //    [UITabBar appearance].translucent = NO;  //不能设置为透明
     
     //设置整个项目的item状态
-   
-    
 //    //设置item普通状态
 //    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
 //    //    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
@@ -60,9 +59,9 @@
     
     
     // 创建tabbar中间的tabbarItem
-//    [self setUpMidelTabbarItem];
+    [self setUpMidelTabbarItem];
 
-     [self addAllChildViewControllers];
+    [self addAllChildViewControllers];
     
     UIView *view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Device_Width, 0.5)];
     view.backgroundColor = [UIColor hexStringToColor:@"#bfbfbf"];
@@ -120,7 +119,6 @@
     navC.tabBarItem.title = title;
     navC.tabBarItem.image = image;
     //    navC.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -3);
-    
     navC.tabBarItem.selectedImage = selectedImage;
     
     return navC;

@@ -7,8 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface GFBasicController : UIViewController
+
+
+/**
+ *  设置导航栏样式
+ */
+- (void)setupNavigationBar;
+
+/**
+ *  点击导航栏返回按钮
+ *  @param button 按钮对象
+ */
+- (void)popViewAction:(UIButton *)button;
+
+//-(UINavigationController *)GF_NavController;
 
 @end
 

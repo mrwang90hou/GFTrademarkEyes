@@ -19,9 +19,9 @@
     // Do any additional setup after loading the view.
     self.navigationBar.translucent = YES;       //半透明
 
-    self.navigationBar.barTintColor = LXMainColor;
+    self.navigationBar.barTintColor = GFMainColor;
 
-    self.interactivePopGestureRecognizer.delegate = self;
+    self.interactivePopGestureRecognizer.delegate = self;//交互式流行手势识别器
 }
 #pragma mark--防止与添加到tabbar的手势冲突--
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
