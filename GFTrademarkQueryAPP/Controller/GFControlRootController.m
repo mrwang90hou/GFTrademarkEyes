@@ -16,6 +16,7 @@
 
 
 @property (nonatomic,strong)UIPickerView * pickerView;
+@property (nonatomic,strong)UIButton * style_btn;
 @property (nonatomic,strong)NSArray * selection;//选项
 @property (nonatomic,strong)NSArray * number;//保存数字
 
@@ -29,15 +30,10 @@
     //self.navigationItem.title = @"商标查询";
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
-    
     [self cycleScrollView];
-    
     [self setupView];
-    
-    
     //获取需要展示的数据
     [self loadData];
-    
     // 初始化pickerView
     self.pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(Device_Width/4, Device_Height/4, self.view.bounds.size.width/2, 80)];
 //    [self.pickerView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -48,12 +44,16 @@
 //
 //    }];
     //    self.pickerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    [self.view addSubview:self.pickerView];
-    
+    [self.view addSubview:_pickerView];
     //指定数据源和委托
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
-    //[self.view addSubview:self.tableview];
+    //商品分类表按钮
+    _style_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
+    [_style_btn setImage:[UIImage imageNamed:@"商品分类表"] forState:UIControlStateNormal];
+    [self.view addSubview:_style_btn];
+    [_style_btn addTarget:self action:@selector(openTable) forControlEvents:UIControlEventTouchUpInside];
+    [_style_btn setHidden:true];
 }
 #pragma mark 加载数据
 -(void)loadData {
@@ -77,7 +77,6 @@
         case 1:
             result = self.number.count;
             break;
-            
         default:
             break;
     }
@@ -104,13 +103,15 @@
     switch (row) {
         case 0:
             _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
+            _style_btn.hidden = true;
             break;
         case 1:
             _text_input.placeholder  = @"请输入注册人/国家/城市/代理机构";
-            //title = self.number[row];
+            _style_btn.hidden = true;
             break;
         case 2:
             _text_input.placeholder  = @"请输入类似群、商品中/英文";
+            _style_btn.hidden = false;
             //title = self.number[row];
             break;
         default:
@@ -258,6 +259,7 @@
     [SVProgressHUD showSuccessWithStatus:@"点击了图片"];
     //跳转事件！
 }
+//查询事件
 -(void)inquire{
     [SVProgressHUD showSuccessWithStatus:@"点击了查询按钮！"];
 }
@@ -274,5 +276,10 @@
 //[navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
 //    [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+//打开商品分类表事件
+-(void)openTable{
+    [_style_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
+    [SVProgressHUD showSuccessWithStatus:@"打开商品分类表！"];
 }
 @end
