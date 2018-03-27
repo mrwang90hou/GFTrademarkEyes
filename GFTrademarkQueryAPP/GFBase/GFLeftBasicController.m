@@ -1,18 +1,18 @@
 //
-//  GFBasicController.m
+//  GFLeftBasicController.m
 //  GFTrademarkQueryAPP
 //
-//  Created by 王宁 on 2018/3/23.
+//  Created by 王宁 on 2018/3/26.
 //  Copyright © 2018年 王宁. All rights reserved.
 //
 
-#import "GFBasicController.h"
+#import "GFLeftBasicController.h"
 
-@interface GFBasicController ()
+@interface GFLeftBasicController ()
 
 @end
 
-@implementation GFBasicController
+@implementation GFLeftBasicController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,13 +64,13 @@
         // 处于根ViewControllers，仅显示Logo
         UIButton *left_view_btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
-        [left_view_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
+        [left_view_btn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:left_view_btn]];
         
     } else {
         // 处于上层的ViewControllers显示返回按钮
         UIButton *backView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
-        [backView addTarget:self action:@selector(popViewAction:) forControlEvents:UIControlEventTouchUpInside];
+        [backView addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
         
         // 返回Icon
         UIImageView *backIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fanhui"]];

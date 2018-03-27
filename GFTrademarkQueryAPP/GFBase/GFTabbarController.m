@@ -19,76 +19,62 @@
 @end
 
 @implementation GFTabbarController
-
-+(void)load
-{
-    UITabBarItem *titleItem = [UITabBarItem appearance];
-    //正常
-    //    titleItem.imageInsets = UIEdgeInsetsMake(5.5, 0, -5.5, 0);
-    
-    NSMutableDictionary *normalDict = [NSMutableDictionary dictionary];
-    normalDict[NSFontAttributeName] = [UIFont systemFontOfSize:13];
-    normalDict[NSForegroundColorAttributeName] = [UIColor hexStringToColor:@"3c3c3c"];
-    [titleItem setTitleTextAttributes:normalDict forState:UIControlStateNormal];
-    //选中
-    NSMutableDictionary *selectedDict = [NSMutableDictionary dictionary];
-    selectedDict[NSForegroundColorAttributeName] = GFMainColor;
-    [titleItem setTitleTextAttributes:selectedDict forState:UIControlStateSelected];
-    [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
-    //    [UITabBar appearance].translucent = NO;  //不能设置为透明
-    
-    //设置整个项目的item状态
-//    //设置item普通状态
-//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-//    //    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
-//    //    attrs[NSForegroundColorAttributeName] = [UIColor tabbarNoSelectColor];
-//    attrs[NSFontAttributeName] = LXFont(16);
-//    attrs[NSForegroundColorAttributeName] = [UIColor hexStringToColor:@"#3c3c3c"];
-//    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    
-    //    //设置item不可用状态
-    //    NSMutableDictionary *disabledAttrs = [NSMutableDictionary dictionary];
-    //    disabledAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
-    //    disabledAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-    //    [item setTitleTextAttributes:disabledAttrs forState:UIControlStateDisabled];
-}
+/*
+//+(void)load
+//{
+//    UITabBarItem *titleItem = [UITabBarItem appearance];
+//    //正常
+//    //    titleItem.imageInsets = UIEdgeInsetsMake(5.5, 0, -5.5, 0);
+//
+//    NSMutableDictionary *normalDict = [NSMutableDictionary dictionary];
+//    normalDict[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+//    normalDict[NSForegroundColorAttributeName] = [UIColor hexStringToColor:@"3c3c3c"];
+//    [titleItem setTitleTextAttributes:normalDict forState:UIControlStateNormal];
+//    //选中
+//    NSMutableDictionary *selectedDict = [NSMutableDictionary dictionary];
+//    selectedDict[NSForegroundColorAttributeName] = GFMainColor;
+//    [titleItem setTitleTextAttributes:selectedDict forState:UIControlStateSelected];
+//    [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
+//    //    [UITabBar appearance].translucent = NO;  //不能设置为透明
+//
+//    //设置整个项目的item状态
+////    //设置item普通状态
+////    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+////    //    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+////    //    attrs[NSForegroundColorAttributeName] = [UIColor tabbarNoSelectColor];
+////    attrs[NSFontAttributeName] = LXFont(16);
+////    attrs[NSForegroundColorAttributeName] = [UIColor hexStringToColor:@"#3c3c3c"];
+////    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+//
+//    //    //设置item不可用状态
+//    //    NSMutableDictionary *disabledAttrs = [NSMutableDictionary dictionary];
+//    //    disabledAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+//    //    disabledAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+//    //    [item setTitleTextAttributes:disabledAttrs forState:UIControlStateDisabled];
+ }
+ */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    // 创建tabbar中间的tabbarItem
-    [self setUpMidelTabbarItem];
+    //设置为半透明
+    [self.tabBar setTranslucent:NO];
 
-    [self addAllChildViewControllers];
+    // 创建tabbar中间的tabbarItem
+    //[self setUpMidelTabbarItem];
+
+    //[self addAllChildViewControllers];
+    //基准线
+//    UIView *view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Device_Width, 0.5)];
+//    view.backgroundColor = [UIColor hexStringToColor:@"#bfbfbf"];
+//    [self.tabBar addSubview:view];
     
-    UIView *view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Device_Width, 0.5)];
-    view.backgroundColor = [UIColor hexStringToColor:@"#bfbfbf"];
-    [self.tabBar addSubview:view];
+    [self setupViewControllers];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [[NSNotificationCenter defaultCenter]postNotificationName:@"changeLevel" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"changeLevel" object:nil];//通知中心
 }
-#pragma mark -创建tabbar中间的tabbarItem
-
-- (void)setUpMidelTabbarItem {
-    
-//    LXTabBar *tabBar = [[LXTabBar alloc] init];
-//    [self setValue:tabBar forKey:@"tabBar"];
-//
-//    LXWS(weakSelf);
-//    [tabBar setDidClickPublishBtn:^{
-//        
-//        LXPublishController *hmpositionVC = [[LXPublishController alloc] init];
-//        GFNavController *nav = [[GFNavController alloc] initWithRootViewController:hmpositionVC];
-//        [weakSelf presentViewController:nav animated:YES completion:nil];
-//        
-//    }];
-    
-}
-
 - (void)addAllChildViewControllers {
     
     // 商标查询
@@ -109,6 +95,7 @@
     
     self.viewControllers = @[assetRoot,messageRoot];
 }
+
 #pragma mark - 添加一个子控制器
 - (GFNavController *)addOneChildViewController:(UIViewController *)viewController image:(UIImage *)image selectedImage:(UIImage *)selectedImage title:(NSString *)title {
     GFNavController *navC = [[GFNavController alloc] initWithRootViewController:viewController];
@@ -147,8 +134,45 @@
     [[tabbarbuttonArray[index] layer]
      addAnimation:animation forKey:nil];
 }
--(UINavigationController *)GF_NavController{
-    return self.selectedViewController;
+//-(UINavigationController *)GF_NavController{
+//    return self.selectedViewController;
+//}
+
+- (void)setupViewControllers {
+    
+    GFControlRootController *recognitionVC = [[GFControlRootController alloc]init];
+    UINavigationController *recognitionNavigation = [[UINavigationController alloc]initWithRootViewController:recognitionVC];
+    
+    GFTrademarkServiceController *searchVC = [GFTrademarkServiceController new];
+    UINavigationController *searchNav = [[UINavigationController alloc]initWithRootViewController:searchVC];
+    
+//    GFWebSericeViewController *serviceVC = [GFWebSericeViewController new];
+//    UINavigationController *serviceNav = [[UINavigationController alloc]initWithRootViewController:serviceVC];
+//
+//    GFMyViewController *mineVC = [GFMyViewController new];
+//    UINavigationController *mineNav = [[UINavigationController alloc]initWithRootViewController:mineVC];
+    
+    UITabBarItem *recognizeItem = [[UITabBarItem alloc]initWithTitle:@"商标识别" image:[UIImage imageNamed:@"ic_recognition_normal"] selectedImage:[UIImage imageNamed:@"ic_recognition_pressed"]];
+    
+    UITabBarItem *searchItem = [[UITabBarItem alloc]initWithTitle:@"商标查询" image:[UIImage imageNamed:@"ic_search_normal"] selectedImage:[UIImage imageNamed:@"ic_search_pressed"]];
+    
+//    UITabBarItem *serviceItem = [[UITabBarItem alloc]initWithTitle:@"商标服务" image:[UIImage imageNamed:@"ic_web_services_normal"] selectedImage:[UIImage imageNamed:@"ic_web_services_presse"]];
+//
+//    UITabBarItem *mineItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"ic_mine_normal"] selectedImage:[UIImage imageNamed:@"ic_mine_pressed"]];
+//
+    recognitionVC.tabBarItem = recognizeItem;
+    searchVC.tabBarItem = searchItem;
+//    serviceVC.tabBarItem = serviceItem;
+//    mineVC.tabBarItem = mineItem;
+    self.viewControllers = @[ recognitionNavigation, searchNav];
+    //test
+    recognitionVC.title =  NSNewLocalizedString(@"recognition_home_title", nil);
+    searchVC.title = NSNewLocalizedString(@"trademark_search", nil);
+//    serviceVC.title = NSNewLocalizedString(@"web_service_title", nil);
+//    mineVC.title = NSNewLocalizedString(@"my_title", nil);
+//
+    
+    
 }
 
 

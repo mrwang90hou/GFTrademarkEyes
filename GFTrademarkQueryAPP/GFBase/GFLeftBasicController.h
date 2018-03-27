@@ -1,8 +1,8 @@
 //
-//  GFBasicController.h
+//  GFLeftBasicController.h
 //  GFTrademarkQueryAPP
 //
-//  Created by 王宁 on 2018/3/23.
+//  Created by 王宁 on 2018/3/26.
 //  Copyright © 2018年 王宁. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 
 
 
-@interface GFBasicController : UIViewController
+@interface GFLeftBasicController : UIViewController
 
 
 /**

@@ -16,7 +16,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.title = @"基本信息";
+    self.title = @"商品分类表";
     //设置背景颜色:黄色
     self.view.backgroundColor = [UIColor whiteColor];
     //初始化控件
@@ -24,7 +24,7 @@
     
 }
 -(void)initView{
-    UIView *newView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 300)];
+    UIView *newView = [[UIView alloc]initWithFrame:CGRectMake(0, 90, 300, 300)];
     [newView setBackgroundColor:[UIColor greenColor]];
     [self.view addSubview:newView];
 //    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];

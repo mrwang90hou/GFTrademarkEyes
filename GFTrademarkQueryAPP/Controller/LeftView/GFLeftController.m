@@ -10,7 +10,7 @@
 #import "GFLeftController.h"
 #import "LeftView.h"
 #import "ListCell.h"
-
+#import "GFNavController.h"
 
 #import "MyInformationController.h"
 #import "MyFavoriteController.h"
@@ -144,7 +144,7 @@
     
     //判断是否被点击
     if (self.typeClick) {
-        UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:nextVC];
+        GFNavController *nView = [[GFNavController alloc]initWithRootViewController:nextVC];
         //设置翻转动画
         nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
         //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
@@ -152,17 +152,12 @@
         //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
         [self presentViewController:nView animated:YES completion:nil];
     }
-    //    if (self.typeClick) {
-//        [self.navigationController pushViewController:nextVC animated:YES];
+//
+//    if (indexPath.row != 8) {
+//        //[nextVC setHidesBottomBarWhenPushed:YES];
+//        //[self.navigationController pushViewController:nextVC animated:YES];
+//        [self presentViewController:nextVC animated:YES completion:nil];
 //    }
-    //
-    //if (indexPath.row != 8) {
-        //[nextVC setHidesBottomBarWhenPushed:YES];
-        //[self.navigationController pushViewController:nextVC animated:YES];
-
-        //[self presentViewController:nextVC animated:YES completion:nil];
-    //}
-    
 }
 
 @end

@@ -34,6 +34,7 @@
 #import "UILabel+GFLabel.h"
 #import "UIView+GF_Frame.h"
 #import "GFBasicController.h"
+#import "GFLeftBasicController.h"
 #import "UIImage+GFImage.h"
 #import "AppDelegate.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"

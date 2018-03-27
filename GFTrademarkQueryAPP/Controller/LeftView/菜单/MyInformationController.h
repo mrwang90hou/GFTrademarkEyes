@@ -6,7 +6,7 @@
 //  Copyright © 2018年 王宁. All rights reserved.
 //
 #import "UIKit/UIKit.h"
-@interface MyInformationController : GFBasicController
+@interface MyInformationController : GFLeftBasicController
 
 
 @end

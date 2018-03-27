@@ -41,7 +41,7 @@
     // if不是第一个push进来的子控制器{
     if (self.childViewControllers.count >= 1) {
         // 左上角的返回按钮
-  
+        
         viewController.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"fanhui"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
         viewController.hidesBottomBarWhenPushed = YES; // 隐藏底部的工具条
     }

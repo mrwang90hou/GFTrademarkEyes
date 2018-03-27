@@ -10,6 +10,7 @@
 #import "UIBarButtonItem+SXCreate.h"
 #import "CCCycleScrollView.h"
 #import "StyleTableController.h"
+#import "StyleResultViewController.h"
 @interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate>//UITableViewDelegate,UITableViewDataSource,
 @property (nonatomic, strong)CCCycleScrollView *cyclePlayView;
 @property (nonatomic, strong) UIButton *inquireButton;
@@ -31,6 +32,7 @@
     //self.navigationItem.title = @"商标查询";
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
+    
     [self cycleScrollView];
     [self setupView];
     //获取需要展示的数据
@@ -173,11 +175,10 @@
         make.height.equalTo(@40);
         //make.leading.equalTo(@200);
     }];
-    //锁头🔐图标logo
+    //搜索🔍logo
     UIImageView *search_btn = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_search_normal"]];
-    //text_input.secureTextEntry = YES;                       //安全的文本输入（
     _text_input.clearButtonMode = UITextFieldViewModeWhileEditing;     // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
-    _text_input.keyboardType = UIKeyboardTypeASCIICapable;        //
+    //_text_input.keyboardType = UIKeyboardTypeASCIICapable;        //限制英文输入
     _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
     //[_text_input setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_text_input setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
@@ -245,6 +246,28 @@
 //查询事件
 -(void)inquire{
     [SVProgressHUD showSuccessWithStatus:@"点击了查询按钮！"];
+    if (_text_input!=nil) {
+        
+        
+//        //方式一
+//        _nextVC = [[StyleResultViewController alloc]init];
+//        UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:_nextVC];
+//        //设置翻转动画
+//        _nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
+//        //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
+//        //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
+//        //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
+//        [self presentViewController:nView animated:YES completion:nil];
+//
+//
+        //方式二
+
+        StyleResultViewController *advanceSearch = [[StyleResultViewController alloc] init];
+        //[advanceSearch setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:advanceSearch animated:YES];
+        //[self.navigationController.navigationBar setValue:@100 forKeyPath:@"backgroundView.alpha"];
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -254,7 +277,7 @@
 {
     [super viewWillAppear:animated];
     //隐藏背景色
-    [self.navigationController.navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
+    //[self.navigationController.navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
     
 //[navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
 //    [super viewWillAppear:animated];
@@ -266,21 +289,21 @@
     [SVProgressHUD showSuccessWithStatus:@"打开商品分类表！"];
     
 //
-    _nextVC = [[StyleTableController alloc]init];
+//    _nextVC = [[StyleTableController alloc]init];
+////
+//    UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:_nextVC];
+//    //设置翻转动画
+//    _nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
+//    //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
+//    //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
+//    //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
+//    [self presentViewController:nView animated:YES completion:nil];
 //
-    UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:_nextVC];
-    //设置翻转动画
-    _nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
-    //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
-    //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
-    //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
-    [self presentViewController:nView animated:YES completion:nil];
-//
-//
-//   跳转方式二
-//    StyleTableController *advanceSearch = [[StyleTableController alloc] init];
-//    [advanceSearch setHidesBottomBarWhenPushed:YES];
-//    [self.navigationController pushViewController:advanceSearch animated:YES];
+
+  // 跳转方式二
+    StyleTableController *advanceSearch = [[StyleTableController alloc] init];
+    //[advanceSearch setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:advanceSearch animated:YES];
     
 }
 @end
