@@ -9,11 +9,12 @@
 #import "GFControlRootController.h"
 #import "UIBarButtonItem+SXCreate.h"
 #import "CCCycleScrollView.h"
+#import "StyleTableController.h"
 @interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate>//UITableViewDelegate,UITableViewDataSource,
 @property (nonatomic, strong)CCCycleScrollView *cyclePlayView;
 @property (nonatomic, strong) UIButton *inquireButton;
 @property (nonatomic,strong)UITextField *text_input;
-
+@property GFBasicController *nextVC;
 
 @property (nonatomic,strong)UIPickerView * pickerView;
 @property (nonatomic,strong)UIButton * style_btn;
@@ -112,7 +113,6 @@
         case 2:
             _text_input.placeholder  = @"请输入类似群、商品中/英文";
             _style_btn.hidden = false;
-            //title = self.number[row];
             break;
         default:
             break;
@@ -158,25 +158,9 @@
     }];
     titleLabel.hidden = true;
     //************设置选择器*************//
-//    UIPickerView *pickerView = [[UIPickerView alloc]init];
-//    [pickerView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(titleView.mas_bottom).with.offset(-20);
-//        //make.centerY.equalTo(titleView);
-//        make.centerX.equalTo(titleView);
-//        make.leading.equalTo(self.view).with.offset(10);//左侧
-//        make.trailing.equalTo(self.view).with.offset(-90);//右侧
-//        make.top.equalTo(titleView.mas_bottom).with.offset(10);
-//        //make.left.equalTo(titleView.mas_bottom).with.offset(20);
-//        //make.left.equalTo(titleView.mas_bottom).with.offset(20);
-//        make.height.equalTo(@40);
-//
-//    }];
-//
+    
     //************设置选择器*************//
 
-    
-    
-    
     //查询输入框
     _text_input = [[UITextField alloc]init];
     [self.view addSubview:_text_input];
@@ -190,17 +174,16 @@
         //make.leading.equalTo(@200);
     }];
     //锁头🔐图标logo
-    //UIImageView *passwordLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"头像"]];
-    //UIPickerView *seletBtn = [UIPickerView alloc]inputAssistantItem();
+    UIImageView *search_btn = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_search_normal"]];
     //text_input.secureTextEntry = YES;                       //安全的文本输入（
     _text_input.clearButtonMode = UITextFieldViewModeWhileEditing;     // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
     _text_input.keyboardType = UIKeyboardTypeASCIICapable;        //
     _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
+    //[_text_input setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_text_input setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     //text_input.delegate = self;
     _text_input.backgroundColor = [UIColor whiteColor];
-//    UIButton *btn = [[UIButton alloc]init];
-//    [btn setTitle:@"🕵🏻‍♀️" forState:UIControlStateNormal];
-//    _text_input.leftView = btn;
+    _text_input.leftView = search_btn;
     _text_input.leftViewMode = UITextFieldViewModeAlways;
     _text_input.layer.masksToBounds = YES;
     _text_input.layer.cornerRadius = 4;
@@ -281,5 +264,23 @@
 -(void)openTable{
     [_style_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
     [SVProgressHUD showSuccessWithStatus:@"打开商品分类表！"];
+    
+//
+    _nextVC = [[StyleTableController alloc]init];
+//
+    UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:_nextVC];
+    //设置翻转动画
+    _nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
+    //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
+    //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
+    //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
+    [self presentViewController:nView animated:YES completion:nil];
+//
+//
+//   跳转方式二
+//    StyleTableController *advanceSearch = [[StyleTableController alloc] init];
+//    [advanceSearch setHidesBottomBarWhenPushed:YES];
+//    [self.navigationController pushViewController:advanceSearch animated:YES];
+    
 }
 @end

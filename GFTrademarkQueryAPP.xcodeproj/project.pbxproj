@@ -37,6 +37,7 @@
 		926AE9242064EA0300FDA8C2 /* GFTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91D2064EA0300FDA8C2 /* GFTabbarController.m */; };
 		926AE9252064EA0300FDA8C2 /* GFNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91F2064EA0300FDA8C2 /* GFNavController.m */; };
 		926AE9262064EA0300FDA8C2 /* GFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE9212064EA0300FDA8C2 /* GFSlideController.m */; };
+		92C0C38A2069F8EC005E3170 /* MyInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3892069F8EC005E3170 /* MyInformationController.m */; };
 		92E0E9612068825B00DB2172 /* CCCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E9602068825B00DB2172 /* CCCycleScrollView.m */; };
 		92E0E96420688EEB00DB2172 /* UIViewController+GFAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E96320688EEA00DB2172 /* UIViewController+GFAlert.m */; };
 		92E0E9692068DB4700DB2172 /* ShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E9682068DB4700DB2172 /* ShareController.m */; };
@@ -45,7 +46,7 @@
 		92F168E1206948B10001CBAD /* MyFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168DF206948B10001CBAD /* MyFavoriteController.m */; };
 		92F168E4206948B90001CBAD /* AdviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E3206948B90001CBAD /* AdviceController.m */; };
 		92F168E7206948BE0001CBAD /* UpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E6206948BE0001CBAD /* UpdateController.m */; };
-		92F168EA20694A0D0001CBAD /* MyInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E920694A0C0001CBAD /* MyInformationController.m */; };
+		92F168EA20694A0D0001CBAD /* StyleTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E920694A0C0001CBAD /* StyleTableController.m */; };
 		92F168F0206956840001CBAD /* SetUpController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F168EF206956830001CBAD /* SetUpController.storyboard */; };
 		92F168F2206959400001CBAD /* LeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F168F1206959400001CBAD /* LeftView.xib */; };
 /* End PBXBuildFile section */
@@ -127,6 +128,8 @@
 		926AE9212064EA0300FDA8C2 /* GFSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSlideController.m; sourceTree = "<group>"; };
 		926AE9222064EA0300FDA8C2 /* GFSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSlideController.h; sourceTree = "<group>"; };
 		926AE9282064F31C00FDA8C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		92C0C3882069F8EB005E3170 /* MyInformationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInformationController.h; sourceTree = "<group>"; };
+		92C0C3892069F8EC005E3170 /* MyInformationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInformationController.m; sourceTree = "<group>"; };
 		92E0E95F2068825B00DB2172 /* CCCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCycleScrollView.h; sourceTree = "<group>"; };
 		92E0E9602068825B00DB2172 /* CCCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCycleScrollView.m; sourceTree = "<group>"; };
 		92E0E96220688EEA00DB2172 /* UIViewController+GFAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GFAlert.h"; sourceTree = "<group>"; };
@@ -143,8 +146,8 @@
 		92F168E3206948B90001CBAD /* AdviceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdviceController.m; sourceTree = "<group>"; };
 		92F168E5206948BE0001CBAD /* UpdateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateController.h; sourceTree = "<group>"; };
 		92F168E6206948BE0001CBAD /* UpdateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateController.m; sourceTree = "<group>"; };
-		92F168E820694A0C0001CBAD /* MyInformationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInformationController.h; sourceTree = "<group>"; };
-		92F168E920694A0C0001CBAD /* MyInformationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInformationController.m; sourceTree = "<group>"; };
+		92F168E820694A0C0001CBAD /* StyleTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleTableController.h; sourceTree = "<group>"; };
+		92F168E920694A0C0001CBAD /* StyleTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTableController.m; sourceTree = "<group>"; };
 		92F168EF206956830001CBAD /* SetUpController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetUpController.storyboard; sourceTree = "<group>"; };
 		92F168F1206959400001CBAD /* LeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftView.xib; sourceTree = "<group>"; };
 		AEA97D33DF0F7D6D4C8E3B54 /* Pods-GFTrademarkQueryAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPP/Pods-GFTrademarkQueryAPP.release.xcconfig"; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 		92E0E9652068C70100DB2172 /* 查询操作 */ = {
 			isa = PBXGroup;
 			children = (
+				92F168E820694A0C0001CBAD /* StyleTableController.h */,
+				92F168E920694A0C0001CBAD /* StyleTableController.m */,
 			);
 			path = "查询操作";
 			sourceTree = "<group>";
@@ -353,8 +358,8 @@
 		92E0E9662068DAF800DB2172 /* 菜单 */ = {
 			isa = PBXGroup;
 			children = (
-				92F168E820694A0C0001CBAD /* MyInformationController.h */,
-				92F168E920694A0C0001CBAD /* MyInformationController.m */,
+				92C0C3882069F8EB005E3170 /* MyInformationController.h */,
+				92C0C3892069F8EC005E3170 /* MyInformationController.m */,
 				92F168E0206948B10001CBAD /* MyFavoriteController.h */,
 				92F168DF206948B10001CBAD /* MyFavoriteController.m */,
 				92E0E9672068DB3B00DB2172 /* ShareController.h */,
@@ -691,10 +696,11 @@
 				926AE9092064E9F400FDA8C2 /* UIView+GF_Frame.m in Sources */,
 				926AE9112064E9F400FDA8C2 /* GFLeftController.m in Sources */,
 				92F168E1206948B10001CBAD /* MyFavoriteController.m in Sources */,
+				92C0C38A2069F8EC005E3170 /* MyInformationController.m in Sources */,
 				926AE8C32064E35A00FDA8C2 /* main.m in Sources */,
 				92E0E96C2068DCB800DB2172 /* AboutUsController.m in Sources */,
 				926AE90F2064E9F400FDA8C2 /* UIBarButtonItem+SXCreate.m in Sources */,
-				92F168EA20694A0D0001CBAD /* MyInformationController.m in Sources */,
+				92F168EA20694A0D0001CBAD /* StyleTableController.m in Sources */,
 				926AE9262064EA0300FDA8C2 /* GFSlideController.m in Sources */,
 				926AE9152064E9F400FDA8C2 /* ListCell.m in Sources */,
 				92E0E9692068DB4700DB2172 /* ShareController.m in Sources */,

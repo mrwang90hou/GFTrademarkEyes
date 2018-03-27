@@ -100,8 +100,6 @@
     //移动的速度
     CGPoint verPoint =  [pan velocityInView:pan.view];
     
-   
-    
     self.mainVc.view.gf_x += point.x;
     
     //边界限定
@@ -243,8 +241,8 @@
     if (!_maskView) {
         _maskView =[[UIView alloc]initWithFrame:self.view.bounds];
         _maskView.gf_y = -self.mainVc.view.bounds.size.height +49; //蒙版添加到tabbar上
-        _maskView.backgroundColor =[[UIColor lightGrayColor]colorWithAlphaComponent:0.3];        _maskView.alpha = 0;
-
+        _maskView.backgroundColor =[[UIColor lightGrayColor]colorWithAlphaComponent:0.3];
+        _maskView.alpha = 0;
     }
     return _maskView;
 }
