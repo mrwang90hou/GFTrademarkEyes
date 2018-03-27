@@ -33,7 +33,6 @@
 		926AE9152064E9F400FDA8C2 /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE9012064E9F400FDA8C2 /* ListCell.m */; };
 		926AE9162064E9F400FDA8C2 /* LeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE9022064E9F400FDA8C2 /* LeftView.m */; };
 		926AE9172064E9F400FDA8C2 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AE9032064E9F400FDA8C2 /* ListCell.xib */; };
-		926AE9182064E9F400FDA8C2 /* LeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AE9062064E9F400FDA8C2 /* LeftView.xib */; };
 		926AE9232064EA0300FDA8C2 /* GFBasicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91B2064EA0300FDA8C2 /* GFBasicController.m */; };
 		926AE9242064EA0300FDA8C2 /* GFTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91D2064EA0300FDA8C2 /* GFTabbarController.m */; };
 		926AE9252064EA0300FDA8C2 /* GFNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91F2064EA0300FDA8C2 /* GFNavController.m */; };
@@ -47,6 +46,8 @@
 		92F168E4206948B90001CBAD /* AdviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E3206948B90001CBAD /* AdviceController.m */; };
 		92F168E7206948BE0001CBAD /* UpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E6206948BE0001CBAD /* UpdateController.m */; };
 		92F168EA20694A0D0001CBAD /* MyInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E920694A0C0001CBAD /* MyInformationController.m */; };
+		92F168F0206956840001CBAD /* SetUpController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F168EF206956830001CBAD /* SetUpController.storyboard */; };
+		92F168F2206959400001CBAD /* LeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F168F1206959400001CBAD /* LeftView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +117,6 @@
 		926AE9032064E9F400FDA8C2 /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		926AE9042064E9F400FDA8C2 /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
 		926AE9052064E9F400FDA8C2 /* LeftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftView.h; sourceTree = "<group>"; };
-		926AE9062064E9F400FDA8C2 /* LeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftView.xib; sourceTree = "<group>"; };
 		926AE9072064E9F400FDA8C2 /* GFTrademarkServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTrademarkServiceController.h; sourceTree = "<group>"; };
 		926AE91A2064EA0300FDA8C2 /* GFNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFNavController.h; sourceTree = "<group>"; };
 		926AE91B2064EA0300FDA8C2 /* GFBasicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBasicController.m; sourceTree = "<group>"; };
@@ -145,6 +145,8 @@
 		92F168E6206948BE0001CBAD /* UpdateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateController.m; sourceTree = "<group>"; };
 		92F168E820694A0C0001CBAD /* MyInformationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInformationController.h; sourceTree = "<group>"; };
 		92F168E920694A0C0001CBAD /* MyInformationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInformationController.m; sourceTree = "<group>"; };
+		92F168EF206956830001CBAD /* SetUpController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetUpController.storyboard; sourceTree = "<group>"; };
+		92F168F1206959400001CBAD /* LeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftView.xib; sourceTree = "<group>"; };
 		AEA97D33DF0F7D6D4C8E3B54 /* Pods-GFTrademarkQueryAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPP/Pods-GFTrademarkQueryAPP.release.xcconfig"; sourceTree = "<group>"; };
 		AFB23F857D70EFCEC08079C2 /* Pods-GFTrademarkQueryAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPPTests/Pods-GFTrademarkQueryAPPTests.release.xcconfig"; sourceTree = "<group>"; };
 		C083621604C23B15E907FF09 /* Pods-GFTrademarkQueryAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPP/Pods-GFTrademarkQueryAPP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -299,7 +301,7 @@
 				92E0E9662068DAF800DB2172 /* 菜单 */,
 				926AE9052064E9F400FDA8C2 /* LeftView.h */,
 				926AE9022064E9F400FDA8C2 /* LeftView.m */,
-				926AE9062064E9F400FDA8C2 /* LeftView.xib */,
+				92F168F1206959400001CBAD /* LeftView.xib */,
 				926AE9042064E9F400FDA8C2 /* ListCell.h */,
 				926AE9012064E9F400FDA8C2 /* ListCell.m */,
 				926AE9032064E9F400FDA8C2 /* ListCell.xib */,
@@ -363,6 +365,7 @@
 				92F168E6206948BE0001CBAD /* UpdateController.m */,
 				92F168DC2068FDAC0001CBAD /* SetUpController.h */,
 				92F168DD2068FDAC0001CBAD /* SetUpController.m */,
+				92F168EF206956830001CBAD /* SetUpController.storyboard */,
 				92E0E96A2068DCB800DB2172 /* AboutUsController.h */,
 				92E0E96B2068DCB800DB2172 /* AboutUsController.m */,
 			);
@@ -494,11 +497,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				926AE9182064E9F400FDA8C2 /* LeftView.xib in Resources */,
 				926AE8C02064E35A00FDA8C2 /* LaunchScreen.storyboard in Resources */,
+				92F168F2206959400001CBAD /* LeftView.xib in Resources */,
 				926AE9172064E9F400FDA8C2 /* ListCell.xib in Resources */,
 				926AE8BD2064E35A00FDA8C2 /* Assets.xcassets in Resources */,
 				926AE8BB2064E35A00FDA8C2 /* Main.storyboard in Resources */,
+				92F168F0206956840001CBAD /* SetUpController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

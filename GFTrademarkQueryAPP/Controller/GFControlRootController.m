@@ -9,9 +9,16 @@
 #import "GFControlRootController.h"
 #import "UIBarButtonItem+SXCreate.h"
 #import "CCCycleScrollView.h"
-@interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage>//UITableViewDelegate,UITableViewDataSource,
+@interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate>//UITableViewDelegate,UITableViewDataSource,
 @property (nonatomic, strong)CCCycleScrollView *cyclePlayView;
 @property (nonatomic, strong) UIButton *inquireButton;
+@property (nonatomic,strong)UITextField *text_input;
+
+
+@property (nonatomic,strong)UIPickerView * pickerView;
+@property (nonatomic,strong)NSArray * selection;//选项
+@property (nonatomic,strong)NSArray * number;//保存数字
+
 @end
 @implementation GFControlRootController
 
@@ -25,14 +32,95 @@
     
     [self cycleScrollView];
     
-    
     [self setupView];
     
+    
+    //获取需要展示的数据
+    [self loadData];
+    
+    // 初始化pickerView
+    self.pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(Device_Width/4, Device_Height/4, self.view.bounds.size.width/2, 80)];
+//    [self.pickerView mas_updateConstraints:^(MASConstraintMaker *make) {
+//
+////        make.top.equalTo(@[[NSNumber numberWithFloat:(Device_Height / 3*1)]]);
+////        make.height.equalTo(@200);
+//        make.centerX.equalTo(self.view);
+//
+//    }];
+    //    self.pickerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self.view addSubview:self.pickerView];
+    
+    //指定数据源和委托
+    self.pickerView.delegate = self;
+    self.pickerView.dataSource = self;
     //[self.view addSubview:self.tableview];
 }
--(void)setupView{
+#pragma mark 加载数据
+-(void)loadData {
+    //需要展示的数据以数组的形式保存
+    self.selection = @[@"商标查询",@"商标驳回查询",@"商品分类查询"];
+    self.number = @[@"111",@"222",@"333",@"444"];
+}
 
-    
+#pragma mark UIPickerView DataSource Method
+//指定pickerview有几个表盘
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+//指定每个表盘上有几行数据
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    NSInteger result = 0;
+    switch (component) {
+        case 0:
+            result = self.selection.count;
+            break;
+        case 1:
+            result = self.number.count;
+            break;
+            
+        default:
+            break;
+    }
+    return result;
+}
+#pragma mark UIPickerView Delegate Method
+//指定每行如何展示数据
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    NSString * title = nil;
+    switch (component) {
+        case 0:
+            title = self.selection[row];
+            break;
+        case 1:
+            title = self.number[row];
+            break;
+        default:
+            break;
+    }
+    return title;
+}
+//选择事件
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    switch (row) {
+        case 0:
+            _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
+            break;
+        case 1:
+            _text_input.placeholder  = @"请输入注册人/国家/城市/代理机构";
+            //title = self.number[row];
+            break;
+        case 2:
+            _text_input.placeholder  = @"请输入类似群、商品中/英文";
+            //title = self.number[row];
+            break;
+        default:
+            break;
+    }
+    //return title;
+}
+
+
+-(void)setupView{
     //设计查询操作
     UIView *adView = [UIView new];
     [self.view addSubview:adView];
@@ -53,20 +141,45 @@
         make.leading.equalTo(self.view).with.offset(8);
         make.top.equalTo(adView.mas_bottom).with.offset(16);
         //make.right.equalTo(self.view).with.offset(4);
-        make.height.equalTo(@24);
-        make.width.equalTo(@4);
+        make.leading.equalTo(self.view).with.offset(10);//左侧
+        make.trailing.equalTo(self.view).with.offset(-10);//右侧
+        
     }];
     
     UILabel *titleLabel = [UILabel new];
+    titleLabel.text = @"商标查询";
     [self.view addSubview:titleLabel];
     [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(titleView.mas_trailing).with.offset(8);
-        make.centerY.equalTo(titleView);
+        make.top.equalTo(titleView.mas_bottom).with.offset(-20);
+        //make.centerY.equalTo(titleView);
+        make.centerX.equalTo(titleView);
+        
     }];
+    titleLabel.hidden = true;
+    //************设置选择器*************//
+//    UIPickerView *pickerView = [[UIPickerView alloc]init];
+//    [pickerView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(titleView.mas_bottom).with.offset(-20);
+//        //make.centerY.equalTo(titleView);
+//        make.centerX.equalTo(titleView);
+//        make.leading.equalTo(self.view).with.offset(10);//左侧
+//        make.trailing.equalTo(self.view).with.offset(-90);//右侧
+//        make.top.equalTo(titleView.mas_bottom).with.offset(10);
+//        //make.left.equalTo(titleView.mas_bottom).with.offset(20);
+//        //make.left.equalTo(titleView.mas_bottom).with.offset(20);
+//        make.height.equalTo(@40);
+//
+//    }];
+//
+    //************设置选择器*************//
+
+    
+    
+    
     //查询输入框
-    UITextField *text_input = [[UITextField alloc]init];
-    [self.view addSubview:text_input];
-    [text_input mas_updateConstraints:^(MASConstraintMaker *make) {
+    _text_input = [[UITextField alloc]init];
+    [self.view addSubview:_text_input];
+    [_text_input mas_updateConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.view).with.offset(10);//左侧
         make.trailing.equalTo(self.view).with.offset(-90);//右侧
         make.top.equalTo(titleView.mas_bottom).with.offset(10);
@@ -79,29 +192,31 @@
     //UIImageView *passwordLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"头像"]];
     //UIPickerView *seletBtn = [UIPickerView alloc]inputAssistantItem();
     //text_input.secureTextEntry = YES;                       //安全的文本输入（
-    text_input.clearButtonMode = UITextFieldViewModeWhileEditing;     // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
-    text_input.keyboardType = UIKeyboardTypeASCIICapable;        //
-    text_input.placeholder = @"请输入所要查询的商品";
+    _text_input.clearButtonMode = UITextFieldViewModeWhileEditing;     // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
+    _text_input.keyboardType = UIKeyboardTypeASCIICapable;        //
+    _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
     //text_input.delegate = self;
-    text_input.backgroundColor = [UIColor whiteColor];
-    //text_input.leftView = seletBtn;
-    text_input.leftViewMode = UITextFieldViewModeAlways;
-    text_input.layer.masksToBounds = YES;
-    text_input.layer.cornerRadius = 4;
-    text_input.layer.borderWidth = 1;
-    text_input.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    _text_input.backgroundColor = [UIColor whiteColor];
+//    UIButton *btn = [[UIButton alloc]init];
+//    [btn setTitle:@"🕵🏻‍♀️" forState:UIControlStateNormal];
+//    _text_input.leftView = btn;
+    _text_input.leftViewMode = UITextFieldViewModeAlways;
+    _text_input.layer.masksToBounds = YES;
+    _text_input.layer.cornerRadius = 4;
+    _text_input.layer.borderWidth = 1;
+    _text_input.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
     _inquireButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:_inquireButton];
     [_inquireButton mas_updateConstraints:^(MASConstraintMaker *make) {
         //make.leading.equalTo(self.view).with.offset(10);//左侧
         make.trailing.equalTo(self.view).with.offset(-10);//右侧
         make.top.equalTo(titleView.mas_bottom).with.offset(10);//在titleView下面位置：10
-        make.leading.equalTo(text_input.mas_trailing).with.offset(8);//距离左侧的text_input：8位置
+        make.leading.equalTo(_text_input.mas_trailing).with.offset(8);//距离左侧的text_input：8位置
         make.height.equalTo(@40);
     }];
-    [text_input setTextColor:[UIColor  lightGrayColor]];
-    [text_input setClearsOnBeginEditing:true];
-    [_inquireButton setTitle:@"查询🍵" forState:UIControlStateNormal];
+    [_text_input setTextColor:[UIColor  blackColor]];
+    //[_text_input setClearsOnBeginEditing:true];
+    [_inquireButton setTitle:@"查询🕵🏻‍♀️" forState:UIControlStateNormal];
     //[inquireButton setTitle:@"recognition_get_trademark_album"];
     [_inquireButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     //[inquireButton setBackgroundImage:normalBackground forState:UIControlStateNormal];
@@ -110,11 +225,11 @@
     _inquireButton.titleLabel.font = [UIFont systemFontOfSize:15];
     _inquireButton.backgroundColor = [UIColor orangeColor];
     [_inquireButton addTarget:self action:@selector(inquire) forControlEvents:UIControlEventTouchUpInside];
-    
     //设置边框
     _inquireButton.layer.cornerRadius = 4;
     _inquireButton.layer.borderWidth = 1;
     _inquireButton.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    //***************设置热门搜索词汇*****************8//
     
 }
 -(void)openDrawer{
@@ -146,7 +261,6 @@
 -(void)inquire{
     [SVProgressHUD showSuccessWithStatus:@"点击了查询按钮！"];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
