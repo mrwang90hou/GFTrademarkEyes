@@ -276,12 +276,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     //隐藏背景色
     //[self.navigationController.navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
-    
-//[navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
-//    [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 //打开商品分类表事件
 -(void)openTable{

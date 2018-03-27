@@ -19,16 +19,16 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor =[UIColor whiteColor];
-    self.extendedLayoutIncludesOpaqueBars = YES;
-    if (@available(iOS 11.0, *)) {
-    
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        // 这部分使用到的过期api
-        self.automaticallyAdjustsScrollViewInsets = NO;
-#pragma clang diagnostic pop
-    }
+    //self.extendedLayoutIncludesOpaqueBars = YES;    //扩展布局包括不透明条。
+//    if (@available(iOS 11.0, *)) {
+//
+//    } else {
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//        // 这部分使用到的过期api
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//#pragma clang diagnostic pop
+//    }
     
     /**************************/
     [self setupNavigationBar];
@@ -55,7 +55,7 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:41/255.0 green:134/255.0 blue:227/255.0 alpha:1]];
     
     // 设置导航栏左侧图标
-    if ([[self.navigationController viewControllers] count] <= 0) {
+    if ([[self.navigationController viewControllers] count] <= 1) {
         
         //此方法，head头像显示异常
 //        UIBarButtonItem *left_view_btn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"head"] style:UIBarButtonItemStyleDone target:self action:@selector(openDrawer)];
@@ -66,7 +66,10 @@
         [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
         [left_view_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:left_view_btn]];
-        
+//        //隐藏
+//        [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        //隐藏背景色
+//        [self.navigationController.navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
     } else {
         // 处于上层的ViewControllers显示返回按钮
         UIButton *backView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
@@ -93,6 +96,11 @@
         }];
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:backView]];
         [self.navigationItem setHidesBackButton:YES];
+        
+//        //隐藏
+//        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//        //隐藏背景色
+//        [self.navigationController.navigationBar setValue:@100 forKeyPath:@"backgroundView.alpha"];
     }
 }
 

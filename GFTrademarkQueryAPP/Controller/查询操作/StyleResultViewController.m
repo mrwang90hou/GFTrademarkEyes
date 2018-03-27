@@ -630,6 +630,12 @@
 //    self.text = text;
 //    
 //}
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    //隐藏背景色
+    //[self.navigationController.navigationBar setValue:@100 forKeyPath:@"backgroundView.alpha"];
+}
 
 @end
