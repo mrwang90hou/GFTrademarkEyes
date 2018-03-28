@@ -6,6 +6,7 @@
 //  Copyright © 2016年 gf. All rights reserved.
 //
 #import "GFTradeDao.h"
+
 //#import "GFCardVo.h"
 //#import "GFCardOrderVo.h"
 
@@ -24,7 +25,7 @@
 
     //[dataArray addObject:@""];
 
-    NSMutableArray *dataArray = [[NSMutableArray alloc]init]; //用来盛放数据的value
+    NSMutableArray *dataArray = [NSMutableArray new]; //用来盛放数据的value
 
     NSDictionary *dic = @{@"addTime":@"2019",@"equipmentCode":@"主设备",@"describe":@"登录"};
     NSDictionary *dic1 = @{@"addTime":@"2018",@"equipmentCode":@"副设备",@"describe":@"注销"};
@@ -32,12 +33,12 @@
 
     [dataArray addObjectsFromArray:@[dic,dic1,dic2]];
 
-//    for (NSString *str in dataArray) {
-//        NSLog(@"%@\n", str);
-//    }
+    for (NSString *str in dataArray) {
+        NSLog(@"%@\n", str);
+    }
     for (NSDictionary *info in dataArray) {
 
-        GFTradeVo *vo = [[GFTradeVo alloc]init];
+        GFTradeVo *vo = [GFTradeVo new];
 
         vo.addTime = info[@"addTime"];
         vo.equipmentCode = info[@"equipmentCode"];
@@ -45,10 +46,10 @@
 
         [dataVo addObject:vo];
 
-        //NSLog(@"%@",vo.addTime);
+        NSLog(@"%@",info);
 
     }
-    block(nil,nil);
+    block(dataVo,nil);
 
 }
 

@@ -48,7 +48,6 @@
 //操作日志
 @property (nonatomic, strong) NSString *addTime;
 @property (nonatomic, strong) NSString *equipmentCode;
-@property (nonatomic,strong) NSString *equipmentNumber;       //<mrwang90hou-2018.1.16.pm  新建>
 @property (nonatomic, strong) NSString *describe;
 
 //网上服务 - 事宜

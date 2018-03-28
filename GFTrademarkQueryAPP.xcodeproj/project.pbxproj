@@ -43,6 +43,16 @@
 		92C0C394206A392E005E3170 /* GFLeftBasicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C392206A392D005E3170 /* GFLeftBasicController.m */; };
 		92C0C3B2206B8FE4005E3170 /* GFTradeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3AF206B86B4005E3170 /* GFTradeDao.m */; };
 		92C0C3B3206B8FE4005E3170 /* GFBaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3B1206B8812005E3170 /* GFBaseDao.m */; };
+		92C0C3B4206B9E17005E3170 /* GFTradeVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3A5206B6BE0005E3170 /* GFTradeVo.m */; };
+		92C0C3B5206B9E2C005E3170 /* GFBaseDao.h in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3B0206B8811005E3170 /* GFBaseDao.h */; };
+		92C0C3B6206B9E2C005E3170 /* GFTradeDao.h in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3AE206B86B4005E3170 /* GFTradeDao.h */; };
+		92C0C3B7206B9E2C005E3170 /* GFBaseVo.h in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3A2206B6BDF005E3170 /* GFBaseVo.h */; };
+		92C0C3B8206B9E2C005E3170 /* GFBaseVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3A4206B6BDF005E3170 /* GFBaseVo.m */; };
+		92C0C3B9206B9E2C005E3170 /* GFTradeVo.h in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3A3206B6BDF005E3170 /* GFTradeVo.h */; };
+		92C0C3BA206B9E2C005E3170 /* GFUserVo.h in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3A8206B6CBE005E3170 /* GFUserVo.h */; };
+		92C0C3BB206B9E2C005E3170 /* GFUserVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3A9206B6CBE005E3170 /* GFUserVo.m */; };
+		92C0C3BC206B9E2C005E3170 /* GFDeviceVo.h in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3AA206B6CE2005E3170 /* GFDeviceVo.h */; };
+		92C0C3BD206B9E2C005E3170 /* GFDeviceVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3AB206B6CE3005E3170 /* GFDeviceVo.m */; };
 		92E0E9612068825B00DB2172 /* CCCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E9602068825B00DB2172 /* CCCycleScrollView.m */; };
 		92E0E96420688EEB00DB2172 /* UIViewController+GFAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E96320688EEA00DB2172 /* UIViewController+GFAlert.m */; };
 		92E0E9692068DB4700DB2172 /* ShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E9682068DB4700DB2172 /* ShareController.m */; };
@@ -149,10 +159,10 @@
 		92C0C3A9206B6CBE005E3170 /* GFUserVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFUserVo.m; sourceTree = "<group>"; };
 		92C0C3AA206B6CE2005E3170 /* GFDeviceVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDeviceVo.h; sourceTree = "<group>"; };
 		92C0C3AB206B6CE3005E3170 /* GFDeviceVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDeviceVo.m; sourceTree = "<group>"; };
-		92C0C3AE206B86B4005E3170 /* GFTradeDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GFTradeDao.h; path = ModelVo/GFTradeDao.h; sourceTree = "<group>"; };
-		92C0C3AF206B86B4005E3170 /* GFTradeDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GFTradeDao.m; path = ModelVo/GFTradeDao.m; sourceTree = "<group>"; };
-		92C0C3B0206B8811005E3170 /* GFBaseDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GFBaseDao.h; path = ModelVo/GFBaseDao.h; sourceTree = "<group>"; };
-		92C0C3B1206B8812005E3170 /* GFBaseDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GFBaseDao.m; path = ModelVo/GFBaseDao.m; sourceTree = "<group>"; };
+		92C0C3AE206B86B4005E3170 /* GFTradeDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFTradeDao.h; sourceTree = "<group>"; };
+		92C0C3AF206B86B4005E3170 /* GFTradeDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTradeDao.m; sourceTree = "<group>"; };
+		92C0C3B0206B8811005E3170 /* GFBaseDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseDao.h; sourceTree = "<group>"; };
+		92C0C3B1206B8812005E3170 /* GFBaseDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseDao.m; sourceTree = "<group>"; };
 		92E0E95F2068825B00DB2172 /* CCCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCycleScrollView.h; sourceTree = "<group>"; };
 		92E0E9602068825B00DB2172 /* CCCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCycleScrollView.m; sourceTree = "<group>"; };
 		92E0E96220688EEA00DB2172 /* UIViewController+GFAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GFAlert.h"; sourceTree = "<group>"; };
@@ -251,10 +261,6 @@
 				926AE9192064EA0300FDA8C2 /* GFBase */,
 				926AE8F82064E9F400FDA8C2 /* Controller */,
 				926AE8E52064E9F400FDA8C2 /* Category */,
-				92C0C3B0206B8811005E3170 /* GFBaseDao.h */,
-				92C0C3B1206B8812005E3170 /* GFBaseDao.m */,
-				92C0C3AE206B86B4005E3170 /* GFTradeDao.h */,
-				92C0C3AF206B86B4005E3170 /* GFTradeDao.m */,
 				92C0C399206B6B74005E3170 /* ModelVo */,
 				926AE8B92064E35A00FDA8C2 /* Main.storyboard */,
 				926AE8BC2064E35A00FDA8C2 /* Assets.xcassets */,
@@ -388,6 +394,10 @@
 		92C0C399206B6B74005E3170 /* ModelVo */ = {
 			isa = PBXGroup;
 			children = (
+				92C0C3B0206B8811005E3170 /* GFBaseDao.h */,
+				92C0C3B1206B8812005E3170 /* GFBaseDao.m */,
+				92C0C3AE206B86B4005E3170 /* GFTradeDao.h */,
+				92C0C3AF206B86B4005E3170 /* GFTradeDao.m */,
 				92C0C3A2206B6BDF005E3170 /* GFBaseVo.h */,
 				92C0C3A4206B6BDF005E3170 /* GFBaseVo.m */,
 				92C0C3A3206B6BDF005E3170 /* GFTradeVo.h */,
@@ -751,6 +761,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92C0C3B5206B9E2C005E3170 /* GFBaseDao.h in Sources */,
+				92C0C3B6206B9E2C005E3170 /* GFTradeDao.h in Sources */,
+				92C0C3B7206B9E2C005E3170 /* GFBaseVo.h in Sources */,
+				92C0C3B8206B9E2C005E3170 /* GFBaseVo.m in Sources */,
+				92C0C3B9206B9E2C005E3170 /* GFTradeVo.h in Sources */,
+				92C0C3BA206B9E2C005E3170 /* GFUserVo.h in Sources */,
+				92C0C3BB206B9E2C005E3170 /* GFUserVo.m in Sources */,
+				92C0C3BC206B9E2C005E3170 /* GFDeviceVo.h in Sources */,
+				92C0C3BD206B9E2C005E3170 /* GFDeviceVo.m in Sources */,
+				92C0C3B4206B9E17005E3170 /* GFTradeVo.m in Sources */,
 				926AE90D2064E9F400FDA8C2 /* UIColor+Expanded.m in Sources */,
 				926AE9142064E9F400FDA8C2 /* GFControlRootController.m in Sources */,
 				926AE9102064E9F400FDA8C2 /* NSObject+SXRuntime.m in Sources */,

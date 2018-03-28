@@ -8,7 +8,7 @@
 
 #import "GFBaseDao.h"
 #import "GFTradeVo.h"
-@class GFCardOrderVo;
+//@class GFCardOrderVo;
 
 @interface GFTradeDao : GFBaseDao
 
