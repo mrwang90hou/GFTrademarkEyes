@@ -57,6 +57,6 @@
 // *  结果0状态提示
 // *
 // */
-////+ (BOOL)daoValueStatus:(NSDictionary *)responseDictionary vc:(GFBaseViewController *)vc;
+////+ (BOOL)daoValueStatus:(NSDictionary *)responseDictionary vc:(GFBasicController *)vc;
 
 @end

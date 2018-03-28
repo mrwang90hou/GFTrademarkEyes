@@ -24,12 +24,24 @@
 #define GFMainColor [UIColor hexStringToColor:@"5F98FC"]          //【淡蓝色】十六进制字符串的颜色
 //#define GFMainColor [UIColor hexStringToColor:@"B1FF58"]            //【】十六进制字符串的颜色
 
+// 颜色
+#define KRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
 #define LXColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
 //#define LBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define LXRandomColor LXColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256),1)
+
+
+
+#define KEY_LANGUAGE @"key_language"
+#define NSNewLocalizedString(key, comment) \
+[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:KEY_LANGUAGE]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:nil]
+
+
+
 #import "GFButton.h"
+#import "UIButton+GFButton.h"
 #import "UIColor+Expanded.h"
 #import "UILabel+GFLabel.h"
 #import "UIView+GF_Frame.h"
@@ -42,4 +54,10 @@
 #import "SVProgressHUD.h"
 #import "Masonry.h"
 #import "MJRefresh.h"
+#import "FMDB.h"
+#import "RATreeView.h"
+#import "RATreeView_ClassExtension.h"
+#import "UIViewController+GFAlert.h"
+#import "UIImageView+HTC.h"
+
 #endif /* PrefixHeader_pch */

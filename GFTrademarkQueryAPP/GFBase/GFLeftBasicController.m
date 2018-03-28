@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor =[UIColor whiteColor];
-    self.extendedLayoutIncludesOpaqueBars = YES;
+    //self.extendedLayoutIncludesOpaqueBars = YES;
     if (@available(iOS 11.0, *)) {
     
     } else {

@@ -45,7 +45,7 @@
 //                       loginCheckCode:(NSString *)loginCheckCode
 //                                 rand:(NSString *)rand {
 //    NSString *checkCode = [NSString stringWithFormat:@"platformCheckCode=%@&userID=%@&loginID=%@&loginCheckCode=%@&rand=%@", PLATFORM_CHECK_CODE, userID, loginID, loginCheckCode, rand];
-//    GFLog(@"checkCode原文：%@", checkCode);
+//    NSLog(@"checkCode原文：%@", checkCode);
 //    return [self makeMD5Code:checkCode];
 //}
 //
@@ -80,7 +80,7 @@
 // *  结果0状态提示
 // *
 // */
-//+ (BOOL)daoValueStatus:(NSDictionary *)responseDictionary vc:(GFBaseViewController *)vc
+//+ (BOOL)daoValueStatus:(NSDictionary *)responseDictionary vc:(GFBasicController *)vc
 //{
 //    
 //    
@@ -88,7 +88,7 @@
 //        
 //        NSString *err = [responseDictionary objectForKey:@"err"];
 //        // 提示错误
-//        [vc showNoticeHudWithTitle:NSNewLocalizedString(@"all_dialog_title", nil)  subtitle:err onView:vc.view inDuration:1.2];
+//        [vc showNoticeHudWithTitle:@"all_dialog_title", nil)  subtitle:err onView:vc.view inDuration:1.2];
 //        return NO;
 //    }
 //    

@@ -7,7 +7,7 @@
 //  Copyright © 2016年 gf. All rights reserved.
 //
 #import "StyleResultViewController.h"
-//#import "GFLogVo.h"
+//#import "NSLogVo.h"
 #import "StyleResultViewControllerCell.h"
 //#import "GFDatePickerView.h"
 #import "GFTradeDao.h"

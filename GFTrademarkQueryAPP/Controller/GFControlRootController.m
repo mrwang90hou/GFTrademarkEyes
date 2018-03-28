@@ -11,6 +11,8 @@
 #import "CCCycleScrollView.h"
 #import "StyleTableController.h"
 #import "StyleResultViewController.h"
+#import "GFRangeRootViewController.h"
+#import "GFImageCodeViewController.h"
 @interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>//UITableViewDelegate,UITableViewDataSource,
 @property (nonatomic, strong)CCCycleScrollView *cyclePlayView;
 @property (nonatomic, strong) UIButton *inquireButton;
@@ -18,7 +20,8 @@
 @property GFBasicController *nextVC;
 
 @property (nonatomic,strong)UIPickerView * pickerView;
-@property (nonatomic,strong)UIButton * style_btn;
+@property (nonatomic,strong)UIButton * style_btn;//商品分类表按钮
+@property (nonatomic,strong)UIButton * figure_btn;//商标图形要素按钮
 @property (nonatomic,strong)NSArray * selection;//选项
 @property (nonatomic,strong)NSArray * number;//保存数字
 
@@ -61,9 +64,16 @@
     _style_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
     [_style_btn setImage:[UIImage imageNamed:@"商品分类表"] forState:UIControlStateNormal];
     [self.view addSubview:_style_btn];
-    [_style_btn addTarget:self action:@selector(openTable) forControlEvents:UIControlEventTouchUpInside];
+    [_style_btn addTarget:self action:@selector(clickChooseRange) forControlEvents:UIControlEventTouchUpInside];
     [_style_btn setHidden:true];
     
+    
+    //商标图形要素按钮figure_btn
+    _figure_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
+    [_figure_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
+    [self.view addSubview:_figure_btn];
+    [_figure_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
+    [_figure_btn setHidden:true];
     
     
     
@@ -74,11 +84,15 @@
     [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
     [left_view_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:left_view_btn];
+    
+    
+    
+    
 }
 #pragma mark 加载数据
 -(void)loadData {
     //需要展示的数据以数组的形式保存
-    self.selection = @[@"商标查询",@"商标驳回查询",@"商品分类查询"];
+    self.selection = @[@"商标查询",@"商标驳回查询",@"商品分类查询",@"商标图形要素"];
     self.number = @[@"111",@"222",@"333",@"444"];
 }
 
@@ -124,15 +138,23 @@
         case 0:
             _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
             _style_btn.hidden = true;
+            _figure_btn.hidden = true;
             break;
         case 1:
             _text_input.placeholder  = @"请输入注册人/国家/城市/代理机构";
             _style_btn.hidden = true;
+            _figure_btn.hidden = true;
             break;
         case 2:
             _text_input.placeholder  = @"请输入类似群、商品中/英文";
             _style_btn.hidden = false;
+            _figure_btn.hidden = true;
             break;
+        case 3:
+            _text_input.placeholder  = @"请输入图形要素名称";
+            _style_btn.hidden = true;
+            _figure_btn.hidden = false;
+            
         default:
             break;
     }
@@ -323,6 +345,28 @@
     [self.navigationController pushViewController:advanceSearch animated:YES];
     
 }
+/**
+ *  跳转至商品范围选择
+ */
+- (void)clickChooseRange {
+    GFRangeRootViewController *range = [[GFRangeRootViewController alloc] init];
+    //range.dataResultDelegate = self;
+    [range setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:range animated:YES];
+}
+/**
+ *  点击选择图形要素
+ */
+- (void)clickImageCode {
+    GFImageCodeViewController *imageCode = [[GFImageCodeViewController alloc] init];
+    //imageCode.dataResultDelegate = self;
+    [imageCode setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:imageCode animated:YES];
+}
+
+
+
+
 // 输入的回车键键
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField endEditing:YES];

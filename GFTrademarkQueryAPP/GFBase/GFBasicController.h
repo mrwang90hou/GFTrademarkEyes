@@ -9,12 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-#define KEY_LANGUAGE @"key_language" 
-#define NSNewLocalizedString(key, comment) \
-[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:KEY_LANGUAGE]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:nil]
-
-
-
 @interface GFBasicController : UIViewController
 
 

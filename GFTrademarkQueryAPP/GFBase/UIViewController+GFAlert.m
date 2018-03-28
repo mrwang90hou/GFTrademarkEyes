@@ -58,7 +58,7 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     //因前期代码问题，所以这里统一处理：标题 温馨提示，后期代码维护，把外面 传值 来的title 以 nil值传进来。
-    hud.labelText =  @"all_dialog_title";
+    hud.labelText =  @"温馨提示";
     if (subtitle) {
         hud.detailsLabelText = subtitle;
     }

@@ -143,7 +143,7 @@
     
     
     //判断是否被点击
-    if (self.typeClick) {
+    if (indexPath.row != 4&&indexPath.row != 5) {
         GFNavController *nView = [[GFNavController alloc]initWithRootViewController:nextVC];
         //设置翻转动画
         nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
