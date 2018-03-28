@@ -10,9 +10,9 @@
 //#import "GFLogVo.h"
 #import "StyleResultViewControllerCell.h"
 //#import "GFDatePickerView.h"
-//#import "GFTradeDao.h"
-//#import "GFTradeVo.h"
-//#import "GFDeviceVo.h"
+#import "GFTradeDao.h"
+#import "GFTradeVo.h"
+#import "GFDeviceVo.h"
 
 
 @interface StyleResultViewController () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
@@ -83,7 +83,7 @@
     _mEndTime = theDateString;
     
     //一进界面获取默认 今天往后3个月 数据
-    //[self requestData];
+    [self requestData];
 }
 
 /**
@@ -279,34 +279,29 @@
         cardTime = NSNewLocalizedString(@"商品英文", nil);
     } else {
 
-//        GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
-//        cardNumber = [NSString stringWithFormat:@"%ld",indexPath.row];
-//        cardState = tradeVo.addTime;
-//        cardStartToStop = tradeVo.equipmentCode;        //<mrwang90hou-2018.01.16PM>
-//        //cardStartToStop = tradeVo.equipmentNumber;        //<mrwang90hou-2018.01.16PM>
-//
-//
-//        //cardStartToStop = _equipment;
-//
-//        cardTime = tradeVo.describe;
+        GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
+        cardNumber = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+        cardState = tradeVo.addTime;
+        cardStartToStop = tradeVo.equipmentCode;
+        cardTime = tradeVo.describe;
     }
 
-    //[cell.equipmentNumber sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardNumber mark:1];
+    [cell.equipmentNumber sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardNumber mark:1];
     cell.equipmentNumber.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipmentNumber.layer.borderWidth = 0.5;
     cell.equipmentNumber.numberOfLines = 0;
-    
-    //[cell.equipmentTime sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardState mark:1];
+//    [cell.equipmentNumber size]
+    [cell.equipmentTime sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardState mark:1];
     cell.equipmentTime.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipmentTime.layer.borderWidth = 0.5;
     cell.equipmentTime.numberOfLines = 0;
     
-    //[cell.equipment sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardStartToStop mark:1];
+    [cell.equipment sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardStartToStop mark:1];
     cell.equipment.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipment.layer.borderWidth = 0.5;
     cell.equipment.numberOfLines = 0;
     
-    //[cell.equipmentDescribe sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardTime mark:1];
+    [cell.equipmentDescribe sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardTime mark:1];
     cell.equipmentDescribe.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipmentDescribe.layer.borderWidth = 0.5;
     cell.equipmentDescribe.numberOfLines = 0;
@@ -376,96 +371,59 @@
 //
 //    [self requestData];
 //}
-//
-//#pragma mark - 数据请求
-//-(void)requestData{
-//
-//    GFUserVo *mUserVo = [GFUserDao readUserInfo];
-//    //获取使用日志列表
-//    [GFTradeDao requestUserLogList:self userID:mUserVo.userID loginID:mUserVo.loginID from:_mStartTime to:_mEndTime pageSize:@"16" page:_page checkCode:mUserVo.checkCode block:^(NSMutableArray *numberVo, NSNumber *errorDescription, NSError *error) {
-//
-//
-//        GFLoginViewController *mLoginVC;
-//        switch ([errorDescription intValue]) {
-//            case 1:
-//            {
-//
-//                if ([_page isEqualToString:@"1"]) {
-//
-//                    if (numberVo.count == 0) {
-//
-//                        [self showNoticeHudWithTitle:NSNewLocalizedString(@"my_log_prompt1", nil) subtitle:NSNewLocalizedString(@"my_log_prompt1", nil) onView:self.view inDuration:1.5];
-//
-//                        [_mTableView.mj_footer endRefreshingWithNoMoreData];
-//                    } else {
-//
-//                        [_mTableView.mj_footer endRefreshing];
-//                    }
-//
-//                    _mDatas = numberVo;
-//
-//                } else {
-//
-//                    if (numberVo.count == 0) {
-//
-//                        [_mTableView.mj_footer endRefreshingWithNoMoreData];
-//                    } else {
-//
-//                        for (GFTradeVo* vo in numberVo) {
-//
-//                            [_mDatas addObject:vo];
-//                        }
-//                        [_mTableView.mj_footer endRefreshing];
-//                    }
-//
-//                }
-//
-//                [_mTableView reloadData];
-//            }
-//                break;
-//            case -1:
-//            case -2:
-//            case -3:
-//            case -4:
-//            case -5:
-//            {
-//                [self showNoticeHudWithTitle:NSNewLocalizedString(@"all_checkcode_over_date", nil) subtitle:NSNewLocalizedString(@"all_checkcode_over_date", nil) onView:self.navigationController.view inDuration:1.5];
-//                mLoginVC = [[GFLoginViewController alloc] init];
-//                mLoginVC.isReLogin = YES;
-//                [mLoginVC setHidesBottomBarWhenPushed:YES];
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                    [self.navigationController pushViewController:mLoginVC animated:YES];
-//                });
-//
-//            }
-//                break;
-//            default:
-//                break;
-//        }
-//
-//        /*
-//        GFDeviceVo *deviceVo = numberVo[0];
-//        //equipment
-////        if ([deviceVo.remark isEqualToString:@""]) {
-////
-////            deviceVo.remark = [NSString stringWithFormat:@"设备-%@",deviceVo.mid];
-////        }
-//        _equipment = [NSString stringWithFormat:@"设备-%@",deviceVo.mid];
-//
-//        */
-//
-//
-//    }];
-//
-//
-//}
+
+#pragma mark - 数据请求
+-(void)requestData{
+    [GFTradeDao ID:@"12" block:^(NSMutableArray *numberVo, NSError *error) {
+        switch (1) {
+            case 1:
+            {
+
+                if ([_page isEqualToString:@"1"]) {
+
+                    if (numberVo.count == 0) {
+                        //没有使用记录
+                        //[self showNoticeHudWithTitle:NSNewLocalizedString(@"my_log_prompt1", nil) subtitle:NSNewLocalizedString(@"my_log_prompt1", nil) onView:self.view inDuration:1.5];
+
+                        [_mTableView.mj_footer endRefreshingWithNoMoreData];
+                    } else {
+
+                        [_mTableView.mj_footer endRefreshing];
+                    }
+
+                    _mDatas = numberVo;
+
+                } else {
+
+                    if (numberVo.count == 0) {
+
+                        [_mTableView.mj_footer endRefreshingWithNoMoreData];
+                    } else {
+
+                        for (GFTradeVo* vo in numberVo) {
+
+                            [_mDatas addObject:vo];
+                        }
+                        [_mTableView.mj_footer endRefreshing];
+                    }
+
+                }
+
+                [_mTableView reloadData];
+            }
+                break;
+
+        }
+ }];
+
+}
 //请求列表页脚刷新
 -(void)requestListFooterRefresh {
     
     NSInteger num = [_page integerValue];
     num += 1;
     _page = [NSString stringWithFormat:@"%ld",(long)num];
-    //[self requestData];
+    [self requestData];
 }
 #pragma mark -按钮操作emptyContent、inquire
 -(void)emptyContent{
@@ -474,9 +432,6 @@
 -(void)inquire{
     [SVProgressHUD showSuccessWithStatus:@"点击提交按钮"];
 }
-
-
-
 
 - (void)viewWillAppear:(BOOL)animated
 {

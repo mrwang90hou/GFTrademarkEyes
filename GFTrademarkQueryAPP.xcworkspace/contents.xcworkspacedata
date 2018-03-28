@@ -4,6 +4,10 @@
    <FileRef
       location = "group:GFTrademarkQueryAPP.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:/Users/wangning/wangning/&#x56fd;&#x65b9;&#x5546;&#x6807;/&#x5546;&#x6807;&#x5206;&#x7c7b;&#x8868;&#x67e5;&#x8be2;IOS&#x7aef;APP/GFTrademarkQueryAPP/GFTrademarkQueryAPP/New Group"
+      name = "New Group">
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

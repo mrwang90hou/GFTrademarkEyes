@@ -41,6 +41,8 @@
 		92C0C390206A1F8A005E3170 /* StyleResultViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C38E206A1F89005E3170 /* StyleResultViewControllerCell.m */; };
 		92C0C391206A1F8A005E3170 /* StyleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C38F206A1F89005E3170 /* StyleResultViewController.m */; };
 		92C0C394206A392E005E3170 /* GFLeftBasicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C392206A392D005E3170 /* GFLeftBasicController.m */; };
+		92C0C3B2206B8FE4005E3170 /* GFTradeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3AF206B86B4005E3170 /* GFTradeDao.m */; };
+		92C0C3B3206B8FE4005E3170 /* GFBaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3B1206B8812005E3170 /* GFBaseDao.m */; };
 		92E0E9612068825B00DB2172 /* CCCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E9602068825B00DB2172 /* CCCycleScrollView.m */; };
 		92E0E96420688EEB00DB2172 /* UIViewController+GFAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E96320688EEA00DB2172 /* UIViewController+GFAlert.m */; };
 		92E0E9692068DB4700DB2172 /* ShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E9682068DB4700DB2172 /* ShareController.m */; };
@@ -139,6 +141,18 @@
 		92C0C38F206A1F89005E3170 /* StyleResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleResultViewController.m; sourceTree = "<group>"; };
 		92C0C392206A392D005E3170 /* GFLeftBasicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFLeftBasicController.m; sourceTree = "<group>"; };
 		92C0C393206A392E005E3170 /* GFLeftBasicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFLeftBasicController.h; sourceTree = "<group>"; };
+		92C0C3A2206B6BDF005E3170 /* GFBaseVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFBaseVo.h; sourceTree = "<group>"; };
+		92C0C3A3206B6BDF005E3170 /* GFTradeVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFTradeVo.h; sourceTree = "<group>"; };
+		92C0C3A4206B6BDF005E3170 /* GFBaseVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFBaseVo.m; sourceTree = "<group>"; };
+		92C0C3A5206B6BE0005E3170 /* GFTradeVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTradeVo.m; sourceTree = "<group>"; };
+		92C0C3A8206B6CBE005E3170 /* GFUserVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFUserVo.h; sourceTree = "<group>"; };
+		92C0C3A9206B6CBE005E3170 /* GFUserVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFUserVo.m; sourceTree = "<group>"; };
+		92C0C3AA206B6CE2005E3170 /* GFDeviceVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFDeviceVo.h; sourceTree = "<group>"; };
+		92C0C3AB206B6CE3005E3170 /* GFDeviceVo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFDeviceVo.m; sourceTree = "<group>"; };
+		92C0C3AE206B86B4005E3170 /* GFTradeDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GFTradeDao.h; path = ModelVo/GFTradeDao.h; sourceTree = "<group>"; };
+		92C0C3AF206B86B4005E3170 /* GFTradeDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GFTradeDao.m; path = ModelVo/GFTradeDao.m; sourceTree = "<group>"; };
+		92C0C3B0206B8811005E3170 /* GFBaseDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GFBaseDao.h; path = ModelVo/GFBaseDao.h; sourceTree = "<group>"; };
+		92C0C3B1206B8812005E3170 /* GFBaseDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GFBaseDao.m; path = ModelVo/GFBaseDao.m; sourceTree = "<group>"; };
 		92E0E95F2068825B00DB2172 /* CCCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCycleScrollView.h; sourceTree = "<group>"; };
 		92E0E9602068825B00DB2172 /* CCCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCycleScrollView.m; sourceTree = "<group>"; };
 		92E0E96220688EEA00DB2172 /* UIViewController+GFAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GFAlert.h"; sourceTree = "<group>"; };
@@ -231,11 +245,17 @@
 		926AE8B22064E35A00FDA8C2 /* GFTrademarkQueryAPP */ = {
 			isa = PBXGroup;
 			children = (
+				92C0C398206B6B66005E3170 /* New Group */,
 				926AE8B32064E35A00FDA8C2 /* AppDelegate.h */,
 				926AE8B42064E35A00FDA8C2 /* AppDelegate.m */,
 				926AE9192064EA0300FDA8C2 /* GFBase */,
 				926AE8F82064E9F400FDA8C2 /* Controller */,
 				926AE8E52064E9F400FDA8C2 /* Category */,
+				92C0C3B0206B8811005E3170 /* GFBaseDao.h */,
+				92C0C3B1206B8812005E3170 /* GFBaseDao.m */,
+				92C0C3AE206B86B4005E3170 /* GFTradeDao.h */,
+				92C0C3AF206B86B4005E3170 /* GFTradeDao.m */,
+				92C0C399206B6B74005E3170 /* ModelVo */,
 				926AE8B92064E35A00FDA8C2 /* Main.storyboard */,
 				926AE8BC2064E35A00FDA8C2 /* Assets.xcassets */,
 				926AE8BE2064E35A00FDA8C2 /* LaunchScreen.storyboard */,
@@ -356,6 +376,30 @@
 			);
 			path = StyleResultViewController;
 			sourceTree = "<group>";
+		};
+		92C0C398206B6B66005E3170 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			path = "../New Group";
+			sourceTree = "<group>";
+		};
+		92C0C399206B6B74005E3170 /* ModelVo */ = {
+			isa = PBXGroup;
+			children = (
+				92C0C3A2206B6BDF005E3170 /* GFBaseVo.h */,
+				92C0C3A4206B6BDF005E3170 /* GFBaseVo.m */,
+				92C0C3A3206B6BDF005E3170 /* GFTradeVo.h */,
+				92C0C3A5206B6BE0005E3170 /* GFTradeVo.m */,
+				92C0C3A8206B6CBE005E3170 /* GFUserVo.h */,
+				92C0C3A9206B6CBE005E3170 /* GFUserVo.m */,
+				92C0C3AA206B6CE2005E3170 /* GFDeviceVo.h */,
+				92C0C3AB206B6CE3005E3170 /* GFDeviceVo.m */,
+			);
+			name = ModelVo;
+			path = "/Users/wangning/wangning/国方商标/商标分类表查询IOS端APP/GFTrademarkQueryAPP/GFTrademarkQueryAPP/ModelVo";
+			sourceTree = "<absolute>";
 		};
 		92E0E95E2068825B00DB2172 /* CCCycleScrollView */ = {
 			isa = PBXGroup;
@@ -727,6 +771,7 @@
 				92C0C394206A392E005E3170 /* GFLeftBasicController.m in Sources */,
 				92E0E96C2068DCB800DB2172 /* AboutUsController.m in Sources */,
 				926AE90F2064E9F400FDA8C2 /* UIBarButtonItem+SXCreate.m in Sources */,
+				92C0C3B2206B8FE4005E3170 /* GFTradeDao.m in Sources */,
 				92F168EA20694A0D0001CBAD /* StyleTableController.m in Sources */,
 				926AE9262064EA0300FDA8C2 /* GFSlideController.m in Sources */,
 				926AE9152064E9F400FDA8C2 /* ListCell.m in Sources */,
@@ -736,6 +781,7 @@
 				926AE90C2064E9F400FDA8C2 /* GFButton.m in Sources */,
 				926AE9242064EA0300FDA8C2 /* GFTabbarController.m in Sources */,
 				926AE9132064E9F400FDA8C2 /* GFTrademarkServiceController.m in Sources */,
+				92C0C3B3206B8FE4005E3170 /* GFBaseDao.m in Sources */,
 				92C0C391206A1F8A005E3170 /* StyleResultViewController.m in Sources */,
 				92F168E4206948B90001CBAD /* AdviceController.m in Sources */,
 				926AE90B2064E9F400FDA8C2 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
