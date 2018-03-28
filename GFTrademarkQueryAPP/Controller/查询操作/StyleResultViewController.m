@@ -94,7 +94,7 @@
     
     // 设置标题背景
     [self setTitle:@"查询结果"];
-    //[self setTitle:NSNewLocalizedString(@"my_log_title", nil)];
+    //[self setTitle:(@"my_log_title", nil)];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     
@@ -272,15 +272,14 @@
     NSString* cardTime;
     
     if (indexPath.row == 0) {
-        
-        cardNumber = NSNewLocalizedString(@"类似群", nil);
-        cardState = NSNewLocalizedString(@"群组名", nil);
-        cardStartToStop = NSNewLocalizedString(@"商品中文", nil);
-        cardTime = NSNewLocalizedString(@"商品英文", nil);
+        cardNumber = @"类似群";
+        cardState = @"群组名";
+        cardStartToStop = @"商品中文";
+        cardTime = @"商品英文";
     } else {
 
         GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
-        cardNumber = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+        cardNumber = [NSString stringWithFormat:@"%ld",indexPath.row];
         cardState = tradeVo.addTime;
         cardStartToStop = tradeVo.equipmentCode;
         cardTime = tradeVo.describe;
@@ -363,7 +362,7 @@
 //    NSComparisonResult result = [dateStart compare:dateEnd];
 //    if (result == NSOrderedDescending) {
 //
-//        [self showNoticeHudWithTitle:NSNewLocalizedString(@"my_log_prompt2", nil) subtitle:NSNewLocalizedString(@"my_log_prompt2", nil) onView:self.navigationController.view inDuration:2];
+//        [self showNoticeHudWithTitle:(@"my_log_prompt2", nil) subtitle:(@"my_log_prompt2", nil) onView:self.navigationController.view inDuration:2];
 //        return;
 //    }
 //
@@ -383,7 +382,7 @@
 
                     if (numberVo.count == 0) {
                         //没有使用记录
-                        //[self showNoticeHudWithTitle:NSNewLocalizedString(@"my_log_prompt1", nil) subtitle:NSNewLocalizedString(@"my_log_prompt1", nil) onView:self.view inDuration:1.5];
+                        //[self showNoticeHudWithTitle:(@"my_log_prompt1", nil) subtitle:(@"my_log_prompt1", nil) onView:self.view inDuration:1.5];
 
                         [_mTableView.mj_footer endRefreshingWithNoMoreData];
                     } else {

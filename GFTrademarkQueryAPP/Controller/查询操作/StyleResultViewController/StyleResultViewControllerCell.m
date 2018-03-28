@@ -36,7 +36,7 @@
 {
     [super layoutSubviews];
     
-    CGFloat weidth1 = Device_Width * (59.0 / 540);
+    CGFloat weidth1 = Device_Width * (66.0 / 540);
     CGFloat weidth2 = Device_Width * (134.0 / 540);
     CGFloat weidth3 = Device_Width * (122.0 / 540);
     

@@ -33,9 +33,7 @@
 
     [dataArray addObjectsFromArray:@[dic,dic1,dic2]];
 
-    for (NSString *str in dataArray) {
-        NSLog(@"%@\n", str);
-    }
+    
     for (NSDictionary *info in dataArray) {
 
         GFTradeVo *vo = [GFTradeVo new];
@@ -46,7 +44,7 @@
 
         [dataVo addObject:vo];
 
-        NSLog(@"%@",info);
+        //NSLog(@"%@",info);
 
     }
     block(dataVo,nil);
