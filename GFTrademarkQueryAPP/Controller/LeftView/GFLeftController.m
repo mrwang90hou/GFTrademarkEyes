@@ -92,7 +92,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //在索引路径中取消选定行。
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    GFBasicController *nextVC;
+    GFLeftBasicController *nextVC;
     switch (indexPath.row) {
         case 0:
             nextVC = [[MyInformationController alloc] init];
@@ -150,6 +150,7 @@
         //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
         //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
         //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
+        [nextVC setHidesBottomBarWhenPushed:YES];
         [self presentViewController:nView animated:YES completion:nil];
     }
 //

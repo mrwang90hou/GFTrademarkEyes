@@ -1,14 +1,14 @@
 //
-//  GFMyLogViewControllerCell.m
+//  StyleResultViewControllerCell.m
 //  GFTrademark
 //
 //  Created by ios－梁家安 on 2017/6/28.
 //  Copyright © 2017年 gf. All rights reserved.
 //
 
-#import "GFMyLogViewControllerCell.h"
+#import "StyleResultViewControllerCell.h"
 
-@implementation GFMyLogViewControllerCell
+@implementation StyleResultViewControllerCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

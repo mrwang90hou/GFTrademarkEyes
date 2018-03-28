@@ -11,7 +11,7 @@
 #import "CCCycleScrollView.h"
 #import "StyleTableController.h"
 #import "StyleResultViewController.h"
-@interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate>//UITableViewDelegate,UITableViewDataSource,
+@interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>//UITableViewDelegate,UITableViewDataSource,
 @property (nonatomic, strong)CCCycleScrollView *cyclePlayView;
 @property (nonatomic, strong) UIButton *inquireButton;
 @property (nonatomic,strong)UITextField *text_input;
@@ -32,6 +32,12 @@
     //self.navigationItem.title = @"商标查询";
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
+    
+    //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:left_view_btn]];
+    
+    
+    
+    
     
     [self cycleScrollView];
     [self setupView];
@@ -57,6 +63,17 @@
     [self.view addSubview:_style_btn];
     [_style_btn addTarget:self action:@selector(openTable) forControlEvents:UIControlEventTouchUpInside];
     [_style_btn setHidden:true];
+    
+    
+    
+    
+    
+    
+    
+    UIButton *left_view_btn = [[UIButton alloc] initWithFrame:CGRectMake(3, 22, 40, 40)];
+    [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
+    [left_view_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:left_view_btn];
 }
 #pragma mark 加载数据
 -(void)loadData {
@@ -182,7 +199,7 @@
     _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
     //[_text_input setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_text_input setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
-    //text_input.delegate = self;
+    _text_input.delegate = self;
     _text_input.backgroundColor = [UIColor whiteColor];
     _text_input.leftView = search_btn;
     _text_input.leftViewMode = UITextFieldViewModeAlways;
@@ -261,9 +278,9 @@
 //
 //
         //方式二
-
         StyleResultViewController *advanceSearch = [[StyleResultViewController alloc] init];
-        //[advanceSearch setHidesBottomBarWhenPushed:YES];
+        //当被推时，设置隐藏底部栏。
+        [advanceSearch setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:advanceSearch animated:YES];
         //[self.navigationController.navigationBar setValue:@100 forKeyPath:@"backgroundView.alpha"];
     }
@@ -296,11 +313,19 @@
 //    //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
 //    [self presentViewController:nView animated:YES completion:nil];
 //
-
+    
+    
+    
   // 跳转方式二
     StyleTableController *advanceSearch = [[StyleTableController alloc] init];
-    //[advanceSearch setHidesBottomBarWhenPushed:YES];
+    //当被推时，设置隐藏底部栏。
+    [advanceSearch setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:advanceSearch animated:YES];
     
+}
+// 输入的回车键键
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return YES;
 }
 @end

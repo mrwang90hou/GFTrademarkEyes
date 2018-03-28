@@ -8,11 +8,12 @@
 
 #import "GFBasicController.h"
 
-@interface GFBasicController ()
+@interface GFBasicController () <UITextFieldDelegate>
 
 @end
 
 @implementation GFBasicController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +36,7 @@
     /**************************/
     
 }
-
+//点击空白处关闭
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
@@ -126,4 +127,10 @@
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [appdelegate.gfSlideVc openDrawer];
 }
+// 输入的回车键键
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return YES;
+}
+
 @end

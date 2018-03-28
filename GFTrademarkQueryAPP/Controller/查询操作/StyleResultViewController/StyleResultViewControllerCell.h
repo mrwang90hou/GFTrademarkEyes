@@ -1,5 +1,5 @@
 //
-//  GFMyLogViewControllerCell.h
+//  StyleResultViewControllerCell.h
 //  GFTrademark
 //
 //  Created by ios－梁家安 on 2017/6/28.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GFMyLogViewControllerCell : UITableViewCell
+@interface StyleResultViewControllerCell : UITableViewCell
 
 @property(strong,nonatomic)UILabel* equipmentNumber;
 

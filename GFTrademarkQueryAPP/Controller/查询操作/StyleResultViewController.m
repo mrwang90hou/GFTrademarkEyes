@@ -8,14 +8,16 @@
 //
 #import "StyleResultViewController.h"
 //#import "GFLogVo.h"
-#import "GFMyLogViewControllerCell.h"
+#import "StyleResultViewControllerCell.h"
 //#import "GFDatePickerView.h"
 //#import "GFTradeDao.h"
 //#import "GFTradeVo.h"
 //#import "GFDeviceVo.h"
 
 
-@interface StyleResultViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface StyleResultViewController () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
+
+@property(nonatomic,strong)UITextField *input_text;
 
 @property (nonatomic, strong) UITableView *mTableView;
 @property (nonatomic, strong) NSMutableArray *mDatas;
@@ -90,48 +92,64 @@
 - (void)setupView {
     
     
-    
-/**************topView*****************/
-    
-    UIView* topView = [UIView new];
-    [self.view addSubview:topView];
-    [topView setBackgroundColor:[UIColor redColor]];
-    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view.mas_left).with.offset(0);
-        make.right.mas_equalTo(self.view.mas_right).with.offset(0);
-        make.top.mas_equalTo(self.view.mas_top).with.offset(0);
-        make.height.mas_equalTo(Device_Height/12);
-    }];
-    
-/**************topView*****************/
     // 设置标题背景
     [self setTitle:@"查询结果"];
     //[self setTitle:NSNewLocalizedString(@"my_log_title", nil)];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    UIView* view = [UIView new];
-    [self.view addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+    
+    
+    /**************updatedTimeView:输入查询内容*****************/
+    
+    UIView* updatedTimeView = [UIView new];
+    [self.view addSubview:updatedTimeView];
+    [updatedTimeView setBackgroundColor:[UIColor colorWithRed:41/255.0 green:134/255.0 blue:227/255.0 alpha:1]];
+    [updatedTimeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).with.offset(0);
         make.right.mas_equalTo(self.view.mas_right).with.offset(0);
-        //make.top.mas_equalTo(topView).with.offset(0);
-        make.top.equalTo(topView.mas_bottom).with.offset(Device_Height/20);
+        make.top.mas_equalTo(self.view.mas_top).with.offset(0);
+        make.height.mas_equalTo(30);
+    }];
+    UILabel *updatedTime = [[UILabel alloc]init];
+    [updatedTimeView addSubview:updatedTime];
+//    [updatedTime setFont:12];
+    //[updatedTime setFont:@13];
+   // updatedTime.font = 12;
+    [updatedTime setFont:[UIFont systemFontOfSize:13]];
+    //commitBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [updatedTime setText:@"网报同步日期:2018年3月19日"];
+    [updatedTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(updatedTimeView);
+        make.height.mas_equalTo(20);
+    }];
+    
+    
+/**************updatedTimeView:输入查询内容*****************/
+   
+    
+/**************btnActionView:重置、提交  按钮操作*****************/
+    UIView* btnActionView = [UIView new];
+    [self.view addSubview:btnActionView];
+    [btnActionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view.mas_left).with.offset(0);
+        make.right.mas_equalTo(self.view.mas_right).with.offset(0);
+        make.top.mas_equalTo(updatedTimeView.mas_bottom).with.offset(0);
+        //make.top.equalTo(topView.mas_bottom).with.offset(Device_Height/20);
         make.height.mas_equalTo(75);
     }];
-    [self setLayView:view];
+    [self setLayView:btnActionView];
     
     // 列表
     _mTableView = [[UITableView alloc] init];
     [self.view addSubview:_mTableView];
     [_mTableView setDelegate:self];
     [_mTableView setDataSource:self];
-    //[_mTableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestListFooterRefresh)]];
+    [_mTableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestListFooterRefresh)]];
     [_mTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_mTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.mas_equalTo(self.view.mas_left).with.offset(0);
         make.right.mas_equalTo(self.view.mas_right).with.offset(0);
-        make.top.mas_equalTo(view.mas_bottom).with.offset(10);
+        make.top.mas_equalTo(btnActionView.mas_bottom).with.offset(10);
         make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
     }];
 }
@@ -139,136 +157,79 @@
 #pragma mark - 布局
 -(void)setLayView:(UIView*)view {
     
-    UILabel* nameLabel = [UILabel new];
+    _input_text = [[UITextField alloc]init];
     //    titleLabel.backgroundColor = [UIColor blackColor];
-    [view addSubview:nameLabel];
+    [view addSubview:_input_text];
+    _input_text.delegate = self;
     //[nameLabel sizeWithfont:14.5 color:[UIColor blackColor] TextAlignment:NSTextAlignmentLeft text:@"my_log_message" mark:1];
-    [nameLabel setBackgroundColor:[UIColor greenColor]];
-    [nameLabel setText:@"my_log_message"];
-    
-    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_input_text setBackgroundColor:[UIColor whiteColor]];
+    [_input_text setPlaceholder:@"请输入类似群、商品中/英文"];
+    [_input_text setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
+    _input_text.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _input_text.layer.masksToBounds = YES;
+    _input_text.layer.cornerRadius = 4;
+    _input_text.layer.borderWidth = 1;
+    //边界颜色
+    _input_text.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    [_input_text mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.mas_equalTo(view.mas_top).with.offset(5);
         make.left.mas_equalTo(view.mas_left).with.offset(10);
         make.right.mas_equalTo(view.mas_right).with.offset(-10);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(35);
+    }];
+    
+    UIButton *resetBtn = [[UIButton alloc]init];
+    [view addSubview:resetBtn];
+    [resetBtn setTitle:@"重置" forState:UIControlStateNormal];
+    [resetBtn setTintColor:[UIColor redColor]];
+    [resetBtn setBackgroundColor:[UIColor greenColor]];
+    
+    resetBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    resetBtn.backgroundColor = [UIColor orangeColor];
+    [resetBtn addTarget:self action:@selector(emptyContent) forControlEvents:UIControlEventTouchUpInside];
+    //设置边框
+    resetBtn.layer.cornerRadius = 4;
+    resetBtn.layer.borderWidth = 1;
+    resetBtn.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    
+    [resetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(_input_text.mas_bottom).with.offset(5);
+        make.left.mas_equalTo(view.mas_left).with.offset(10);
+        make.right.mas_equalTo(view.mas_left).with.offset(Device_Width/2+5);
+        make.height.mas_equalTo(25);
+        make.width.mas_equalTo(Device_Width/2-15);
     }];
     
     
+    UIButton *commitBtn = [[UIButton alloc]init];
+    [view addSubview:commitBtn];
+    [commitBtn setTitle:@"提交" forState:UIControlStateNormal];
+    [commitBtn setTintColor:[UIColor redColor]];
+    [commitBtn setBackgroundColor:[UIColor blueColor]];
     
-    CGFloat widthTime = Device_Width * (68.0 /541);
-    CGFloat widthTimeShow = Device_Width * (120.0 /541) + 2.5 ;
-    CGFloat widthButton = Device_Width * (50.0 /541) - 2.5 ;
-    CGFloat width = Device_Width * (40.0 /541);
-
     
-    UILabel* titleLabel = [UILabel new];
-    //    titleLabel.backgroundColor = [UIColor blackColor];
-    [view addSubview:titleLabel];
-    //[titleLabel sizeWithfont:14.5 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:[NSString stringWithFormat:@"%@:",NSNewLocalizedString(@"my_log_1", nil)] mark:1];
-    [titleLabel setText:@"my_log_1"];
+    commitBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    commitBtn.backgroundColor = [UIColor orangeColor];
+    //[commitBtn addTarget:self action:@selector(inquire) forControlEvents:UIControlEventTouchUpInside];
+    //设置边框
+    commitBtn.layer.cornerRadius = 4;
+    commitBtn.layer.borderWidth = 1;
+    commitBtn.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
     
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
-        make.left.mas_equalTo(view.mas_left).with.offset(0);
-        make.width.mas_equalTo(widthTime);
-        make.height.mas_equalTo(30);
+    [commitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(_input_text.mas_bottom).with.offset(5);
+        make.left.mas_equalTo(resetBtn.mas_right).with.offset(5);
+        //make.right.mas_equalTo(view.mas_right).with.offset(-10);
+        make.height.mas_equalTo(25);
+        make.width.mas_equalTo(Device_Width/2-15);
     }];
-    
-    _timeFormLabel = [UILabel new];
-    //    _timeFormLabel.backgroundColor = [UIColor redColor];
-    [view addSubview:_timeFormLabel];
-    //[_timeFormLabel sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:_mStartTime mark:1];
-    [_timeFormLabel setBackgroundColor:[UIColor blackColor]];
-    _timeFormLabel.layer.borderColor = [UIColor grayColor].CGColor;
-    _timeFormLabel.layer.borderWidth = 0.5;
-    [_timeFormLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
-        make.left.mas_equalTo(titleLabel.mas_right).with.offset(0);
-        make.width.mas_equalTo(widthTimeShow);
-        make.height.mas_equalTo(30);
-    }];
-    
-    UIButton *timeFormButton = [UIButton new];
-    //    timeFormButton.backgroundColor = [UIColor greenColor];
-    [view addSubview:timeFormButton];
-    [timeFormButton setTag:1000];
-    //[timeFormButton resizedImageWithOrdinaryName:@"ic_uppressed" HighlightName:@""];
-    [timeFormButton addTarget:self action:@selector(clickChooseTime:) forControlEvents:UIControlEventTouchUpInside];
-    timeFormButton.layer.borderColor = [UIColor grayColor].CGColor;
-    timeFormButton.layer.borderWidth = 0.5;
-    [timeFormButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
-        make.left.mas_equalTo(_timeFormLabel.mas_right).with.offset(0);
-        make.width.mas_equalTo(widthButton);
-        make.height.mas_equalTo(30);
-    }];
-    
-    UILabel* Label = [UILabel new];
-    //    Label.backgroundColor = [UIColor blackColor];
-    [view addSubview:Label];
-    //[Label sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:NSNewLocalizedString(@"my_orderDetails_to", nil) mark:1];
-    [Label setText:@"my_orderDetails_to"];
-    [Label mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
-        make.left.mas_equalTo(timeFormButton.mas_right).with.offset(0);
-        make.width.mas_equalTo(width);
-        make.height.mas_equalTo(30);
-    }];
-    
-    _timeToLabel = [UILabel new];
-    //    _timeToLabel.backgroundColor = [UIColor redColor];
-    [view addSubview:_timeToLabel];
-    //[_timeToLabel sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:_mEndTime mark:1];
-    _timeToLabel.layer.borderColor = [UIColor grayColor].CGColor;
-    _timeToLabel.layer.borderWidth = 0.5;
-    [_timeToLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
-        make.left.mas_equalTo(Label.mas_right).with.offset(0);
-        make.width.mas_equalTo(widthTimeShow);
-        make.height.mas_equalTo(30);
-    }];
-    
-    UIButton *timeToButton = [UIButton new];
-    //    timeToButton.backgroundColor = [UIColor blueColor];
-    [view addSubview:timeToButton];
-    [timeToButton setTag:1001];
-    //[timeToButton resizedImageWithOrdinaryName:@"ic_uppressed" HighlightName:@""];
-    [timeToButton addTarget:self action:@selector(clickChooseTime:) forControlEvents:UIControlEventTouchUpInside];
-    timeToButton.layer.borderColor = [UIColor grayColor].CGColor;
-    timeToButton.layer.borderWidth = 0.5;
-    [timeToButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
-        make.left.mas_equalTo(_timeToLabel.mas_right).with.offset(0);
-        make.width.mas_equalTo(widthButton);
-        make.height.mas_equalTo(30);
-    }];
-    
-    UIButton *queryButton = [UIButton new];
-    //    queryButton.backgroundColor = [UIColor greenColor];
-    [view addSubview:queryButton];
-    //[queryButton setTitleColor:[UIColor whiteColor] Title:NSNewLocalizedString(@"my_trade_search", nil) font:14.5 backgroundColor:KRGBA(41, 135, 225, 1)];
-    //[queryButton addTarget:self action:@selector(clickChooseUnit) forControlEvents:UIControlEventTouchUpInside];
-    [queryButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
-        make.left.mas_equalTo(timeToButton.mas_right).with.offset(5);
-        make.right.mas_equalTo(view.mas_right).with.offset(-5);
-        make.height.mas_equalTo(30);
-    }];
-    
     // 分割线
     UIView *line1 = [[UIView alloc] init];
     [view addSubview:line1];
     [line1 setBackgroundColor:[UIColor colorWithWhite:240.0/255 alpha:1]];
     [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.bottom.mas_equalTo(view.mas_bottom).with.offset(0);
         make.left.mas_equalTo(view.mas_left).with.offset(0);
         make.right.mas_equalTo(view.mas_right).with.offset(0);
@@ -294,14 +255,14 @@
     }
 }
 
-// 返回Cell的样式
+// 返回Cell的样式                                        在索引路径上的行
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CardViewCellId = @"GFMyLogViewControllerCellID";
-    GFMyLogViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:CardViewCellId];
+    static NSString *CardViewCellId = @"StyleResultViewControllerCellID";
+    StyleResultViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:CardViewCellId];
     if (cell == nil)
     {
-        cell = [[GFMyLogViewControllerCell alloc]initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:CardViewCellId];
+        cell = [[StyleResultViewControllerCell alloc]initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:CardViewCellId];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -312,10 +273,10 @@
     
     if (indexPath.row == 0) {
         
-        cardNumber = NSNewLocalizedString(@"my_log_0", nil);
-        cardState = NSNewLocalizedString(@"my_log_1", nil);
-        cardStartToStop = NSNewLocalizedString(@"my_log_2", nil);
-        cardTime = NSNewLocalizedString(@"my_log_3", nil);
+        cardNumber = NSNewLocalizedString(@"类似群", nil);
+        cardState = NSNewLocalizedString(@"群组名", nil);
+        cardStartToStop = NSNewLocalizedString(@"商品中文", nil);
+        cardTime = NSNewLocalizedString(@"商品英文", nil);
     } else {
 
 //        GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
@@ -498,144 +459,36 @@
 //
 //
 //}
-////请求列表页脚刷新
-//-(void)requestListFooterRefresh {
-//    
-//    NSInteger num = [_page integerValue];
-//    num += 1;
-//    _page = [NSString stringWithFormat:@"%ld",(long)num];
-//    [self requestData];
-//}
-//
-//#pragma mark - 判断卡是否过期
-//-(void)cardexpiredMark{
-//    
-//    GFUserVo *mUserVo = [GFUserDao readUserInfo];
-//    [GFUserDao requestUserInfo:self userID:mUserVo.userID loginID:mUserVo.loginID checkCode:mUserVo.checkCode block:^(GFUserVo *mUserVo, NSNumber *errorDescription, NSError *error) {
-//        
-//        if (error) {
-//            return ;
-//        }
-//        
-//        GFLoginViewController *mLoginVC;
-//        switch ([errorDescription intValue]) {
-//            case 1:
-//            {
-//                //判断当前激活卡是否已过期
-//                if (mUserVo.isguide == YES) {
-//                    //过期
-//                    [self cardList];
-//                    
-//                } else {
-//                    
-//
-//                    [self clickChooseUnit];
-//                    
-//                }
-//                
-//            }
-//                break;
-//            case -1:
-//            case -2:
-//            case -3:
-//            case -4:
-//            case -5:
-//            {
-//                [self showNoticeHudWithTitle:NSNewLocalizedString(@"all_checkcode_over_date", nil) subtitle:NSNewLocalizedString(@"all_checkcode_over_date", nil) onView:self.navigationController.view inDuration:1.5];
-//                mLoginVC = [[GFLoginViewController alloc] init];
-//                mLoginVC.isReLogin = YES;
-//                [mLoginVC setHidesBottomBarWhenPushed:YES];
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                    [self.navigationController pushViewController:mLoginVC animated:YES];
-//                });
-//                
-//            }
-//                break;
-//            default:
-//                break;
-//        }
-//        
-//    }];
-//    
-//}
-//
-//#pragma mark - 判断是提示购卡 还是 激活卡
-//-(void)cardList{
-//    
-//    GFUserVo *mUserVo = [GFUserDao readUserInfo];
-//    [GFTradeDao requestUserCardList:self userID:mUserVo.userID loginID:mUserVo.loginID activeState:@"2" pageSize:@"-1" page:@"-1"  checkCode:mUserVo.checkCode block:^(NSMutableArray *Vo, NSNumber *errorDescription, NSError *error) {
-//        
-//        if (error) {
-//            return ;
-//        }
-//        
-//        GFLoginViewController *mLoginVC;
-//        switch ([errorDescription intValue]) {
-//            case 1:
-//            {
-//                
-//                NSString * string;
-//                if (Vo.count > 0) {
-//                    
-//                    //提示去激活卡
-//                    string = NSNewLocalizedString(@"cardList_data_prompt1", nil);
-//                } else {
-//                    
-//                    //提示去购卡 或 处理订单
-//                    string = NSNewLocalizedString(@"cardList_data_prompt2", nil);
-//                }
-//                
-//                [self showNoticeHudWithTitle:string subtitle:string onView:self.view inDuration:2];
-//                
-//            }
-//                break;
-//            case -1:
-//            case -2:
-//            case -3:
-//            case -4:
-//            case -5:
-//            {
-//                [self showNoticeHudWithTitle:NSNewLocalizedString(@"all_checkcode_over_date", nil) subtitle:NSNewLocalizedString(@"all_checkcode_over_date", nil) onView:self.navigationController.view inDuration:1.5];
-//                mLoginVC = [[GFLoginViewController alloc] init];
-//                mLoginVC.isReLogin = YES;
-//                [mLoginVC setHidesBottomBarWhenPushed:YES];
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                    [self.navigationController pushViewController:mLoginVC animated:YES];
-//                });
-//                
-//            }
-//                break;
-//            default:
-//                break;
-//        }
-//        
-//    }];
-//    
-//}
-//
-//-(void)sizeWithfont:(CGFloat)font color:(UIColor *)color TextAlignment:(NSTextAlignment)TextAlignment text:(NSString*)text mark:(NSInteger)mark
-//{
-//    //1无限缩小，适合段laber，0限制高度
-//    if (mark == 1)
-//    {
-//        [self setAdjustsFontSizeToFitWidth:YES];
-//        
-//    } else {
-//        
-//        self.numberOfLines = 0;
-//    }
-//    self.font = [UIFont systemFontOfSize:font];
-//    self.textColor = color;
-//    self.textAlignment = TextAlignment;
-//    self.text = text;
-//    
-//}
+//请求列表页脚刷新
+-(void)requestListFooterRefresh {
+    
+    NSInteger num = [_page integerValue];
+    num += 1;
+    _page = [NSString stringWithFormat:@"%ld",(long)num];
+    //[self requestData];
+}
+#pragma mark -按钮操作emptyContent、inquire
+-(void)emptyContent{
+    [_input_text setText:nil];
+}
+-(void)inquire{
+    [SVProgressHUD showSuccessWithStatus:@"点击提交按钮"];
+}
+
+
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     //隐藏背景色
     //[self.navigationController.navigationBar setValue:@100 forKeyPath:@"backgroundView.alpha"];
+}
+// 输入的回车键键
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return YES;
 }
 
 @end
