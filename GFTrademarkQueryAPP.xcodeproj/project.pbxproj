@@ -38,7 +38,7 @@
 		926AE9252064EA0300FDA8C2 /* GFNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE91F2064EA0300FDA8C2 /* GFNavController.m */; };
 		926AE9262064EA0300FDA8C2 /* GFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE9212064EA0300FDA8C2 /* GFSlideController.m */; };
 		92C0C38A2069F8EC005E3170 /* MyInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3892069F8EC005E3170 /* MyInformationController.m */; };
-		92C0C390206A1F8A005E3170 /* GFMyLogViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C38E206A1F89005E3170 /* GFMyLogViewControllerCell.m */; };
+		92C0C390206A1F8A005E3170 /* StyleResultViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C38E206A1F89005E3170 /* StyleResultViewControllerCell.m */; };
 		92C0C391206A1F8A005E3170 /* StyleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C38F206A1F89005E3170 /* StyleResultViewController.m */; };
 		92C0C394206A392E005E3170 /* GFLeftBasicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C392206A392D005E3170 /* GFLeftBasicController.m */; };
 		92E0E9612068825B00DB2172 /* CCCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E9602068825B00DB2172 /* CCCycleScrollView.m */; };
@@ -134,8 +134,8 @@
 		92C0C3882069F8EB005E3170 /* MyInformationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInformationController.h; sourceTree = "<group>"; };
 		92C0C3892069F8EC005E3170 /* MyInformationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInformationController.m; sourceTree = "<group>"; };
 		92C0C38B206A1F89005E3170 /* StyleResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleResultViewController.h; sourceTree = "<group>"; };
-		92C0C38D206A1F89005E3170 /* GFMyLogViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMyLogViewControllerCell.h; sourceTree = "<group>"; };
-		92C0C38E206A1F89005E3170 /* GFMyLogViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMyLogViewControllerCell.m; sourceTree = "<group>"; };
+		92C0C38D206A1F89005E3170 /* StyleResultViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleResultViewControllerCell.h; sourceTree = "<group>"; };
+		92C0C38E206A1F89005E3170 /* StyleResultViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleResultViewControllerCell.m; sourceTree = "<group>"; };
 		92C0C38F206A1F89005E3170 /* StyleResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleResultViewController.m; sourceTree = "<group>"; };
 		92C0C392206A392D005E3170 /* GFLeftBasicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFLeftBasicController.m; sourceTree = "<group>"; };
 		92C0C393206A392E005E3170 /* GFLeftBasicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFLeftBasicController.h; sourceTree = "<group>"; };
@@ -348,13 +348,13 @@
 			path = GFSlide;
 			sourceTree = "<group>";
 		};
-		92C0C38C206A1F89005E3170 /* GFMyLogViewControllerCell */ = {
+		92C0C38C206A1F89005E3170 /* StyleResultViewController */ = {
 			isa = PBXGroup;
 			children = (
-				92C0C38D206A1F89005E3170 /* GFMyLogViewControllerCell.h */,
-				92C0C38E206A1F89005E3170 /* GFMyLogViewControllerCell.m */,
+				92C0C38D206A1F89005E3170 /* StyleResultViewControllerCell.h */,
+				92C0C38E206A1F89005E3170 /* StyleResultViewControllerCell.m */,
 			);
-			path = GFMyLogViewControllerCell;
+			path = StyleResultViewController;
 			sourceTree = "<group>";
 		};
 		92E0E95E2068825B00DB2172 /* CCCycleScrollView */ = {
@@ -371,7 +371,7 @@
 			children = (
 				92C0C38B206A1F89005E3170 /* StyleResultViewController.h */,
 				92C0C38F206A1F89005E3170 /* StyleResultViewController.m */,
-				92C0C38C206A1F89005E3170 /* GFMyLogViewControllerCell */,
+				92C0C38C206A1F89005E3170 /* StyleResultViewController */,
 				92F168E820694A0C0001CBAD /* StyleTableController.h */,
 				92F168E920694A0C0001CBAD /* StyleTableController.m */,
 			);
@@ -603,10 +603,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GFTrademarkQueryAPP/Pods-GFTrademarkQueryAPP-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,7 +717,7 @@
 				926AE9162064E9F400FDA8C2 /* LeftView.m in Sources */,
 				92F168E7206948BE0001CBAD /* UpdateController.m in Sources */,
 				926AE9252064EA0300FDA8C2 /* GFNavController.m in Sources */,
-				92C0C390206A1F8A005E3170 /* GFMyLogViewControllerCell.m in Sources */,
+				92C0C390206A1F8A005E3170 /* StyleResultViewControllerCell.m in Sources */,
 				926AE90A2064E9F400FDA8C2 /* UILabel+GFLabel.m in Sources */,
 				926AE9092064E9F400FDA8C2 /* UIView+GF_Frame.m in Sources */,
 				926AE9112064E9F400FDA8C2 /* GFLeftController.m in Sources */,

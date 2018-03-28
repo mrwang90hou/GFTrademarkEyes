@@ -21,3 +21,4 @@ end
 pod 'Masonry'
 pod 'MBProgressHUD'
 pod 'SVProgressHUD'
+pod 'MJRefresh'
