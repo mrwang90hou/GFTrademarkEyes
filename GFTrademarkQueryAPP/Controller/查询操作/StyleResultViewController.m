@@ -277,7 +277,6 @@
         cardStartToStop = @"商品中文";
         cardTime = @"商品英文";
     } else {
-
         GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
         //cardNumber = [NSString stringWithFormat:@"%ld",indexPath.row];
         cardNumber = tradeVo.range_first_id;

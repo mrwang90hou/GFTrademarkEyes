@@ -46,9 +46,7 @@
 - (void)initData {
     _mSecondDatas = [NSMutableArray new];
     for (NSInteger i = 0; i<1; i++) {
-
             [_mSecondDatas addObject:@"NO"];
-
         }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"正在载入数据";
@@ -59,7 +57,7 @@
     _mDataVos.imageCode = @"全选";
     _mDataVos.imageDesc = @"";
     NSLog(@"执行数据库操作后");
-    
+    //隐藏动画
     [hud hide:YES];
     [self initView];
 }
@@ -79,11 +77,11 @@
         make.left.equalTo(self.view);
         make.top.equalTo(self.view);
     }];
-    
+//
 //    // 删除按钮
 //    UIButton *deleteBtn = [[UIButton alloc] init];
 //    [searchView addSubview:deleteBtn];
-//    [deleteBtn setTitle:NSNewLocalizedString(@"image_code_delete", nil) forState:UIControlStateNormal];
+//    [deleteBtn setTitle:NSNewLocalizedString(@"删除", nil) forState:UIControlStateNormal];
 //    [deleteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //    [deleteBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
 //    [deleteBtn setBackgroundImage:[UIImage imageNamed:@"bg_blue"] forState:UIControlStateNormal];
@@ -94,7 +92,7 @@
 //        make.right.equalTo(searchView).with.offset(-10);
 //        make.centerY.equalTo(searchView);
 //    }];
-    
+//    
     // 查找按钮
     UIButton *searchBtn = [[UIButton alloc] init];
     [searchView addSubview:searchBtn];
@@ -116,8 +114,12 @@
     
     // 输入框
     _mSearchText = [[UITextField alloc] init];
+    _mSearchText.clearButtonMode = UITextFieldViewModeWhileEditing;     // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
+    [_mSearchText setTextAlignment:NSTextAlignmentCenter];
     [searchView addSubview:_mSearchText];
     [_mSearchText setFont:[UIFont systemFontOfSize:14]];
+    //_mSearchText.returnKeyType = UIReturnKeySearch;
+    [_mSearchText setReturnKeyType:UIReturnKeyGo];
     [_mSearchText setDelegate:self];
     [_mSearchText.layer setBorderWidth:1];
     [_mSearchText.layer setBorderColor:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1].CGColor];
@@ -127,7 +129,6 @@
         make.right.equalTo(searchBtn.mas_left).with.offset(-5);
         make.centerY.equalTo(searchBtn);
     }];
-    
     // 底部提交按钮
     _confirmBtn = [[UIButton alloc] init];
     [self.view addSubview:_confirmBtn];
@@ -135,7 +136,7 @@
     [_confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_confirmBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [_confirmBtn setBackgroundImage:[UIImage imageNamed:@"bg_blue"] forState:UIControlStateNormal];
-    [_confirmBtn addTarget:self action:@selector(clickConfirm) forControlEvents:UIControlEventTouchUpInside];
+    //[_confirmBtn addTarget:self action:@selector(clickConfirm) forControlEvents:UIControlEventTouchUpInside];
     [_confirmBtn.layer setMasksToBounds:YES];
     [_confirmBtn.layer setCornerRadius:3];
     [_confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -144,6 +145,7 @@
         make.right.equalTo(self.view).with.offset(-10);
         make.bottom.equalTo(self.view).with.offset(-5);
     }];
+    [_confirmBtn setHidden:true];
     
     // 数据列表
     _mTreeView = [[RATreeView alloc] init];
@@ -158,7 +160,7 @@
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(searchView.mas_bottom).with.offset(5);
-        make.bottom.equalTo(_confirmBtn.mas_top).with.offset(-5);
+        make.bottom.equalTo(_confirmBtn.mas_bottom).with.offset(0);
     }];
     
     // 搜索列表
@@ -173,7 +175,7 @@
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(searchView.mas_bottom).with.offset(5);
-        make.bottom.equalTo(_confirmBtn.mas_top).with.offset(-5);
+        make.bottom.equalTo(_confirmBtn.mas_bottom);
     }];
     [_mTableView setHidden:YES];
 }
@@ -238,7 +240,7 @@
         }
     }
     
-    // 背景设定，第一级，第二级背景为白色，第三级背景为淡蓝色
+    // 背景设定，第一级背景为白色，第二级背景为淡蓝色，第三级背景为蓝色
     UIView *background = [[UIView alloc] init];
     [cell.contentView addSubview:background];
     if (itemData.parentImageCodeVo && itemData.parentImageCodeVo.parentImageCodeVo) {
@@ -277,19 +279,19 @@
     } else {
         leftOffset = 30;
     }
-    NSString *imageName;
-    if (itemData.isCheck) {
-        imageName = @"ic_check_yes";
-    } else {
-        imageName = @"ic_check_no";
-    }
-   
-    GFButton *checkBtn = [[GFButton alloc] init];
-    [cell.contentView addSubview:checkBtn];
-    [checkBtn setIsNormal:YES];
-    [checkBtn setMObject:itemData];
-    [checkBtn setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [checkBtn addTarget:self action:@selector(clickCheckButton:) forControlEvents:UIControlEventTouchUpInside];
+//    NSString *imageName;
+//    if (itemData.isCheck) {
+//        imageName = @"ic_check_yes";
+//    } else {
+//        imageName = @"ic_check_no";
+//    }
+//    //选择按钮
+//    GFButton *checkBtn = [[GFButton alloc] init];
+//    [cell.contentView addSubview:checkBtn];
+//    [checkBtn setIsNormal:YES];
+//    [checkBtn setMObject:itemData];
+//    [checkBtn setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    //[checkBtn addTarget:self action:@selector(clickCheckButton:) forControlEvents:UIControlEventTouchUpInside];
 //    [checkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.width.mas_equalTo(25);
 //        make.height.mas_equalTo(25);
@@ -297,7 +299,6 @@
 //        make.left.equalTo(cell.contentView).with.offset(leftOffset);
 //    }];
     
-
     // 标号Label
     CGFloat widthSize;
     if (!itemData.parentImageCodeVo) {
@@ -318,6 +319,7 @@
     [idLabel setNumberOfLines:2];
     [idLabel setFont:[UIFont systemFontOfSize:14]];
     [idLabel setText:[NSString stringWithFormat:@"%@  %@", itemData.imageCode, itemData.imageDesc]];
+    
     if (itemData.childrenVos.count != 0) {
 
         [idLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -328,15 +330,15 @@
         
     } else {
         
-        [checkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(25);
-            make.height.mas_equalTo(25);
-            make.centerY.equalTo(cell.contentView);
-            make.left.equalTo(cell.contentView).with.offset(leftOffset);
-        }];
+//        [checkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.width.mas_equalTo(25);
+//            make.height.mas_equalTo(25);
+//            make.centerY.equalTo(cell.contentView);
+//            make.left.equalTo(cell.contentView).with.offset(leftOffset);
+//        }];
         
         [idLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(checkBtn.mas_right).with.offset(10);
+            make.left.equalTo(cell.contentView.mas_left).with.offset(widthSize);
             make.right.equalTo(cell.contentView).with.offset(rightOffset);
             make.centerY.equalTo(cell.contentView);
         }];
@@ -400,52 +402,53 @@
         [_mTreeView.tableView setContentOffset:offsetSize animated:YES];
     }
 }
-
-// 点击checkBox
-- (void)clickCheckButton:(GFButton *)fgBtn {
-    GFImageCodeVo *itemData = fgBtn.mObject;
-    itemData.isCheck = !itemData.isCheck;
-    
-    if (itemData.isCheck) {
-        // 其子节点均需要选择
-        for (GFImageCodeVo *firstVo in itemData.childrenVos) {
-            firstVo.isCheck = YES;
-            for (GFImageCodeVo *secondVo in firstVo.childrenVos) {
-                secondVo.isCheck = YES;
-                for (GFImageCodeVo *thirdVo in secondVo.childrenVos) {
-                    thirdVo.isCheck = YES;
-                }
-            }
-        }
-    } else {
-        // 其父节点均需要取消选择
-        _mDataVos.isCheck = NO;
-        if (itemData.parentImageCodeVo) {
-            itemData.parentImageCodeVo.isCheck = NO;
-            if (itemData.parentImageCodeVo.parentImageCodeVo) {
-                itemData.parentImageCodeVo.parentImageCodeVo.isCheck = NO;
-            }
-        }
-        
-        // 其子节点均需要取消选择
-        for (GFImageCodeVo *firstVo in itemData.childrenVos) {
-            firstVo.isCheck = NO;
-            for (GFImageCodeVo *secondVo in firstVo.childrenVos) {
-                secondVo.isCheck = NO;
-                for (GFImageCodeVo *thirdVo in secondVo.childrenVos) {
-                    thirdVo.isCheck = NO;
-                }
-            }
-        }
-    }
-    
-    CGPoint offsetSize = _mTreeView.tableView.contentOffset;
-    [_mTreeView reloadRows];
-    [_mTreeView.tableView setContentOffset:offsetSize animated:YES];
-}
+//
+//// 点击checkBox
+//- (void)clickCheckButton:(GFButton *)fgBtn {
+//    GFImageCodeVo *itemData = fgBtn.mObject;
+//    itemData.isCheck = !itemData.isCheck;
+//
+//    if (itemData.isCheck) {
+//        // 其子节点均需要选择
+//        for (GFImageCodeVo *firstVo in itemData.childrenVos) {
+//            firstVo.isCheck = YES;
+//            for (GFImageCodeVo *secondVo in firstVo.childrenVos) {
+//                secondVo.isCheck = YES;
+//                for (GFImageCodeVo *thirdVo in secondVo.childrenVos) {
+//                    thirdVo.isCheck = YES;
+//                }
+//            }
+//        }
+//    } else {
+//        // 其父节点均需要取消选择
+//        _mDataVos.isCheck = NO;
+//        if (itemData.parentImageCodeVo) {
+//            itemData.parentImageCodeVo.isCheck = NO;
+//            if (itemData.parentImageCodeVo.parentImageCodeVo) {
+//                itemData.parentImageCodeVo.parentImageCodeVo.isCheck = NO;
+//            }
+//        }
+//
+//        // 其子节点均需要取消选择
+//        for (GFImageCodeVo *firstVo in itemData.childrenVos) {
+//            firstVo.isCheck = NO;
+//            for (GFImageCodeVo *secondVo in firstVo.childrenVos) {
+//                secondVo.isCheck = NO;
+//                for (GFImageCodeVo *thirdVo in secondVo.childrenVos) {
+//                    thirdVo.isCheck = NO;
+//                }
+//            }
+//        }
+//    }
+//
+//    CGPoint offsetSize = _mTreeView.tableView.contentOffset;
+//    [_mTreeView reloadRows];
+//    [_mTreeView.tableView setContentOffset:offsetSize animated:YES];
+//}
 
 // 输入的回车键键
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self clickSearch];
     [self hideInput];
     return YES;
 }
@@ -492,21 +495,22 @@
         make.centerY.equalTo(cell.contentView);
         make.left.equalTo(cell.contentView).with.offset(8);
     }];
-
-    //没有数据显示的查询结果
-    if (indexPath.row == 0) {
-        
-        checkBtn.hidden = YES;
-        
-    }
-    
+    checkBtn.hidden = YES;//隐藏选择按钮
+//    //没有数据显示的查询结果
+//    if (indexPath.row == 0) {
+//
+//        checkBtn.hidden = YES;
+//
+//    }
     UILabel *imageCode = [[UILabel alloc] init];
     [cell.contentView addSubview:imageCode];
     [imageCode setText:@"图形要素"];
+    [imageCode setTextAlignment:NSTextAlignmentCenter];
     [imageCode setFont:[UIFont systemFontOfSize:14]];
+    //[imageCode setTextColor:[UIColor colorWithRed:243.0/255 green:249.0/255 blue:255.0/255 alpha:1]];
     [imageCode mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(60);
-        make.left.equalTo(checkBtn.mas_right).with.offset(8);
+        make.left.equalTo(cell.contentView.mas_left).with.offset(8);
         make.centerY.equalTo(cell.contentView);
     }];
     
@@ -523,7 +527,9 @@
     UILabel *imageDesc = [[UILabel alloc] init];
     [cell.contentView addSubview:imageDesc];
     [imageDesc setText:@"图形描述"];
+    [imageDesc setTextAlignment:NSTextAlignmentCenter];
     [imageDesc setFont:[UIFont systemFontOfSize:14]];
+    //[imageDesc setTextColor:[UIColor colorWithRed:243.0/255 green:249.0/255 blue:255.0/255 alpha:1]];
     [imageDesc setNumberOfLines:2];
     [imageDesc setTextAlignment:NSTextAlignmentCenter];
     [imageDesc mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -601,7 +607,6 @@
 }
 
 #pragma mark =====事件响应=====
-
 /**
  *  点击查找按钮
  */
@@ -631,7 +636,6 @@
  */
 - (void)clickDelete {
     [self hideInput];
-    
     [_mSearchText setText:@""];
     [_mTableView setHidden:YES];
     [_mTreeView setHidden:NO];
@@ -641,79 +645,79 @@
 /**
  *  点击提交按钮
  */
-- (void)clickConfirm {
-    
-    //个数限制
-    NSInteger number = 0;
-    
-    //数据拼接
-    NSString *resultString = @"";
-    if (_mTableView.hidden == YES) {
-        
-        for (GFImageCodeVo *firstVo in _mDataVos.childrenVos) {
-            for (GFImageCodeVo *secondVo in firstVo.childrenVos) {
-                if (!secondVo.childrenVos || secondVo.childrenVos.count == 0) {
-                    if (secondVo.isCheck) {
-                        resultString = [NSString stringWithFormat:@"%@;%@", resultString, secondVo.imageCode];
-                        number += 1;
-                    }
-                } else {
-                    for (GFImageCodeVo *thirdVo in secondVo.childrenVos) {
-                        if (thirdVo.isCheck) {
-                            resultString = [NSString stringWithFormat:@"%@;%@", resultString, thirdVo.imageCode];
-                            number += 1;
-                        }
-                    }
-                }
-            }
-        }
-
-    } else {
-        
-        if (_mSearchDatas.count != 0) {
-
-                
-            if ([_mSecondDatas[0] isEqualToString:@"YES"]) {
-                
-                for (NSInteger i = 0; i<_mSecondDatas.count - 1 ; i++) {
-                    
-                    GFImageCodeVo *data = [_mSearchDatas objectAtIndex:i];
-                    resultString = [NSString stringWithFormat:@"%@;%@", resultString, data.imageCode];
-                    number += 1;
-                }
-                
-            } else {
-                
-                for (NSInteger i = 0; i<_mSearchDatas.count ; i++) {
-                    
-                    if ([_mSecondDatas[i+1] isEqualToString:@"YES"]) {
-                        
-                        GFImageCodeVo *data = [_mSearchDatas objectAtIndex:i];
-                        
-                        resultString = [NSString stringWithFormat:@"%@;%@", resultString, data.imageCode];
-                        number += 1;
-                    }
-                }
-            }
-        }
-        
-    }
-    
-    if (number > 5) {
-        [self showNoticeHudWithTitle:@"查询上限为5个" subtitle:@"查询上限为5个" onView:self.navigationController.view inDuration:2];
-        return;
-    }
-    
-    
-    if (![resultString isEqualToString:@""]) {
-        
-        [_dataResultDelegate imageCodeResultData:[resultString substringFromIndex:1]];
-    } else {
-        
-        [_dataResultDelegate imageCodeResultData:resultString];
-    }
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)clickConfirm {
+//
+//    //个数限制
+//    NSInteger number = 0;
+//
+//    //数据拼接
+//    NSString *resultString = @"";
+//    if (_mTableView.hidden == YES) {
+//
+//        for (GFImageCodeVo *firstVo in _mDataVos.childrenVos) {
+//            for (GFImageCodeVo *secondVo in firstVo.childrenVos) {
+//                if (!secondVo.childrenVos || secondVo.childrenVos.count == 0) {
+//                    if (secondVo.isCheck) {
+//                        resultString = [NSString stringWithFormat:@"%@;%@", resultString, secondVo.imageCode];
+//                        number += 1;
+//                    }
+//                } else {
+//                    for (GFImageCodeVo *thirdVo in secondVo.childrenVos) {
+//                        if (thirdVo.isCheck) {
+//                            resultString = [NSString stringWithFormat:@"%@;%@", resultString, thirdVo.imageCode];
+//                            number += 1;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//    } else {
+//
+//        if (_mSearchDatas.count != 0) {
+//
+//
+//            if ([_mSecondDatas[0] isEqualToString:@"YES"]) {
+//
+//                for (NSInteger i = 0; i<_mSecondDatas.count - 1 ; i++) {
+//
+//                    GFImageCodeVo *data = [_mSearchDatas objectAtIndex:i];
+//                    resultString = [NSString stringWithFormat:@"%@;%@", resultString, data.imageCode];
+//                    number += 1;
+//                }
+//
+//            } else {
+//
+//                for (NSInteger i = 0; i<_mSearchDatas.count ; i++) {
+//
+//                    if ([_mSecondDatas[i+1] isEqualToString:@"YES"]) {
+//
+//                        GFImageCodeVo *data = [_mSearchDatas objectAtIndex:i];
+//
+//                        resultString = [NSString stringWithFormat:@"%@;%@", resultString, data.imageCode];
+//                        number += 1;
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
+//
+//    if (number > 5) {
+//        [self showNoticeHudWithTitle:@"查询上限为5个" subtitle:@"查询上限为5个" onView:self.navigationController.view inDuration:2];
+//        return;
+//    }
+//
+//
+//    if (![resultString isEqualToString:@""]) {
+//
+//        [_dataResultDelegate imageCodeResultData:[resultString substringFromIndex:1]];
+//    } else {
+//
+//        [_dataResultDelegate imageCodeResultData:resultString];
+//    }
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 #pragma mark =====普通方法=====
 

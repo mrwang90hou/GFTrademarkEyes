@@ -68,7 +68,7 @@
     [_style_btn setImage:[UIImage imageNamed:@"商品分类_bule"] forState:UIControlStateNormal];
     [self.view addSubview:_style_btn];
     [_style_btn addTarget:self action:@selector(clickChooseRange) forControlEvents:UIControlEventTouchUpInside];
-    [_style_btn setHidden:true];
+    //[_style_btn setHidden:true];
     //商标图形要素按钮figure_btn
     _figure_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
     [_figure_btn setImage:[UIImage imageNamed:@"元素_bule"] forState:UIControlStateNormal];
@@ -81,13 +81,13 @@
     [self.view addSubview:_reject_btn];
     [_reject_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
     [_reject_btn setHidden:true];
-    
-    //total_btn
-    _total_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
-    [_total_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
-    [self.view addSubview:_total_btn];
-    [_total_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
-    [_total_btn setHidden:true];
+//
+//    //total_btn
+//    _total_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
+//    [_total_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
+//    [self.view addSubview:_total_btn];
+//    [_total_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
+//    [_total_btn setHidden:true];
     
     UIButton *left_view_btn = [[UIButton alloc] initWithFrame:CGRectMake(3, 22, 40, 40)];
     [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
@@ -101,8 +101,8 @@
 #pragma mark 加载数据
 -(void)loadData {
     //需要展示的数据以数组的形式保存
-    self.selection = @[@"商标查询",@"商品分类查询",@"商标图形要素",@"商标驳回查询"];
-    self.number = @[@"111",@"222",@"333",@"444"];
+    self.selection = @[@"商品分类查询",@"商标图形要素",@"商标驳回查询"];//@"商标查询",
+    //self.number = @[@"111",@"222",@"333",@"444"];
 }
 
 #pragma mark UIPickerView DataSource Method
@@ -144,24 +144,25 @@
 //选择事件
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     switch (row) {
+//        case 0:
+//            _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
+//            _style_btn.hidden = true;
+//            _figure_btn.hidden = true;
+//            _reject_btn.hidden = true;
+//            break;
         case 0:
-            _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
-            _style_btn.hidden = true;
-            _figure_btn.hidden = true;
-            _reject_btn.hidden = true;
-            break;
-        case 1:
             _text_input.placeholder  = @"请输入类似群、商品中/英文";
             _style_btn.hidden = false;
             _figure_btn.hidden = true;
             _reject_btn.hidden = true;
             break;
-        case 2:
+        case 1:
             _text_input.placeholder  = @"请输入图形要素名称";
             _style_btn.hidden = true;
             _figure_btn.hidden = false;
             _reject_btn.hidden = true;
-        case 3:
+            break;
+        case 2:
             _text_input.placeholder  = @"请输入注册人/国家/城市/代理机构";
             _style_btn.hidden = true;
             _figure_btn.hidden = true;
@@ -170,15 +171,12 @@
         default:
             break;
     }
-    //return title;
 }
-
 
 -(void)setupView{
     //设计查询操作
     UIView *adView = [UIView new];
     [self.view addSubview:adView];
-    
     [adView setHidden:true];
     //[adView setBackgroundColor:[UIColor greenColor]];
     [adView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -217,6 +215,7 @@
     //查询输入框
     _text_input = [[UITextField alloc]init];
     [self.view addSubview:_text_input];
+    [_text_input setReturnKeyType:UIReturnKeyGo];
     [_text_input mas_updateConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.view).with.offset(10);//左侧
         make.trailing.equalTo(self.view).with.offset(-90);//右侧
@@ -230,11 +229,12 @@
     UIImageView *search_btn = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_search_normal"]];
     _text_input.clearButtonMode = UITextFieldViewModeWhileEditing;     // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
     //_text_input.keyboardType = UIKeyboardTypeASCIICapable;        //限制英文输入
-    _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
+    _text_input.placeholder = @"请输入类似群、商品中/英文";
     //[_text_input setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_text_input setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     _text_input.delegate = self;
     _text_input.backgroundColor = [UIColor whiteColor];
+    [_text_input setTextAlignment:NSTextAlignmentCenter];
     _text_input.leftView = search_btn;
     _text_input.leftViewMode = UITextFieldViewModeAlways;
     _text_input.layer.masksToBounds = YES;
@@ -297,9 +297,8 @@
 //查询事件
 -(void)inquire{
     [SVProgressHUD showSuccessWithStatus:@"点击了查询按钮！"];
+    [self hideInput];
     if (_text_input!=nil) {
-        
-        
 //        //方式一
 //        _nextVC = [[StyleResultViewController alloc]init];
 //        UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:_nextVC];
@@ -309,8 +308,6 @@
 //        //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
 //        //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
 //        [self presentViewController:nView animated:YES completion:nil];
-//
-//
         //方式二
         StyleResultViewController *advanceSearch = [[StyleResultViewController alloc] init];
         //当被推时，设置隐藏底部栏。
@@ -335,7 +332,6 @@
 -(void)openTable{
     [_style_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
     [SVProgressHUD showSuccessWithStatus:@"打开商品分类表！"];
-    
 //
 //    _nextVC = [[StyleTableController alloc]init];
 ////
@@ -347,15 +343,11 @@
 //    //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
 //    [self presentViewController:nView animated:YES completion:nil];
 //
-    
-    
-    
   // 跳转方式二
     StyleTableController *advanceSearch = [[StyleTableController alloc] init];
     //当被推时，设置隐藏底部栏。
     [advanceSearch setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:advanceSearch animated:YES];
-    
 }
 /**
  *  跳转至商品范围选择
@@ -375,13 +367,17 @@
     [imageCode setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:imageCode animated:YES];
 }
-
-
-
-
 // 输入的回车键键
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField endEditing:YES];
+    [self hideInput];
+    if (![_text_input.text isEqualToString:@""]) {
+        [self inquire];
+    }
     return YES;
+}
+
+// 隐藏键盘
+- (void)hideInput {
+    [_text_input endEditing:YES];
 }
 @end
