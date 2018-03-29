@@ -22,6 +22,9 @@
 @property (nonatomic,strong)UIPickerView * pickerView;
 @property (nonatomic,strong)UIButton * style_btn;//商品分类表按钮
 @property (nonatomic,strong)UIButton * figure_btn;//商标图形要素按钮
+@property (nonatomic,strong)UIButton * reject_btn;//商标驳回查询按钮
+@property (nonatomic,strong)UIButton * total_btn;
+
 @property (nonatomic,strong)NSArray * selection;//选项
 @property (nonatomic,strong)NSArray * number;//保存数字
 
@@ -62,23 +65,29 @@
     self.pickerView.dataSource = self;
     //商品分类表按钮
     _style_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
-    [_style_btn setImage:[UIImage imageNamed:@"商品分类表"] forState:UIControlStateNormal];
+    [_style_btn setImage:[UIImage imageNamed:@"商品分类_bule"] forState:UIControlStateNormal];
     [self.view addSubview:_style_btn];
     [_style_btn addTarget:self action:@selector(clickChooseRange) forControlEvents:UIControlEventTouchUpInside];
     [_style_btn setHidden:true];
-    
-    
     //商标图形要素按钮figure_btn
     _figure_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
-    [_figure_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
+    [_figure_btn setImage:[UIImage imageNamed:@"元素_bule"] forState:UIControlStateNormal];
     [self.view addSubview:_figure_btn];
     [_figure_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
     [_figure_btn setHidden:true];
+    //商标驳回查询按钮reject_btn
+    _reject_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
+    [_reject_btn setImage:[UIImage imageNamed:@"驳回_bule"] forState:UIControlStateNormal];
+    [self.view addSubview:_reject_btn];
+    [_reject_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
+    [_reject_btn setHidden:true];
     
-    
-    
-    
-    
+    //total_btn
+    _total_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
+    [_total_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
+    [self.view addSubview:_total_btn];
+    [_total_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
+    [_total_btn setHidden:true];
     
     UIButton *left_view_btn = [[UIButton alloc] initWithFrame:CGRectMake(3, 22, 40, 40)];
     [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
@@ -92,7 +101,7 @@
 #pragma mark 加载数据
 -(void)loadData {
     //需要展示的数据以数组的形式保存
-    self.selection = @[@"商标查询",@"商标驳回查询",@"商品分类查询",@"商标图形要素"];
+    self.selection = @[@"商标查询",@"商品分类查询",@"商标图形要素",@"商标驳回查询"];
     self.number = @[@"111",@"222",@"333",@"444"];
 }
 
@@ -139,22 +148,25 @@
             _text_input.placeholder = @"请输入您要查询的商标名称或者申请号";
             _style_btn.hidden = true;
             _figure_btn.hidden = true;
+            _reject_btn.hidden = true;
             break;
         case 1:
-            _text_input.placeholder  = @"请输入注册人/国家/城市/代理机构";
-            _style_btn.hidden = true;
-            _figure_btn.hidden = true;
-            break;
-        case 2:
             _text_input.placeholder  = @"请输入类似群、商品中/英文";
             _style_btn.hidden = false;
             _figure_btn.hidden = true;
+            _reject_btn.hidden = true;
             break;
-        case 3:
+        case 2:
             _text_input.placeholder  = @"请输入图形要素名称";
             _style_btn.hidden = true;
             _figure_btn.hidden = false;
-            
+            _reject_btn.hidden = true;
+        case 3:
+            _text_input.placeholder  = @"请输入注册人/国家/城市/代理机构";
+            _style_btn.hidden = true;
+            _figure_btn.hidden = true;
+            _reject_btn.hidden = false;
+            break;
         default:
             break;
     }

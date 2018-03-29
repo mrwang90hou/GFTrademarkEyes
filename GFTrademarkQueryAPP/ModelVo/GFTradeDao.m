@@ -27,9 +27,10 @@
 
     NSMutableArray *dataArray = [NSMutableArray new]; //用来盛放数据的value
 
-    NSDictionary *dic = @{@"addTime":@"2019",@"equipmentCode":@"主设备",@"describe":@"登录"};
-    NSDictionary *dic1 = @{@"addTime":@"2018",@"equipmentCode":@"副设备",@"describe":@"注销"};
-    NSDictionary *dic2 = @{@"addTime":@"2017",@"equipmentCode":@"主设备",@"describe":@"查询"};
+    NSDictionary *dic = @{@"range_first_id":@"21",@"range_second_id":@"2114",@"range_third_name":@"人造留窝鸡蛋",@"range_third_name_en":@"nest eggs, artificial"};
+    NSDictionary *dic1 = @{@"range_first_id":@"05",@"range_second_id":@"0501",@"range_third_name":@"人工授精用精液",@"range_third_name_en":@"semen for artificial insemination"};
+    NSDictionary *dic2 = @{@"range_first_id":@"01",@"range_second_id":@"0108",@"range_third_name":@"未加工人造树脂",@"range_third_name_en":@"artificial resins, unprocessed"};
+    NSDictionary *dic3 = @{@"range_first_id":@"01",@"range_second_id":@"0109",@"range_third_name":@"粉末、液体或膏状的未加工人造树脂原材料",@"range_third_name_en":@""};
 
     [dataArray addObjectsFromArray:@[dic,dic1,dic2]];
 
@@ -38,10 +39,11 @@
 
         GFTradeVo *vo = [GFTradeVo new];
 
-        vo.addTime = info[@"addTime"];
-        vo.equipmentCode = info[@"equipmentCode"];
-        vo.describe = info[@"describe"];
-
+        vo.range_first_id = info[@"range_first_id"];
+        vo.range_second_id = info[@"range_second_id"];
+        vo.range_third_name = info[@"range_third_name"];
+        vo.range_third_name_en = info[@"range_third_name_en"];
+        
         [dataVo addObject:vo];
 
         //NSLog(@"%@",info);

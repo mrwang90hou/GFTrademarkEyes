@@ -45,11 +45,11 @@
 @property (nonatomic, strong) NSString *attachedCardCount;
 @property (nonatomic, strong) NSString *orderID;
 
-//操作日志
-@property (nonatomic, strong) NSString *addTime;
-@property (nonatomic, strong) NSString *equipmentCode;
-@property (nonatomic, strong) NSString *describe;
-
+//商品分类表
+@property (nonatomic, strong) NSString *range_first_id;
+@property (nonatomic, strong) NSString *range_second_id;
+@property (nonatomic, strong) NSString *range_third_name;
+@property (nonatomic, strong) NSString *range_third_name_en;
 //网上服务 - 事宜
 @property (nonatomic, strong) NSNumber *onlineId;
 @property (nonatomic, strong) NSNumber *onlineGrade;

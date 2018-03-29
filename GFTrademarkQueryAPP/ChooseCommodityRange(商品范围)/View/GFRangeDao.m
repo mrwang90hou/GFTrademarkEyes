@@ -20,6 +20,8 @@
     if ([database open]) {
         NSLog(@"打开数据库成功");
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM table_range_second WHERE range_first_id LIKE '%%%@%%' AND range_second_id LIKE '%%%@%%'", firstID, secondID];
+        NSLog(@"%%%@%%",firstID);
+        NSLog(@"%%%@%%",secondID);
         FMResultSet *fmResultSet = [database executeQuery:sql];
         while ([fmResultSet next]) {
             GFRangeVo *rangeVo = [[GFRangeVo alloc] init];
@@ -57,6 +59,7 @@
     FMDatabase *database = [[FMDatabase alloc] initWithPath:[self getRangeDBPath]];
     if ([database open]) {
         NSLog(@"打开数据库成功");
+        NSLog(@"%%%@%%",name);
         NSString *sql = [NSString stringWithFormat:@"SELECT range_first_id, range_second_id, range_third_name FROM table_range_third WHERE range_third_name LIKE '%%%@%%'", name];
         FMResultSet *fmResultSet = [database executeQuery:sql];
         while ([fmResultSet next]) {

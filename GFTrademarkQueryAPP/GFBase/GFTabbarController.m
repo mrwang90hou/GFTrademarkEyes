@@ -152,9 +152,9 @@
 //    GFMyViewController *mineVC = [GFMyViewController new];
 //    UINavigationController *mineNav = [[UINavigationController alloc]initWithRootViewController:mineVC];
     
-    UITabBarItem *recognizeItem = [[UITabBarItem alloc]initWithTitle:@"商标识别" image:[UIImage imageNamed:@"ic_recognition_normal"] selectedImage:[UIImage imageNamed:@"ic_recognition_pressed"]];
+    UITabBarItem *recognizeItem = [[UITabBarItem alloc]initWithTitle:@"商标查询" image:[UIImage imageNamed:@"ic_recognition_normal"] selectedImage:[UIImage imageNamed:@"ic_recognition_pressed"]];
     
-    UITabBarItem *searchItem = [[UITabBarItem alloc]initWithTitle:@"商标查询" image:[UIImage imageNamed:@"ic_search_normal"] selectedImage:[UIImage imageNamed:@"ic_search_pressed"]];
+    UITabBarItem *searchItem = [[UITabBarItem alloc]initWithTitle:@"商标服务" image:[UIImage imageNamed:@"ic_web_services_normal"] selectedImage:[UIImage imageNamed:@"ic_web_services_presse"]];
     
 //    UITabBarItem *serviceItem = [[UITabBarItem alloc]initWithTitle:@"商标服务" image:[UIImage imageNamed:@"ic_web_services_normal"] selectedImage:[UIImage imageNamed:@"ic_web_services_presse"]];
 //
@@ -166,8 +166,8 @@
 //    mineVC.tabBarItem = mineItem;
     self.viewControllers = @[ recognitionNavigation, searchNav];
     //test
-    recognitionVC.title =  NSNewLocalizedString(@"recognition_home_title", nil);
-    searchVC.title = NSNewLocalizedString(@"trademark_search", nil);
+//    recognitionVC.title =  NSNewLocalizedString(@"recognition_home_title", nil);
+//    searchVC.title = NSNewLocalizedString(@"trademark_search", nil);
 //    serviceVC.title = NSNewLocalizedString(@"web_service_title", nil);
 //    mineVC.title = NSNewLocalizedString(@"my_title", nil);
 //

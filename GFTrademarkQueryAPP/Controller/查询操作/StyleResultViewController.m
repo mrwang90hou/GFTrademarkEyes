@@ -279,10 +279,11 @@
     } else {
 
         GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
-        cardNumber = [NSString stringWithFormat:@"%ld",indexPath.row];
-        cardState = tradeVo.addTime;
-        cardStartToStop = tradeVo.equipmentCode;
-        cardTime = tradeVo.describe;
+        //cardNumber = [NSString stringWithFormat:@"%ld",indexPath.row];
+        cardNumber = tradeVo.range_first_id;
+        cardState = tradeVo.range_second_id;
+        cardStartToStop = tradeVo.range_third_name;
+        cardTime = tradeVo.range_third_name_en;
     }
 
     [cell.equipmentNumber sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardNumber mark:1];
