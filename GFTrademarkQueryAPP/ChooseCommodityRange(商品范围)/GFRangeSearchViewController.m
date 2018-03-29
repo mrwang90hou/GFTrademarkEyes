@@ -183,9 +183,10 @@
     [_nameInput setFont:[UIFont systemFontOfSize:14]];
     [_nameInput setTextAlignment:NSTextAlignmentCenter];
     [_nameInput.layer setMasksToBounds:YES];
-    [_nameInput.layer setCornerRadius:2];
-    [_nameInput.layer setBorderWidth:1];
-    [_nameInput.layer setBorderColor:[UIColor colorWithRed:222.0/255 green:222.0/255 blue:222.0/255 alpha:1].CGColor];
+    [_nameInput.layer setBorderWidth:1.0f];
+    [_nameInput.layer setCornerRadius:4.0f];
+    [_nameInput.layer setBorderColor:[UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor];
+    //[_nameInput.layer setBorderColor:[UIColor colorWithRed:222.0/255 green:222.0/255 blue:222.0/255 alpha:1].CGColor];
     [_nameInput mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(35);
         make.top.equalTo(chooseKind.mas_bottom).with.offset(5);

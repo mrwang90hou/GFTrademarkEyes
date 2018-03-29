@@ -121,8 +121,10 @@
     //_mSearchText.returnKeyType = UIReturnKeySearch;
     [_mSearchText setReturnKeyType:UIReturnKeyGo];
     [_mSearchText setDelegate:self];
-    [_mSearchText.layer setBorderWidth:1];
-    [_mSearchText.layer setBorderColor:[UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1].CGColor];
+    
+    [_mSearchText.layer setBorderWidth:1.0f];
+    [_mSearchText.layer setCornerRadius:4.0f];
+    [_mSearchText.layer setBorderColor:[UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor];
     [_mSearchText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(35);
         make.left.equalTo(searchView).with.offset(10);
