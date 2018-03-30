@@ -181,24 +181,24 @@
         make.width.mas_equalTo(46.5);
     }];
     
-//    // 确认按钮
-//    UIButton *confirmButton = [[UIButton alloc] init];
-//    [_searchView addSubview:confirmButton];
-//    [confirmButton addTarget:self action:@selector(chooseEvent) forControlEvents:UIControlEventTouchUpInside];
-//    [confirmButton setBackgroundColor:[UIColor colorWithRed:41.0/255 green:134.0/255 blue:227.0/255 alpha:1]];
-//    [confirmButton setTitle:@"确定" forState:UIControlStateNormal];
-//    [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [confirmButton setTitleColor:[UIColor colorWithRed:106.0/255 green:175.0/255 blue:240.0/255 alpha:1] forState:UIControlStateHighlighted];
-//    [confirmButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
-//    [confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(searchButton.mas_right).with.offset(5);
-//        make.right.equalTo(_searchView).with.offset(-5);
-//        make.centerY.equalTo(_searchView);
-//        make.height.mas_equalTo(33);
-//        make.width.mas_equalTo(50);
-//        
-//    }];
-    
+/*     确认按钮
+    UIButton *confirmButton = [[UIButton alloc] init];
+    [_searchView addSubview:confirmButton];
+    [confirmButton addTarget:self action:@selector(chooseEvent) forControlEvents:UIControlEventTouchUpInside];
+    [confirmButton setBackgroundColor:[UIColor colorWithRed:41.0/255 green:134.0/255 blue:227.0/255 alpha:1]];
+    [confirmButton setTitle:@"确定" forState:UIControlStateNormal];
+    [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [confirmButton setTitleColor:[UIColor colorWithRed:106.0/255 green:175.0/255 blue:240.0/255 alpha:1] forState:UIControlStateHighlighted];
+    [confirmButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(searchButton.mas_right).with.offset(5);
+        make.right.equalTo(_searchView).with.offset(-5);
+        make.centerY.equalTo(_searchView);
+        make.height.mas_equalTo(33);
+        make.width.mas_equalTo(50);
+ 
+    }];
+ */
     
     // 搜索输入框约束
     [firstRangeInputButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -265,18 +265,18 @@
     [_treeView setDelegate:self];
     [_treeView setDataSource:self];
     [_treeView reloadData];
-    [_treeView setSeparatorStyle:RATreeViewCellSeparatorStyleNone];
+    [_treeView setSeparatorStyle:RATreeViewCellSeparatorStyleSingleLine];//设置分隔符风格
     [_treeView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"RangCell"];
     [_treeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(self.searchView.mas_bottom);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-44);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(0);
     }];
     
     //[self setButton:_treeView];
 }
-
+/*确定按钮的样式设计
 -(void)setButton:(RATreeView*)collectionView {
     
     //     配置样式
@@ -294,8 +294,10 @@
     }];
     
 }
+*/
 
 
+#pragma mark -树形列表代理
 // 树形列表代理，返回对应节点的数据
 - (id)treeView:(RATreeView *)treeView child:(NSInteger)index ofItem:(id)item{
     if (item == nil) {
@@ -319,7 +321,6 @@
                 }
             }
         }
-
         return [itemData objectAtIndex:index];
     }
 }
@@ -368,54 +369,51 @@
         return [self configureSectionCell:cell inItemData:[item objectAtIndex:0]];
     }
 }
-
+/*全选事件处理
 #pragma mark - 全选
 -(void)imageNameButton:(UIButton*)button {
-    
+
     NSLog(@"%@",button.titleLabel.text);
-    
-    
     NSString *imageNameBool = _buttonDic[button.titleLabel.text];
 //    NSString *str1 = [button.titleLabel.text stringByReplacingOccurrencesOfString:@"第" withString:@""];
 //    NSString *str2 = [str1 stringByReplacingOccurrencesOfString:@"类" withString:@""];
 //    //获取对应父类的所有子类
 //    _secondRangeData = [GFRangeDao searchDataByFirstID:str2 SecondID:@""];
-//    
-//    
+//
+//
 //    NSMutableArray* arrayData = [GFRangeDao searchDataByFirstID:str2 SecondID:@""];
 //    NSMutableArray* arrayData2 = _secondRangeData[0];
-//    
-    
+//
+
     if ([imageNameBool isEqualToString:@"YES"]) {
-        
+
         //父类打钩
         [_buttonDic setValue:@"NO" forKey:button.titleLabel.text];
     } else {
         //父类打钩
         [_buttonDic setValue:@"YES" forKey:button.titleLabel.text];
 //        if (isOnShow[[str2 integerValue]] == NO) {
-//        
+//
 //            [self treeView:_treeView didSelectRowForItem:arrayData[0]];
 //            [self treeView:_treeView numberOfChildrenOfItem:arrayData[0]];
 //            [self treeView:_treeView child:[str2 integerValue]-1 ofItem:arrayData[0]];
 //        }
     }
     [_markDic setValue:@"1" forKey:button.titleLabel.text];
-    
+
     [_treeView reloadRows];
 }
-
+*/
 /**
  *  配置Section样式
  *  @param cell 配置的Cell
- *  @param item 对应的Section的数据
+ *  @param itemData 对应的Section的数据
  *  @return 配置完成的Cell
  */
 - (UITableViewCell *)configureSectionCell:(UITableViewCell *)cell inItemData:(GFRangeVo *)itemData {
     
-    
     UIButton *button = [UIButton new];
-    [button addTarget:self action:@selector(imageNameButton:) forControlEvents:UIControlEventTouchUpInside];
+    //[button addTarget:self action:@selector(imageNameButton:) forControlEvents:UIControlEventTouchUpInside];
     NSString *buttonName = [NSString stringWithFormat:@"%@%@%@", @"第", itemData.firstRangeID, @"类"];
     [button setTitle:buttonName forState:UIControlStateNormal];
     [button setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
@@ -426,6 +424,7 @@
         make.centerY.equalTo(cell.contentView);
         make.left.equalTo(cell.contentView).with.offset(5);
     }];
+    button.hidden = true;//隐藏选择按钮
     
     // 选择的提示框
     NSString *imageNameBool = _buttonDic[buttonName];
@@ -435,6 +434,7 @@
         imageNameBool = @"ic_check_no";
     }
     UIImageView *imageViewButton = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageNameBool]];
+    imageViewButton.hidden = true;//隐藏选择按钮
     [button addSubview:imageViewButton];
     [imageViewButton mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -444,13 +444,11 @@
         make.bottom.mas_equalTo(button.mas_bottom).with.offset(0);
     }];
     
-    
-    
     // Section标题
     UILabel *label = [[UILabel alloc] init];
     [cell.contentView addSubview:label];
     [label setFont:[UIFont systemFontOfSize:14]];
-    [label setText:[NSString stringWithFormat:@"%@%@%@", @"第", itemData.firstRangeID, @"类"]];
+    [label setText:[NSString stringWithFormat:@"%@%@%@   %@", @"第", itemData.firstRangeID, @"类",itemData.firstRangeName]];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(cell.contentView);
         make.left.equalTo(button.mas_right).with.offset(10);
@@ -489,7 +487,7 @@
 /**
  *  配置Children样式
  *  @param cell 配置的Cell
- *  @param item 对应的Children的数据
+ *  @param itemData 对应的Children的数据
  *  @return 配置完成的Cell
  */
 - (UITableViewCell *)configureChildrenCell:(UITableViewCell *)cell inItemData:(GFRangeVo *)itemData {
@@ -531,6 +529,7 @@
     }
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     [cell.contentView addSubview:imageView];
+    imageView.hidden = true;//隐藏选择按钮
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(24);
         make.height.mas_equalTo(24);
