@@ -27,17 +27,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:NO];//不隐藏导航栏
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:242.0/255 green:242.0/255 blue:242.0/255 alpha:1];
-    self.title = @"选择商品范围";
+    self.title = @"商品范围分类表";
 
     //继续
-    [self initView:0];
-    [self initPageView];
+    [self initView:0];      //右侧barbutton:全类选择器
+    [self initPageView];    //初始化标签内容页
     //弹出框
     //[self initAlertView];
 
@@ -77,7 +77,7 @@
     }
     
 }
-
+//                                          点击按钮指数
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (0 == buttonIndex)
@@ -100,12 +100,11 @@
  *  导航栏
  */
 - (void)initView:(NSInteger)number {
-    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem new] setButton:@"全类" controller:self response:@selector(determine)];
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem new] setButton:@"全类" controller:self response:@selector(determine)];
 }
 
 /**
- *  确定响应
+ *   导航栏 rightBarbutton确定响应
  */
 -(void)determine {
     
@@ -125,7 +124,6 @@
     _secondVC.dataResultDelegate = self.dataResultDelegate;
     _searchVC = [[GFRangeSearchViewController alloc] init];
     _searchVC.dataResultDelegate = self.dataResultDelegate;
-    
     _rootView = [[DLTabedSlideView alloc] init];
     [self.view addSubview:_rootView];
     [_rootView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,10 +139,10 @@
     _rootView.tabbarHeight = 44;
     _rootView.tabbarBackgroundImage = [UIImage imageNamed:@"bg_white"];
     _rootView.tabbarBottomSpacing = 5;
-    DLTabedbarItem *item1 = [DLTabedbarItem itemWithTitle:@"类别" image:nil selectedImage:nil];
+    //DLTabedbarItem *item1 = [DLTabedbarItem itemWithTitle:@"类别" image:nil selectedImage:nil];
     DLTabedbarItem *item2 = [DLTabedbarItem itemWithTitle:@"类似群" image:nil selectedImage:nil];
     DLTabedbarItem *item3 = [DLTabedbarItem itemWithTitle:@"商品查询" image:nil selectedImage:nil];
-    _rootView.tabbarItems = @[item1, item2, item3];
+    _rootView.tabbarItems = @[item2, item3];//item1,
     _rootView.delegate = self;
     _rootView.DLdelegate = self;
     _rootView.boolMark = 2;
@@ -155,21 +153,21 @@
 
 // 标签控件代理方法，返回标签的数量
 - (NSInteger)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
-    return 3;
+    return 2;//3
 }
 
 // 标签控件代理方法，返回对应标签的内容
 - (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(NSInteger)index {
     switch (index) {
+//        case 0:{
+//            return _firstVC;
+//            break;
+//        }
         case 0:{
-            return _firstVC;
-            break;
-        }
-        case 1:{
             return _secondVC;
             break;
         }
-        case 2:{
+        case 1:{
             return _searchVC;
             break;
         }
@@ -184,7 +182,6 @@
  *  @param index 0~2 
  */
 - (void )chooseTabed:(NSInteger)index{
-    
     [self initView:index];
 }
 

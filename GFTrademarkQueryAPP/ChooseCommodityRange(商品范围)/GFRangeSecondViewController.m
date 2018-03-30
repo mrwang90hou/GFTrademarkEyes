@@ -448,7 +448,8 @@
     UILabel *label = [[UILabel alloc] init];
     [cell.contentView addSubview:label];
     [label setFont:[UIFont systemFontOfSize:14]];
-    [label setText:[NSString stringWithFormat:@"%@%@%@   %@", @"第", itemData.firstRangeID, @"类",itemData.firstRangeName]];
+    //[label setText:[NSString stringWithFormat:@"%@%@%@   %@", @"第", itemData.firstRangeID, @"类",itemData.firstRangeName]];
+    [label setText:[NSString stringWithFormat:@"%@%@%@", @"第", itemData.firstRangeID, @"类"]];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(cell.contentView);
         make.left.equalTo(button.mas_right).with.offset(10);
@@ -686,7 +687,6 @@
     }
     
 }
-
 
 /**
  *  执行查找
