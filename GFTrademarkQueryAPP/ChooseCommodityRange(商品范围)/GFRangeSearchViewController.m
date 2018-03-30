@@ -74,7 +74,6 @@
         make.left.equalTo(_searchView).with.offset(5);
     }];
     
-    
     // checkBox，选择类别
     _firstKind = [[UIButton alloc] init];
     [_searchView addSubview:_firstKind];
@@ -85,9 +84,11 @@
     [_firstKind setTitle:@"类别" forState:UIControlStateNormal];
     [_firstKind setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_firstKind setImage:[UIImage imageNamed:@"ic_check_yes"] forState:UIControlStateNormal];
+    //_firstKind.imageRect = CGRectMake(0, 0, 30, 30);
     [_firstKind mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(chooseKind);
+        make.height.mas_equalTo(40);
         make.top.equalTo(chooseKind);
+        make.width.equalTo(chooseKind);
         make.left.equalTo(chooseKind.mas_right);
     }];
     
@@ -101,9 +102,10 @@
     [_secondKind setTitle:@"类似群" forState:UIControlStateNormal];
     [_secondKind setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_secondKind setImage:[UIImage imageNamed:@"ic_check_no"] forState:UIControlStateNormal];
+    //_secondKind.imageRect = CGRectMake(0, 0, 30, 30);
     [_secondKind mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(_firstKind);
-        make.height.equalTo(_firstKind);
+        make.height.mas_equalTo(40);
         make.top.equalTo(_firstKind);
         make.left.equalTo(_firstKind.mas_right).with.offset(-10);
     }];
@@ -122,10 +124,10 @@
         make.width.equalTo(_secondKind);
         make.height.equalTo(_secondKind);
         make.top.equalTo(_secondKind);
-        make.left.equalTo(_secondKind.mas_right);
-        make.right.equalTo(_searchView).with.offset(-5);
+        make.left.equalTo(_secondKind.mas_right).with.offset(20);
+        //make.right.equalTo(_searchView).with.offset(-5);
     }];
-    
+    confirmButton.hidden = true;//隐藏确认按钮
     // 提示语“商品名称：”
     UILabel *commodityName = [[UILabel alloc] init];
 //    commodityName.backgroundColor = [UIColor yellowColor];
@@ -152,7 +154,7 @@
     [allDataButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(35);
         make.top.equalTo(chooseKind.mas_bottom).with.offset(5);
-        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(0);
         make.right.equalTo(_searchView).with.offset(-5);
     }];
     
@@ -181,6 +183,7 @@
     [_nameInput setClearButtonMode:UITextFieldViewModeWhileEditing];
     [_nameInput setBackgroundColor:[UIColor whiteColor]];
     [_nameInput setFont:[UIFont systemFontOfSize:14]];
+    [_nameInput setReturnKeyType:UIReturnKeyGo];
     [_nameInput setTextAlignment:NSTextAlignmentCenter];
     [_nameInput.layer setMasksToBounds:YES];
     [_nameInput.layer setBorderWidth:1.0f];
@@ -268,14 +271,15 @@
     }
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     [cell.contentView addSubview:imageView];
+    imageView.hidden = true;
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(24);
+        make.width.mas_equalTo(0);
         make.height.mas_equalTo(24);
         make.centerY.equalTo(cell.contentView);
         make.left.equalTo(cell.contentView).with.offset(10);
     }];
     
-    // 类似群信息
+    //类似群信息
     UILabel *secondLabel = [[UILabel alloc] init];
     [cell.contentView addSubview:secondLabel];
     [secondLabel setFont:[UIFont systemFontOfSize:14]];
@@ -434,6 +438,7 @@
 // 输入的回车键键
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self hideInput];
+    [self actionSearch];
     return YES;
 }
 
