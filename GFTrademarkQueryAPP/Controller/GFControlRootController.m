@@ -380,4 +380,10 @@
 - (void)hideInput {
     [_text_input endEditing:YES];
 }
+
+
+
+
+
+
 @end

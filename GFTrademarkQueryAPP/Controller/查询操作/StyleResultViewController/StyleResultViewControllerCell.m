@@ -72,7 +72,6 @@
         make.left.mas_equalTo(_equipment.mas_right).with.offset(0);
         make.right.mas_equalTo(self.contentView.mas_right).with.offset(0);
     }];
-    
 }
 
 - (void)awakeFromNib {

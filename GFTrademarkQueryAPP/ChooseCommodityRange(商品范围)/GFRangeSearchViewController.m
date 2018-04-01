@@ -298,7 +298,6 @@
         make.width.mas_equalTo(160);
         make.right.mas_equalTo(cell.contentView.mas_right).with.offset(-15);
     }];
-    
     // 类别信息
 //    UILabel *firstLabel = [[UILabel alloc] init];
 //    [cell.contentView addSubview:firstLabel];

@@ -13,6 +13,9 @@
 #import "GFTradeDao.h"
 #import "GFTradeVo.h"
 #import "GFDeviceVo.h"
+#import "GFRangeStyleResultDao.h"
+#import "GFRangeStyleResultVo.h"
+#import "GFRangeRootViewController.h"
 
 
 @interface StyleResultViewController () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
@@ -35,6 +38,13 @@
 @property (nonatomic, strong) NSString *mEndTime;
 
 @property (nonatomic ,strong) NSString *page;
+
+
+
+
+@property NSMutableArray *datas;
+@property (nonatomic, strong) UITableView *tableView;
+
 
 @end
 
@@ -127,42 +137,129 @@
    
     
 /**************btnActionView:重置、提交  按钮操作*****************/
-    UIView* btnActionView = [UIView new];
-    [self.view addSubview:btnActionView];
-    [btnActionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view.mas_left).with.offset(0);
-        make.right.mas_equalTo(self.view.mas_right).with.offset(0);
-        make.top.mas_equalTo(updatedTimeView.mas_bottom).with.offset(0);
-        //make.top.equalTo(topView.mas_bottom).with.offset(Device_Height/20);
-        make.height.mas_equalTo(75);
+    /*
+//    UIView* btnActionView = [UIView new];
+//    [self.view addSubview:btnActionView];
+//    [btnActionView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(self.view.mas_left).with.offset(0);
+//        make.right.mas_equalTo(self.view.mas_right).with.offset(0);
+//        make.top.mas_equalTo(updatedTimeView.mas_bottom).with.offset(0);
+//        //make.top.equalTo(topView.mas_bottom).with.offset(Device_Height/20);
+//        make.height.mas_equalTo(75);
+//    }];
+//    [self setLayView:btnActionView];
+//
+    */
+    // 搜索栏背景
+    UIView *searchView = [[UIView alloc] init];
+    [self.view addSubview:searchView];
+    [searchView setBackgroundColor:[UIColor whiteColor]];
+    [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view);
+        make.height.mas_equalTo(38);
+        make.left.equalTo(self.view);
+        make.top.mas_equalTo(updatedTimeView.mas_bottom).with.offset(0);;
     }];
-    [self setLayView:btnActionView];
+  
+    
+    
+    
+    //跳转分类表按钮
+    UIButton *turnTostyleTableBtn = [[UIButton alloc]init];
+    [searchView addSubview:turnTostyleTableBtn];
+    [turnTostyleTableBtn setTitle:@"跳转至分类表" forState:UIControlStateNormal];
+    [turnTostyleTableBtn setImage:[UIImage imageNamed:@"商品分类_bule"] forState:UIControlStateNormal];
+    [turnTostyleTableBtn setTintColor:[UIColor redColor]];
+    turnTostyleTableBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [turnTostyleTableBtn addTarget:self action:@selector(actionTurnTostyleTable) forControlEvents:UIControlEventTouchUpInside];
+//    //设置边框
+//    turnTostyleTableBtn.layer.cornerRadius = 4;
+//    turnTostyleTableBtn.layer.borderWidth = 1;
+//    turnTostyleTableBtn.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    [turnTostyleTableBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(35);
+        make.centerY.equalTo(searchView);
+        make.height.mas_equalTo(35);
+        make.right.equalTo(searchView).with.offset(-5);
+    }];
+    
+    // 查找按钮
+    UIButton *searchBtn = [[UIButton alloc] init];
+    [searchView addSubview:searchBtn];
+    [searchBtn setTitle:@"查找" forState:UIControlStateNormal];
+    searchBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [searchBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [searchBtn setBackgroundColor:[UIColor blueColor]];
+    [searchBtn setBackgroundImage:[UIImage imageNamed:@"bg_blue"] forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(actionCommodityStyleSearch) forControlEvents:UIControlEventTouchUpInside];
+    //设置边框
+//    searchBtn.layer.cornerRadius = 4;
+//    searchBtn.layer.borderWidth = 1;
+//    searchBtn.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    [searchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        //        make.width.mas_equalTo(60);
+        //        make.height.mas_equalTo(35);
+        //        make.right.equalTo(deleteBtn.mas_left).with.offset(-5);
+        //        make.centerY.equalTo(searchView);
+        make.width.mas_equalTo(60);
+        make.height.mas_equalTo(35);
+        make.right.equalTo(turnTostyleTableBtn.mas_left).with.offset(-5);
+        make.centerY.equalTo(searchView);
+    }];
+    _input_text = [[UITextField alloc]init];
+    //    titleLabel.backgroundColor = [UIColor blackColor];
+    [searchView addSubview:_input_text];
+    _input_text.delegate = self;
+    //[nameLabel sizeWithfont:14.5 color:[UIColor blackColor] TextAlignment:NSTextAlignmentLeft text:@"my_log_message" mark:1];
+    [_input_text setBackgroundColor:[UIColor whiteColor]];
+    [_input_text setTextAlignment:NSTextAlignmentCenter];
+    [_input_text setReturnKeyType:UIReturnKeyGo];
+    [_input_text setPlaceholder:@"请输入类似群、商品中/英文"];
+    [_input_text setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
+    _input_text.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _input_text.layer.masksToBounds = YES;
+    _input_text.layer.cornerRadius = 4;
+    _input_text.layer.borderWidth = 1;
+    //边界颜色
+    _input_text.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    [_input_text mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(35);
+        make.left.equalTo(searchView).with.offset(5);
+        make.right.equalTo(searchBtn.mas_left).with.offset(-5);
+        make.centerY.equalTo(searchView);
+    }];
+    
+    
+    
+    
+    
     
     // 列表
     _mTableView = [[UITableView alloc] init];
     [self.view addSubview:_mTableView];
     [_mTableView setDelegate:self];
     [_mTableView setDataSource:self];
-    [_mTableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestListFooterRefresh)]];
+    //[_mTableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestListFooterRefresh)]];
     [_mTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [_mTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.left.mas_equalTo(self.view.mas_left).with.offset(0);
         make.right.mas_equalTo(self.view.mas_right).with.offset(0);
-        make.top.mas_equalTo(btnActionView.mas_bottom).with.offset(10);
+        make.top.mas_equalTo(searchView.mas_bottom).with.offset(5);
         make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
     }];
 }
 
 #pragma mark - 布局
 -(void)setLayView:(UIView*)view {
-    
     _input_text = [[UITextField alloc]init];
     //    titleLabel.backgroundColor = [UIColor blackColor];
     [view addSubview:_input_text];
     _input_text.delegate = self;
     //[nameLabel sizeWithfont:14.5 color:[UIColor blackColor] TextAlignment:NSTextAlignmentLeft text:@"my_log_message" mark:1];
     [_input_text setBackgroundColor:[UIColor whiteColor]];
+    [_input_text setTextAlignment:NSTextAlignmentCenter];
+    [_input_text setReturnKeyType:UIReturnKeyGo];
     [_input_text setPlaceholder:@"请输入类似群、商品中/英文"];
     [_input_text setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     // 清除按钮的状态=只有在文本字段中编辑文本时，才会显示覆盖视图。
@@ -208,6 +305,7 @@
     [commitBtn setTitle:@"提交" forState:UIControlStateNormal];
     [commitBtn setTintColor:[UIColor redColor]];
     [commitBtn setBackgroundColor:[UIColor blueColor]];
+    [commitBtn addTarget:self action:@selector(actionCommodityStyleSearch) forControlEvents:UIControlEventTouchUpInside];
     
     
     commitBtn.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -237,13 +335,12 @@
     }];
     
 }
-
-
 #pragma mark ===== 列表代理方法 =====
 
 // 返回Cell的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _mDatas.count + 1;
+    //return _mDatas.count + 1;
+    return _datas.count;
 }
 
 // 返回Cell的高度
@@ -257,7 +354,6 @@
 
 // 返回Cell的样式                                        在索引路径上的行
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString *CardViewCellId = @"StyleResultViewControllerCellID";
     StyleResultViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:CardViewCellId];
     if (cell == nil)
@@ -265,49 +361,69 @@
         cell = [[StyleResultViewControllerCell alloc]initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:CardViewCellId];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     
-    NSString* cardNumber;
-    NSString* cardState;
-    NSString* cardStartToStop;
-    NSString* cardTime;
+    NSString* firstRangeID;
+    NSString* secondRangeID;
+    NSString* thirdRangeName;
+    NSString* thirdRangeNameInEnglish;
+    if (_datas == NULL) {
+        
+    }
     
     if (indexPath.row == 0) {
-        cardNumber = @"类似群";
-        cardState = @"群组名";
-        cardStartToStop = @"商品中文";
-        cardTime = @"商品英文";
+        firstRangeID = @"类似群";
+        secondRangeID = @"群组名";
+        thirdRangeName = @"商品中文";
+        thirdRangeNameInEnglish = @"商品英文";
     } else {
-        GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
-        //cardNumber = [NSString stringWithFormat:@"%ld",indexPath.row];
-        cardNumber = tradeVo.range_first_id;
-        cardState = tradeVo.range_second_id;
-        cardStartToStop = tradeVo.range_third_name;
-        cardTime = tradeVo.range_third_name_en;
+        /*原始方案
+//        GFTradeVo *tradeVo = _mDatas[indexPath.row-1];
+//        cardNumber = [NSString stringWithFormat:@"%ld",indexPath.row];
+//        cardNumber = tradeVo.range_first_id;
+//        cardState = tradeVo.range_second_id;
+//        cardStartToStop = tradeVo.range_third_name;
+//        cardTime = tradeVo.range_third_name_en;
+        */
+        
+        GFRangeStyleResultVo *rangeVo = [_datas objectAtIndex:indexPath.row-1];
+        //GFRangeStyleResultVo *rangeVo = _datas[indexPath.row];
+        //firstRangeID = rangeVo.firstRangeID;
+        firstRangeID = [NSString stringWithFormat:@"%ld",indexPath.row];
+        secondRangeID = rangeVo.secondRangeID;
+        thirdRangeName = rangeVo.thirdRangeName;
+        thirdRangeNameInEnglish = rangeVo.thirdRangeNameInEnglish;
+        //判断字符串暂时不存在
+        firstRangeID = [self judgeStringIsNull:firstRangeID];
+        secondRangeID = [self judgeStringIsNull:secondRangeID];
+        thirdRangeName = [self judgeStringIsNull:thirdRangeName];
+        thirdRangeNameInEnglish = [self judgeStringIsNull:thirdRangeNameInEnglish];
+        
     }
 
-    [cell.equipmentNumber sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardNumber mark:1];
+    [cell.equipmentNumber sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:firstRangeID mark:1];
     cell.equipmentNumber.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipmentNumber.layer.borderWidth = 0.5;
     cell.equipmentNumber.numberOfLines = 0;
 //    [cell.equipmentNumber size]
-    [cell.equipmentTime sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardState mark:1];
+    [cell.equipmentTime sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:secondRangeID mark:1];
     cell.equipmentTime.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipmentTime.layer.borderWidth = 0.5;
     cell.equipmentTime.numberOfLines = 0;
     
-    [cell.equipment sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardStartToStop mark:1];
+    [cell.equipment sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:thirdRangeName mark:1];
     cell.equipment.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipment.layer.borderWidth = 0.5;
     cell.equipment.numberOfLines = 0;
     
-    [cell.equipmentDescribe sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:cardTime mark:1];
+    [cell.equipmentDescribe sizeWithfont:15 color:[UIColor blackColor] TextAlignment:NSTextAlignmentCenter text:thirdRangeNameInEnglish mark:1];
     cell.equipmentDescribe.layer.borderColor = [UIColor grayColor].CGColor;
     cell.equipmentDescribe.layer.borderWidth = 0.5;
     cell.equipmentDescribe.numberOfLines = 0;
     
     return cell;
 }
-//
+/*
 //#pragma mark - 选择时间
 //-(void)clickChooseTime:(UIButton*)button{
 //    
@@ -370,7 +486,7 @@
 //
 //    [self requestData];
 //}
-
+*/
 #pragma mark - 数据请求
 -(void)requestData{
     [GFTradeDao ID:@"12" block:^(NSMutableArray *numberVo, NSError *error) {
@@ -428,9 +544,54 @@
 -(void)emptyContent{
     [_input_text setText:nil];
 }
--(void)inquire{
-    [SVProgressHUD showSuccessWithStatus:@"点击提交按钮"];
+
+
+
+#pragma mark -执行不同的搜索事件
+/**
+ *  执行【商品类别】搜索
+ */
+- (void)actionCommodityStyleSearch {
+    [self hideInput];
+    [_datas removeAllObjects];
+    NSString *searchString = [_input_text text];
+    if (![searchString isEqualToString:@""]) {
+        _datas = [GFRangeStyleResultDao searchDataByName:searchString];
+    }else
+    {
+        [SVProgressHUD showSuccessWithStatus:@"请先输入您所要查找的内容！"];
+    }
+    //_mark = 0;
+    [_mTableView reloadData];
 }
+/**
+ *  跳转到商品分类表
+ */
+-(void)actionTurnTostyleTable{
+    GFRangeRootViewController *range = [[GFRangeRootViewController alloc] init];
+    //range.dataResultDelegate = self;
+    [range setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:range animated:YES];
+}
+
+
+
+
+
+
+/**
+ *  执行【图形要素】搜索
+ */
+//- (void)actionCommodityStyleSearch {
+//    [self hideInput];
+//    [_datas removeAllObjects];
+//    NSString *searchString = [_nameInput text];
+//    if (![searchString isEqualToString:@""]) {
+//        _datas = [GFRangeDao searchDataByName:searchString];
+//    }
+//    _mark = 0;
+//    [_tableView reloadData];
+//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -441,8 +602,24 @@
 }
 // 输入的回车键键
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self actionCommodityStyleSearch];
     [textField endEditing:YES];
     return YES;
+}
+ //判断字符串暂时不存在
+-(NSString *)judgeStringIsNull:(NSString *)str{
+    //if ([str isEqualToString:@""]) {
+    if (str == NULL) {
+            
+        str = @"等待更新...";
+    }
+    return str;
+}
+/**
+ *  隐藏键盘
+ */
+- (void)hideInput {
+    [_input_text endEditing:YES];
 }
 
 @end

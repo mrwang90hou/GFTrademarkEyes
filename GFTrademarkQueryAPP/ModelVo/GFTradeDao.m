@@ -36,9 +36,7 @@
 
     
     for (NSDictionary *info in dataArray) {
-
         GFTradeVo *vo = [GFTradeVo new];
-
         vo.range_first_id = info[@"range_first_id"];
         vo.range_second_id = info[@"range_second_id"];
         vo.range_third_name = info[@"range_third_name"];
