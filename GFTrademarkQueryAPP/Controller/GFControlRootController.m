@@ -345,11 +345,12 @@
                 break;
         }
         
+        
         //当被推时，设置隐藏底部栏。
         [_nextVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:_nextVC animated:YES];
         
-        
+        [
         
     }
     
