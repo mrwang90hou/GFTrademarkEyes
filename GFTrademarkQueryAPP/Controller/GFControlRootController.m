@@ -11,6 +11,7 @@
 #import "CCCycleScrollView.h"
 #import "StyleTableController.h"
 #import "StyleResultViewController.h"
+#import "ImageCodeResultViewController.h"
 #import "GFRangeRootViewController.h"
 #import "GFImageCodeViewController.h"
 @interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>//UITableViewDelegate,UITableViewDataSource,
@@ -309,11 +310,47 @@
 //        //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
 //        [self presentViewController:nView animated:YES completion:nil];
         //方式二
-        StyleResultViewController *advanceSearch = [[StyleResultViewController alloc] init];
-        //当被推时，设置隐藏底部栏。
-        [advanceSearch setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:advanceSearch animated:YES];
+//        StyleResultViewController *advanceSearch = [[StyleResultViewController alloc] init];
+//        //当被推时，设置隐藏底部栏。
+//        [advanceSearch setHidesBottomBarWhenPushed:YES];
+//        [self.navigationController pushViewController:advanceSearch animated:YES];
         //[self.navigationController.navigationBar setValue:@100 forKeyPath:@"backgroundView.alpha"];
+        
+        
+        
+        //NSInteger row=[_pickerViewController.pickerView selectedRowInComponent:0];
+        
+        NSInteger row = [_pickerView selectedRowInComponent:0];
+//        self.sexTF.text = [_sexArr objectAtIndex:row];
+//        [self.pickerView removeFromSuperview];
+//
+//
+        
+        
+        _nextVC = [[GFBasicController alloc]init];
+        
+        
+        switch (row) {
+            case 0:
+                _nextVC = [[StyleResultViewController alloc] init];
+                
+                break;
+            case 1:
+                _nextVC = [[ImageCodeResultViewController alloc] init];
+                
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
+        
+        //当被推时，设置隐藏底部栏。
+        [_nextVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:_nextVC animated:YES];
+        
+        
+        
     }
     
 }

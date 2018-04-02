@@ -103,7 +103,7 @@
     
     
     // 设置标题背景
-    [self setTitle:@"查询结果"];
+    [self setTitle:@"【商品分类】查询结果"];
     //[self setTitle:(@"my_log_title", nil)];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
