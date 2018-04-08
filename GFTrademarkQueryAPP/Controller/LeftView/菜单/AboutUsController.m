@@ -41,7 +41,6 @@
     [textView setFont:[UIFont systemFontOfSize:14.f]];
     [textView setEditable:false];
     [textView setSelectable:false];
-    [textView set];
     [textView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.view).with.offset(10);//左侧
         make.trailing.equalTo(self.view).with.offset(-10);//右侧   -90

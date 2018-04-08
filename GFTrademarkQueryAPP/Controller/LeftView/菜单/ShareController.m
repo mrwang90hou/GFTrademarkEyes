@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ShareController.h"
+
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+
+
 @interface ShareController()
 
 @end

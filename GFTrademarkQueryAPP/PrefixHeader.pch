@@ -21,8 +21,10 @@
 #define TABBARH 49
 #define Device_Width  [[UIScreen mainScreen] bounds].size.width     //获取屏幕宽高度
 #define Device_Height [[UIScreen mainScreen] bounds].size.height    //获取屏幕宽宽度
-#define GFMainColor [UIColor hexStringToColor:@"5F98FC"]          //【淡蓝色】十六进制字符串的颜色
-//#define GFMainColor [UIColor hexStringToColor:@"B1FF58"]            //【】十六进制字符串的颜色
+//#define GFMainColor [UIColor hexStringToColor:@"5F98FC"]          //【淡蓝色】十六进制字符串的颜色
+#define GFMainColor [UIColor hexStringToColor:@"59BA29"]          //【青绿色】十六进制字符串的颜色
+
+//#define GFMainColor [UIColor hexStringToColor:@"B1FF58"]            //【黄绿色】十六进制字符串的颜色
 
 // 颜色
 #define KRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]

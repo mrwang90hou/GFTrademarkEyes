@@ -19,6 +19,12 @@
 #import "UpdateController.h"
 #import "SetUpController.h"
 #import "AboutUsController.h"
+#import "ConnectToUsController.h"
+
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+
+
 @interface GFLeftController ()<UITableViewDelegate, UITableViewDataSource ,UIAlertViewDelegate>
 @property(nonatomic,strong)LeftView *header;
 @property(nonatomic,strong)UITableView *tableview;
@@ -81,7 +87,8 @@
 
 //设置tableView内的图片与名称
 -(NSArray *)imageA{
-    return @[@"基本信息",@"我的收藏",@"我要分享",@"意见反馈",@"给个好评",@"检测升级",@"设置",@"关于我们"];
+    //return @[@"基本信息",@"我的收藏",@"我要分享",@"意见反馈",@"给个好评",@"检测升级",@"设置",@"关于我们"];
+    return @[@"基本信息",@"我的收藏",@"我要分享",@"意见反馈",@"给个好评",@"检测升级",@"联系我们",@"关于我们"];
 }
 //tableView元素个数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -106,30 +113,48 @@
             break;
         case 2:
             //nextVC = [[GFMyReplaceEquipmentViewController alloc] init];
-            nextVC = [[ShareController alloc]init];
-            [SVProgressHUD showSuccessWithStatus:@"我要分享"];
+//            nextVC = [[ShareController alloc]init];
+//            [SVProgressHUD showSuccessWithStatus:@"我要分享"];
             //return;
+            
+            [self shareAction];
             break;
         case 3:
             //nextVC = [[GFMyPasswordViewController alloc] init];
-            nextVC = [[AdviceController alloc]init];
+            //nextVC = [[AdviceController alloc]init];
             [SVProgressHUD showSuccessWithStatus:@"意见反馈"];
+            //[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"mailto:mrwang90hou@126.com"]];
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"mailto:mrwang90hou@126.com"] options:@{} completionHandler:^(BOOL success) {
+                NSLog(@"意见反馈");
+            }];
+            
             break;
         case 4:
             //nextVC = [[GFMyCardViewController alloc] init];
             //GFBasicController *nextVC = [[GFBasicController alloc]init];
             [SVProgressHUD showSuccessWithStatus:@"给个好评"];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=529826126"]];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=529826126"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=529826126"] options:@{} completionHandler:^(BOOL success) {
+                NSLog(@"给个好评");
+            }];
             break;
         case 5:
             //nextVC = [[GFMyRechargeViewController alloc] init];
             nextVC = [[UpdateController alloc]init];
-            [SVProgressHUD showSuccessWithStatus:@"检测升级"];
+            [SVProgressHUD showSuccessWithStatus:@"已经是最新版本！"];
             break;
         case 6:
             //nextVC = [[GFMyOrderDetailsViewController alloc] init];
-            nextVC = [[SetUpController alloc]init];
-            [SVProgressHUD showSuccessWithStatus:@"设置"];
+            
+            // 跳转回登录界面
+            //UIStoryboard *storyBoard = [UIStoryboard storyboardWith]
+//            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"ConnectToUsController" bundle:nil];
+//
+//            nextVC = [storyBoard instantiateInitialViewController];
+            
+            nextVC = [[ConnectToUsController alloc]init];
+            
+            [SVProgressHUD showSuccessWithStatus:@"联系我们"];
             break;
         case 7:
             //nextVC = [[GFMyLogViewController alloc] init];
@@ -143,7 +168,7 @@
     
     
     //判断是否被点击
-    if (indexPath.row != 4&&indexPath.row != 5) {
+    if (indexPath.row != 2 && indexPath.row != 3 && indexPath.row != 4 && indexPath.row != 5) {
         GFNavController *nView = [[GFNavController alloc]initWithRootViewController:nextVC];
         //设置翻转动画
         nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
@@ -160,5 +185,65 @@
 //        [self presentViewController:nextVC animated:YES completion:nil];
 //    }
 }
+
+
+-(void)shareAction{
+    //1、创建分享参数
+    NSArray* imageArray = @[[UIImage imageNamed:@"bg_head"]];
+    //（注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
+    if (imageArray) {
+        
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:@"分享内容"
+                                         images:imageArray
+                                            url:[NSURL URLWithString:@"http://mob.com"]
+                                          title:@"分享标题"
+                                           type:SSDKContentTypeAuto];
+        //有的平台要客户端分享需要加此方法，例如微博
+        [shareParams SSDKEnableUseClientShare];
+        //2、分享（可以弹出我们的分享菜单和编辑界面）
+        [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                           {
+                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                                   message:nil
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"确定"
+                                                                         otherButtonTitles:nil];
+                               [alertView show];
+                               break;
+                           }
+                           case SSDKResponseStateFail:
+                           {
+                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                               message:[NSString stringWithFormat:@"%@",error]
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"OK"
+                                                                     otherButtonTitles:nil, nil];
+                               [alert show];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }
+         ];}
+    
+    
+
+}
+
+
+
+
+
+
+
+
 
 @end

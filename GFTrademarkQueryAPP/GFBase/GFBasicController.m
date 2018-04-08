@@ -45,8 +45,6 @@
  *  设置导航栏样式
  */
 - (void)setupNavigationBar {
-    
-    
     // 设置导航栏标题颜色，字体大小，背景不透明，背景颜色
     NSMutableDictionary *titleParams = [[NSMutableDictionary alloc] init];
     [titleParams setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
@@ -54,6 +52,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:titleParams];//设置标题属性
     [self.navigationController.navigationBar setTranslucent:NO];//设置为半透明状态
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:41/255.0 green:134/255.0 blue:227/255.0 alpha:1]];
+    //[self.navigationController.navigationBar setBarTintColor:GFMainColor];
     
     // 设置导航栏左侧图标
     if ([[self.navigationController viewControllers] count] <= 1) {
