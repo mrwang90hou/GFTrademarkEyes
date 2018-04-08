@@ -135,7 +135,7 @@
  *  @return 文件路径
  */
 + (NSString *)getRangeDBPath {
-    return [[NSBundle mainBundle] pathForResource:@"db_range" ofType:@"sqlite"];
+    return [[NSBundle mainBundle] pathForResource:@"niceclass_2018_detail" ofType:@"sqlite"];
 }
 
 @end

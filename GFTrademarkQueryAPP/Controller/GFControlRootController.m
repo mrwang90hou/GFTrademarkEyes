@@ -35,17 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     //self.navigationItem.title = @"商标查询";
-    
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
-    
     //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:left_view_btn]];
-    
-    
-    
-    
-    
     [self cycleScrollView];
     [self setupView];
     //获取需要展示的数据
@@ -94,9 +86,6 @@
     [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
     [left_view_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:left_view_btn];
-    
-    
-    
     
 }
 #pragma mark 加载数据
@@ -252,6 +241,7 @@
         make.height.equalTo(@40);
     }];
     [_text_input setTextColor:[UIColor  blackColor]];
+    //[_text_input setSelectedTextRange:<#(UITextRange * _Nullable)#>];
     //[_text_input setClearsOnBeginEditing:true];
     [_inquireButton setTitle:@"查询🕵🏻‍♀️" forState:UIControlStateNormal];
     //[inquireButton setTitle:@"recognition_get_trademark_album"];
@@ -349,9 +339,7 @@
         //当被推时，设置隐藏底部栏。
         [_nextVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:_nextVC animated:YES];
-        
-        [
-        
+       
     }
     
 }
@@ -405,21 +393,69 @@
     [imageCode setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:imageCode animated:YES];
 }
-// 输入的回车键键
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self hideInput];
-    if (![_text_input.text isEqualToString:@""]) {
-        [self inquire];
-    }
-    return YES;
-}
+//// 输入的回车键键
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+//    [self hideInput];
+//    if (![_text_input.text isEqualToString:@""]) {
+//        [self inquire];
+//    }
+//    return YES;
+//}
 
 // 隐藏键盘
 - (void)hideInput {
     [_text_input endEditing:YES];
 }
 
-
+#pragma mark -实现点击文本框跳转的功能
+//点击这个方法 就相当于点击了一个按钮，在这里做自己想做的
+-(void)textFieldDidBeginEditing:(UITextField*)textField
+{
+    [textField resignFirstResponder];
+    [self w];
+    //NSLog(@"string");
+    
+}
+//这个代理方法作用是关闭键盘，按return键返回
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    [_text_input resignFirstResponder];
+    return YES;
+    
+}
+/*单击输入框发生的跳转事件
+ */
+-(void)w{
+    
+    NSInteger row = [_pickerView selectedRowInComponent:0];
+    //        self.sexTF.text = [_sexArr objectAtIndex:row];
+    //        [self.pickerView removeFromSuperview];
+    //
+    //
+    
+    
+    _nextVC = [[GFBasicController alloc]init];
+    
+    
+    switch (row) {
+        case 0:
+            _nextVC = [[StyleResultViewController alloc] init];
+            break;
+        case 1:
+            _nextVC = [[ImageCodeResultViewController alloc] init];
+            
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+    //当被推时，设置隐藏底部栏。
+    [_nextVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:_nextVC animated:YES];
+    
+}
 
 
 

@@ -11,6 +11,7 @@
 #import "RATreeView.h"
 //#import "RATreeView_ClassExtension.h"
 #import "GFButton.h"
+#import "GFImageCodeViewController.h"
 
 @interface ImageCodeResultViewController () <UITextFieldDelegate, RATreeViewDelegate, RATreeViewDataSource, UITableViewDelegate, UITableViewDataSource>
 
@@ -101,7 +102,7 @@
     [turnTostyleTableBtn setImage:[UIImage imageNamed:@"元素_bule"] forState:UIControlStateNormal];
     [turnTostyleTableBtn setTintColor:[UIColor redColor]];
     turnTostyleTableBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    //[turnTostyleTableBtn addTarget:self action:@selector(actionTurnTostyleTable) forControlEvents:UIControlEventTouchUpInside];
+    [turnTostyleTableBtn addTarget:self action:@selector(actionTurnToImageCodeTable) forControlEvents:UIControlEventTouchUpInside];
     //    //设置边框
     //    turnTostyleTableBtn.layer.cornerRadius = 4;
     //    turnTostyleTableBtn.layer.borderWidth = 1;
@@ -423,8 +424,7 @@
         [_mTreeView.tableView setContentOffset:offsetSize animated:YES];
     }
 }
-//
-//// 点击checkBox
+/* 点击checkBox
 //- (void)clickCheckButton:(GFButton *)fgBtn {
 //    GFImageCodeVo *itemData = fgBtn.mObject;
 //    itemData.isCheck = !itemData.isCheck;
@@ -466,7 +466,7 @@
 //    [_mTreeView reloadRows];
 //    [_mTreeView.tableView setContentOffset:offsetSize animated:YES];
 //}
-
+*/
 // 输入的回车键键
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self clickSearch];
@@ -628,8 +628,7 @@
 }
 
 #pragma mark =====事件响应=====
-/**
- *  点击查找按钮
+/**点击查找按钮
  */
 - (void)clickSearch {
     [self hideInput];
@@ -652,8 +651,7 @@
     }
 }
 
-/**
- *  点击删除按钮
+/**点击删除按钮
  */
 - (void)clickDelete {
     [self hideInput];
@@ -663,9 +661,7 @@
     [_confirmBtn setHidden:NO];
 }
 
-/**
- *  点击提交按钮
- */
+/**点击提交按钮
 //- (void)clickConfirm {
 //
 //    //个数限制
@@ -748,5 +744,18 @@
 - (void)hideInput {
     [_mSearchText endEditing:YES];
 }
+
+
+/**
+ *  跳转到图形要素表
+ */
+-(void)actionTurnToImageCodeTable{
+    GFImageCodeViewController *imageCode = [[GFImageCodeViewController alloc] init];
+    //range.dataResultDelegate = self;
+    //[imageCode setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:imageCode animated:YES];
+}
+
+
 
 @end
