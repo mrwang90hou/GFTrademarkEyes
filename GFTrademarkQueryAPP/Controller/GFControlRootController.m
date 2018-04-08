@@ -91,7 +91,7 @@
 #pragma mark 加载数据
 -(void)loadData {
     //需要展示的数据以数组的形式保存
-    self.selection = @[@"商品分类查询",@"商标图形要素",@"商标驳回查询"];//@"商标查询",
+    self.selection = @[@"商品分类查询",@"商标图形要素"];//@"商标查询",@"商标驳回查询"
     //self.number = @[@"111",@"222",@"333",@"444"];
 }
 
@@ -147,7 +147,7 @@
             _reject_btn.hidden = true;
             break;
         case 1:
-            _text_input.placeholder  = @"请输入图形要素名称";
+            _text_input.placeholder  = @"请输入图形要素名称/图形要素编码";
             _style_btn.hidden = true;
             _figure_btn.hidden = false;
             _reject_btn.hidden = true;
@@ -208,7 +208,7 @@
     [_text_input setReturnKeyType:UIReturnKeyGo];
     [_text_input mas_updateConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.view).with.offset(10);//左侧
-        make.trailing.equalTo(self.view).with.offset(-90);//右侧
+        make.trailing.equalTo(self.view).with.offset(-10);//右侧   -90
         make.top.equalTo(titleView.mas_bottom).with.offset(10);
         //make.left.equalTo(titleView.mas_bottom).with.offset(20);
         //make.left.equalTo(titleView.mas_bottom).with.offset(20);
@@ -241,7 +241,6 @@
         make.height.equalTo(@40);
     }];
     [_text_input setTextColor:[UIColor  blackColor]];
-    //[_text_input setSelectedTextRange:<#(UITextRange * _Nullable)#>];
     //[_text_input setClearsOnBeginEditing:true];
     [_inquireButton setTitle:@"查询🕵🏻‍♀️" forState:UIControlStateNormal];
     //[inquireButton setTitle:@"recognition_get_trademark_album"];

@@ -141,7 +141,7 @@
     //_mSearchText.returnKeyType = UIReturnKeySearch;
     [_mSearchText setReturnKeyType:UIReturnKeyGo];
     [_mSearchText setDelegate:self];
-    
+    _mSearchText.placeholder = @"请输入图形要素名称/图形要素编码";
     [_mSearchText.layer setBorderWidth:1.0f];
     [_mSearchText.layer setCornerRadius:4.0f];
     [_mSearchText.layer setBorderColor:[UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor];

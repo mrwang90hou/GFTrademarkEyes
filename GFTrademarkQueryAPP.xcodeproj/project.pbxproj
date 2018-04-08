@@ -10,7 +10,6 @@
 		2886591D5D307FEA0226E929 /* libPods-GFTrademarkQueryAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9978FF160DDF66BCBFDDB /* libPods-GFTrademarkQueryAPP.a */; };
 		631A3B7646E466505692A4FB /* libPods-GFTrademarkQueryAPPUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A704AE11FB726513C526F54 /* libPods-GFTrademarkQueryAPPUITests.a */; };
 		6F4BD6EC1AB35A3CD32222B3 /* libPods-GFTrademarkQueryAPPTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2093A7B3F797E4FB0DCB710E /* libPods-GFTrademarkQueryAPPTests.a */; };
-		92347FDF2079AA230098BF30 /* db_range2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 92347FDE2079A9B10098BF30 /* db_range2.sqlite */; };
 		92347FE02079AA230098BF30 /* niceclass_2018_detail.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 92347FDD2079A5E70098BF30 /* niceclass_2018_detail.sqlite */; };
 		926AE8B52064E35A00FDA8C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8B42064E35A00FDA8C2 /* AppDelegate.m */; };
 		926AE8BB2064E35A00FDA8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926AE8B92064E35A00FDA8C2 /* Main.storyboard */; };
@@ -76,7 +75,6 @@
 		92E0E96C2068DCB800DB2172 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E0E96B2068DCB800DB2172 /* AboutUsController.m */; };
 		92EA7F38206BC4ED005D2668 /* UIButton+GFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA7F37206BC4ED005D2668 /* UIButton+GFButton.m */; };
 		92EA7F3B206BC65D005D2668 /* UIImageView+HTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA7F3A206BC65D005D2668 /* UIImageView+HTC.m */; };
-		92EA7F3F206BD756005D2668 /* db_range.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 92EA7F3D206BCA30005D2668 /* db_range.sqlite */; };
 		92EA7F40206BD758005D2668 /* db_image_code.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 92EA7F3C206BCA2F005D2668 /* db_image_code.sqlite */; };
 		92EA7F44206BE7A1005D2668 /* GFImageCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA7F42206BE7A0005D2668 /* GFImageCodeViewController.m */; };
 		92EA7F47206BE7D8005D2668 /* GFImageCodeVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA7F46206BE7D7005D2668 /* GFImageCodeVo.m */; };
@@ -114,7 +112,6 @@
 		8A3039D53BBCE9C101043E47 /* Pods-GFTrademarkQueryAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPPUITests/Pods-GFTrademarkQueryAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A704AE11FB726513C526F54 /* libPods-GFTrademarkQueryAPPUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFTrademarkQueryAPPUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92347FDD2079A5E70098BF30 /* niceclass_2018_detail.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = niceclass_2018_detail.sqlite; sourceTree = "<group>"; };
-		92347FDE2079A9B10098BF30 /* db_range2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_range2.sqlite; sourceTree = "<group>"; };
 		926AE8B02064E35A00FDA8C2 /* GFTrademarkQueryAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GFTrademarkQueryAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926AE8B32064E35A00FDA8C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		926AE8B42064E35A00FDA8C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -246,7 +243,6 @@
 		92EA7F39206BC65C005D2668 /* UIImageView+HTC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HTC.h"; sourceTree = "<group>"; };
 		92EA7F3A206BC65D005D2668 /* UIImageView+HTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HTC.m"; sourceTree = "<group>"; };
 		92EA7F3C206BCA2F005D2668 /* db_image_code.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_image_code.sqlite; sourceTree = "<group>"; };
-		92EA7F3D206BCA30005D2668 /* db_range.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_range.sqlite; sourceTree = "<group>"; };
 		92EA7F42206BE7A0005D2668 /* GFImageCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFImageCodeViewController.m; sourceTree = "<group>"; };
 		92EA7F43206BE7A0005D2668 /* GFImageCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFImageCodeViewController.h; sourceTree = "<group>"; };
 		92EA7F45206BE7D7005D2668 /* GFImageCodeVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFImageCodeVo.h; sourceTree = "<group>"; };
@@ -620,10 +616,8 @@
 			isa = PBXGroup;
 			children = (
 				926AE8BC2064E35A00FDA8C2 /* Assets.xcassets */,
-				92347FDE2079A9B10098BF30 /* db_range2.sqlite */,
 				92347FDD2079A5E70098BF30 /* niceclass_2018_detail.sqlite */,
 				92EA7F3C206BCA2F005D2668 /* db_image_code.sqlite */,
-				92EA7F3D206BCA30005D2668 /* db_range.sqlite */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -766,14 +760,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92347FDF2079AA230098BF30 /* db_range2.sqlite in Resources */,
 				92347FE02079AA230098BF30 /* niceclass_2018_detail.sqlite in Resources */,
 				926AE8C02064E35A00FDA8C2 /* LaunchScreen.storyboard in Resources */,
 				92F168F2206959400001CBAD /* LeftView.xib in Resources */,
 				926AE9172064E9F400FDA8C2 /* ListCell.xib in Resources */,
 				926AE8BD2064E35A00FDA8C2 /* Assets.xcassets in Resources */,
 				926AE8BB2064E35A00FDA8C2 /* Main.storyboard in Resources */,
-				92EA7F3F206BD756005D2668 /* db_range.sqlite in Resources */,
 				92EA7F40206BD758005D2668 /* db_image_code.sqlite in Resources */,
 				92F168F0206956840001CBAD /* SetUpController.storyboard in Resources */,
 			);

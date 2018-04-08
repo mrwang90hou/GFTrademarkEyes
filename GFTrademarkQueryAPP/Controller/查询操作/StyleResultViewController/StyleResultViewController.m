@@ -388,8 +388,8 @@
         
         GFRangeStyleResultVo *rangeVo = [_datas objectAtIndex:indexPath.row-1];
         //GFRangeStyleResultVo *rangeVo = _datas[indexPath.row];
-        //firstRangeID = rangeVo.firstRangeID;
-        firstRangeID = [NSString stringWithFormat:@"%ld",indexPath.row];
+        firstRangeID = rangeVo.firstRangeID;
+        //firstRangeID = [NSString stringWithFormat:@"%ld",indexPath.row];
         secondRangeID = rangeVo.secondRangeID;
         thirdRangeName = rangeVo.thirdRangeName;
         thirdRangeNameInEnglish = rangeVo.thirdRangeNameInEnglish;
@@ -573,10 +573,6 @@
     [range setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:range animated:YES];
 }
-
-
-
-
 
 /**
  *  执行【图形要素】搜索

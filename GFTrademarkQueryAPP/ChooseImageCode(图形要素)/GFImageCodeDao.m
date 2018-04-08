@@ -80,7 +80,7 @@
     if ([database open]) {
         NSLog(@"打开数据库成功");
         
-        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM table_image_code WHERE image_desc LIKE '%%%@%%'", string];
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM table_image_code WHERE image_desc LIKE '%%%@%%' or image_code like '%%%@%%'", string, string];
         FMResultSet *fmResultSet = [database executeQuery:sql];
         while ([fmResultSet next]) {
             GFImageCodeVo *imageCodeVo = [[GFImageCodeVo alloc] init];

@@ -112,7 +112,7 @@
     if ([database open]) {
         NSLog(@"打开数据库成功");
         NSLog(@"%%%@%%",name);
-        NSString *sql = [NSString stringWithFormat:@"SELECT range_first_id, range_second_id, range_third_name ,range_third_name_en FROM table_range_third WHERE range_third_name LIKE '%%%@%%'", name];// or  range_third_name_en LIKE ’%%%@%%‘
+        NSString *sql = [NSString stringWithFormat:@"SELECT range_first_id, range_second_id, range_third_name ,range_third_name_en FROM table_range_third WHERE range_first_id like '%%%@%%' or range_third_name like '%%%@%%' or range_third_name_en LIKE '%%%@%%' ORDER by range_first_id", name, name, name];// or  range_third_name_en LIKE ’%%%@%%‘
         FMResultSet *fmResultSet = [database executeQuery:sql];
         while ([fmResultSet next]) {
             GFRangeStyleResultVo *rangeVo = [[GFRangeStyleResultVo alloc] init];
@@ -130,7 +130,6 @@
         return nil;
     }
 }
-
 /**
  *  获取类似群数据库文件路径
  *  @return 文件路径
