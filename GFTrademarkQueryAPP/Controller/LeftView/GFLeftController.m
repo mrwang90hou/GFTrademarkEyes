@@ -89,7 +89,8 @@
 //设置tableView内的图片与名称
 -(NSArray *)imageA{
     //return @[@"基本信息",@"我的收藏",@"我要分享",@"意见反馈",@"给个好评",@"检测升级",@"设置",@"关于我们"];
-    return @[@"我的收藏",@"我要分享",@"意见反馈",@"给个好评",@"检测升级",@"版本信息",@"联系我们",@"关于我们"];
+    //return @[@"我的收藏",@"我要分享",@"意见反馈",@"给个好评",@"检测升级",@"版本信息",@"联系我们",@"关于我们"];
+    return @[@"我要分享",@"意见反馈",@"给个好评",@"检测升级",@"版本信息",@"联系我们",@"关于我们"];
 }
 //tableView元素个数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -101,25 +102,18 @@
     //在索引路径中取消选定行。
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GFLeftBasicController *nextVC;
-    switch (indexPath.row) {
-        
-        case 0:
-            nextVC = [[MyFavoriteController alloc] init];
-            //弹出框
-            [SVProgressHUD showSuccessWithStatus:@"我的收藏"];
-            break;
+    switch (indexPath.row+1) {
         case 1:
             //nextVC = [[GFMyReplaceEquipmentViewController alloc] init];
 //            nextVC = [[ShareController alloc]init];
 //            [SVProgressHUD showSuccessWithStatus:@"我要分享"];
             //return;
-            
             [self shareAction];
             break;
         case 2:
             //nextVC = [[GFMyPasswordViewController alloc] init];
             //nextVC = [[AdviceController alloc]init];
-            [SVProgressHUD showSuccessWithStatus:@"意见反馈"];
+            //[SVProgressHUD showSuccessWithStatus:@"意见反馈"];
             //[[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"mailto:mrwang90hou@126.com"]];
             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"mailto:mrwang90hou@126.com"] options:@{} completionHandler:^(BOOL success) {
                 NSLog(@"意见反馈");
@@ -129,7 +123,7 @@
         case 3:
             //nextVC = [[GFMyCardViewController alloc] init];
             //GFBasicController *nextVC = [[GFBasicController alloc]init];
-            [SVProgressHUD showSuccessWithStatus:@"给个好评"];
+            //[SVProgressHUD showSuccessWithStatus:@"给个好评"];
             //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=529826126"]];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=529826126"] options:@{} completionHandler:^(BOOL success) {
                 NSLog(@"给个好评");
@@ -144,7 +138,7 @@
         case 5:
             nextVC = [[VersionInformationController alloc] init];
             //弹出框
-            [SVProgressHUD showSuccessWithStatus:@"版本信息"];
+            //[SVProgressHUD showSuccessWithStatus:@"版本信息"];
             break;
         case 6:
             //nextVC = [[GFMyOrderDetailsViewController alloc] init];
@@ -156,23 +150,20 @@
             //            nextVC = [storyBoard instantiateInitialViewController];
             
             nextVC = [[ConnectToUsController alloc]init];
-            
-            [SVProgressHUD showSuccessWithStatus:@"联系我们"];
+            //[SVProgressHUD showSuccessWithStatus:@"联系我们"];
             break;
         case 7:
             //nextVC = [[GFMyLogViewController alloc] init];
             nextVC = [[AboutUsController alloc]init];
-            [SVProgressHUD showSuccessWithStatus:@"关于我们"];
+            //[SVProgressHUD showSuccessWithStatus:@"关于我们"];
             break;
-       
         default:
             break;
     }
     //[self.navigationController pushViewController:nextVC animated:YES];
-    
-    
     //判断是否被点击
-    if (indexPath.row != 1 && indexPath.row != 2 && indexPath.row != 3 && indexPath.row != 4) {
+    NSInteger row = indexPath.row+1;
+    if (row != 1 && row != 2 && row != 3 && row != 4) {
         GFNavController *nView = [[GFNavController alloc]initWithRootViewController:nextVC];
         //设置翻转动画
         nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
@@ -189,8 +180,6 @@
 //        [self presentViewController:nextVC animated:YES completion:nil];
 //    }
 }
-
-
 -(void)shareAction{
     //1、创建分享参数
     NSArray* imageArray = @[[UIImage imageNamed:@"bg_head"]];
@@ -237,17 +226,5 @@
                        }
                    }
          ];}
-    
-    
-
 }
-
-
-
-
-
-
-
-
-
 @end

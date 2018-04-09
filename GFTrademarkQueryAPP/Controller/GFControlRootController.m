@@ -281,7 +281,7 @@
 {
     NSLog(@"点击了第%ld个图片:%@",clickIndex,self.cyclePlayView.pageDescrips[clickIndex]);
     //[SVProgressHUD showSuccessWithStatus:@"点击了第个图片:%@",self.cyclePlayView.pageDescrips[clickIndex]];
-    [SVProgressHUD showSuccessWithStatus:@"点击了图片"];
+    //[SVProgressHUD showSuccessWithStatus:@"点击了图片"];
     //跳转事件！
 }
 //查询事件
@@ -359,7 +359,7 @@
     [SVProgressHUD showSuccessWithStatus:@"打开商品分类表！"];
 //
 //    _nextVC = [[StyleTableController alloc]init];
-////
+//
 //    UINavigationController *nView = [[UINavigationController alloc]initWithRootViewController:_nextVC];
 //    //设置翻转动画
 //    _nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
@@ -432,8 +432,6 @@
     //        [self.pickerView removeFromSuperview];
     //
     //
-    
-    
     _nextVC = [[GFBasicController alloc]init];
     
     
@@ -456,6 +454,96 @@
     
 }
 
+
+//
+//
+//#pragma mark -缓存查询数据
+////保存和读取历史记录
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    //    NSString * searchHistory = [MyUtil getObjectForKey:@"searchHistory"];
+//    //    if (searchHistory) {
+//    //        [self.historyArray addObject:searchHistory];
+//    //        [self.tableView reloadData];
+//    //    }
+//    [self readNSUserDefaults];
+//}
+//
+//-(void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//    DLog(@"开始搜索");
+//    self.tableView.hidden = NO;
+//}
+//
+//
+//-(IBAction)go:(UITextField *)sender {
+//    DLog(@"点击go");
+//    if (self.textField.text.length == 0) {
+//        [MyUtil showTipText:@"搜索内容不能为空"];
+//        return;
+//    }
+//    //        [MyUtil saveObject:self.textField.text forKey:@"searchHistory"];
+//    [self SearchText:self.textField.text];
+//
+//    GYSearchDetailedViewController * searchDetailed = getViewController(@"searchDetailed", @"FindDoctor");
+//    searchDetailed.searchInfo = self.textField.text;
+//    [self.navigationController pushViewController:searchDetailed animated:YES];
+//
+//
+//}
+//
+//-(void)SearchText:(NSString *)seaTxt
+//{
+//    //    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
+//    //    //读取数组NSArray类型的数据
+//    //    self.historyArray = [userDefaultes arrayForKey:@"searchHistory"];
+//
+//    //    NSMutableArray *searTXT = [self.historyArray mutableCopy];
+//    NSMutableArray *searTXT = [[NSMutableArray alloc] init];
+//    if (self.historyArray) {
+//        searTXT = [self.historyArray mutableCopy];
+//    }
+//    [searTXT addObject:seaTxt];
+//
+//    //将上述数据全部存储到NSUserDefaults中
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    [userDefaults setObject:searTXT forKey:@"searchHistory"];
+//}
+//
+//-(void)readNSUserDefaults
+//{
+//    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
+//    //读取数组NSArray类型的数据
+//    //    NSArray *myArray = [userDefaultes arrayForKey:@"searchHistory"];
+//    //    NSLog(@"myArray======%@",myArray);
+//    self.historyArray = [userDefaultes arrayForKey:@"searchHistory"];
+//    [self.tableView reloadData];
+//}
+//
+//
+///*删除历史记录
+//*/
+////cell允许编辑
+//-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+////删除历史记录
+//-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [self.historyArray removeObjectAtIndex:indexPath.row - 1];
+//
+//        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    }
+//}
+////修改编辑按钮文字
+//-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return @"删除";
+//}
+//
 
 
 
