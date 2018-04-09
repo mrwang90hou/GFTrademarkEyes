@@ -2,8 +2,8 @@
 //  UIViewController+GFAlert.m
 //  GFTrademark
 //
-//  Created by 梁梓龙 on 16/3/7.
-//  Copyright © 2016年 gf. All rights reserved.
+//  Created by 王宁 on 2018/3/29.
+//  Copyright © 2018年 王宁. All rights reserved.
 //
 
 #import "UIViewController+GFAlert.h"
