@@ -61,5 +61,5 @@
 #import "RATreeView_ClassExtension.h"
 #import "UIViewController+GFAlert.h"
 #import "UIImageView+HTC.h"
-
+#import "ZWVerticalAlignLabel.h"
 #endif /* PrefixHeader_pch */

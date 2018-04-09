@@ -14,4 +14,8 @@
 
 +(UILabel *)GFLabelWithText:(NSString *)text textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor frame:(CGRect)frame font:(UIFont *)font textAlignment:(NSTextAlignment)textAlignment;
 +(UILabel *)GFLabelWithTextNoFrame:(NSString *)text textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor font:(UIFont *)font textAlignment:(NSTextAlignment)textAlignment;
+
+- (void) textLeftTopAlign;
+- (void) textRightTopAlign;
+
 @end
