@@ -159,19 +159,14 @@
     copyButton.layer.cornerRadius = 6;
     copyButton.layer.borderWidth = 1;
     copyButton.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    /*设计按钮样式及其回调block
 //    copyButton.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 12);
 //    copyButton.imageEdgeInsets = UIEdgeInsetsMake(0, 71, 0, 0);
-    
-    
-    
-    
 //    [[copyButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 //        buttonClickedBlock(); // 回调block
 //        //[bgView removeFromSuperview];
 //    }];
-    
-    
-    
+    */
     [copyButton mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.mas_equalTo(totalView).with.mas_offset(10);
@@ -195,21 +190,16 @@
     saverButton.layer.cornerRadius = 6;
     saverButton.layer.borderWidth = 1;
     saverButton.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
+    /*设计按钮样式及其回调block
 //    saverButton.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 12);
 //    [conversionButton setImage:[UIImage imageNamed:@"sign_exchange"] forState:UIControlStateNormal];
 //    [conversionButton setImage:[UIImage imageNamed:@"sign_exchange"] forState:UIControlStateHighlighted];
 //    saverButton.imageEdgeInsets = UIEdgeInsetsMake(0, 71, 0, 0);
-    
-    
-    
 //    [[saverButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 //        buttonClickedBlock(); // 回调block
 //        //[bgView removeFromSuperview];
 //    }];
-    
-    
-    
-    
+    */
     [saverButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(betweenButtonView).with.mas_offset(5);
         make.right.mas_equalTo(totalView).with.mas_offset(-10);
@@ -218,11 +208,6 @@
     }];
     betweenButtonView.hidden = true;
     [saverButton addTarget:self action:@selector(savePictureAction) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
-    
-    
     
     // 取消按钮
     UIButton *cancelButton = [[UIButton alloc] init];
@@ -240,22 +225,9 @@
 //复制微信号文本
 -(void)copyWXTextAction{
     [SVProgressHUD showSuccessWithStatus:@"复制成功"];
-    
 }
-
 //保存图片到本地
 -(void)savePictureAction{
     [SVProgressHUD showSuccessWithStatus:@"保存成功"];
 }
-
-
-
-
-
-
-
-
-
-
-
 @end
