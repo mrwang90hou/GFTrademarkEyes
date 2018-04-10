@@ -187,7 +187,7 @@
 /** 带网络图片与block回调的弹窗 */
 - (void)showImageAlert{
     [CQHUD showAlertWithImageURL:@"微信公共号" ButtonClickedBlock:^{           //http://ohbxuuf5q.bkt.clouddn.com/%E6%B3%B0%E5%A6%8D.png
-        [SVProgressHUD showSuccessWithStatus:@"点击保存图片按钮"];
+        //[SVProgressHUD showSuccessWithStatus:@"点击保存图片按钮"];
     }];
 }
 

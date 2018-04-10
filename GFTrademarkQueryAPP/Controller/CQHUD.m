@@ -49,8 +49,27 @@
     }];
     //[bgView addSubview:totalView];
     
-    // 图片
     
+    
+    //beforeLabelImage
+    UIImageView *beforeLabelImage = [[UIImageView alloc]init];
+    
+    
+    
+    //提示关注微信号的label
+    
+    
+    
+    //微信号名称
+    
+    //提示语句
+    
+    
+    
+    
+    
+    
+    // 微信二维码图片
     [totalView addSubview:goodsImageView];
     [goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(totalView);
@@ -71,7 +90,7 @@
         make.top.mas_equalTo(goodsImageView.mas_bottom).mas_offset(8);
     }];
     
-    //
+    //实现动画提醒
     UIImageView *signImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sign_success"]];
     [totalView addSubview:signImageView];
     [signImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -121,10 +140,17 @@
     copyButton.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
 //    copyButton.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 12);
 //    copyButton.imageEdgeInsets = UIEdgeInsetsMake(0, 71, 0, 0);
-    [[copyButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        buttonClickedBlock(); // 回调block
-        [bgView removeFromSuperview];
-    }];
+    
+    
+    
+    
+//    [[copyButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        buttonClickedBlock(); // 回调block
+//        //[bgView removeFromSuperview];
+//    }];
+    
+    
+    
     [copyButton mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.mas_equalTo(totalView).with.mas_offset(10);
@@ -132,6 +158,11 @@
         make.bottom.mas_equalTo(totalView.mas_bottom).mas_offset(-5);
         make.height.mas_equalTo(betweenButtonView);
     }];
+    [copyButton addTarget:self action:@selector(copyWXTextAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    
     
     // 保存图片按钮
     UIButton *saverButton = [[UIButton alloc] init];
@@ -147,10 +178,17 @@
 //    [conversionButton setImage:[UIImage imageNamed:@"sign_exchange"] forState:UIControlStateNormal];
 //    [conversionButton setImage:[UIImage imageNamed:@"sign_exchange"] forState:UIControlStateHighlighted];
 //    saverButton.imageEdgeInsets = UIEdgeInsetsMake(0, 71, 0, 0);
-    [[saverButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        buttonClickedBlock(); // 回调block
-        [bgView removeFromSuperview];
-    }];
+    
+    
+    
+//    [[saverButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        buttonClickedBlock(); // 回调block
+//        //[bgView removeFromSuperview];
+//    }];
+    
+    
+    
+    
     [saverButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(betweenButtonView).with.mas_offset(5);
         make.right.mas_equalTo(totalView).with.mas_offset(-10);
@@ -158,6 +196,11 @@
         make.height.mas_equalTo(betweenButtonView);
     }];
     betweenButtonView.hidden = true;
+    [saverButton addTarget:self action:@selector(savePictureAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    
     
     
     // 取消按钮
@@ -173,5 +216,25 @@
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
 }
+//复制微信号文本
+-(void)copyWXTextAction{
+    [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+    
+}
+
+//保存图片到本地
+-(void)savePictureAction{
+    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+}
+
+
+
+
+
+
+
+
+
+
 
 @end

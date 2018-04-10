@@ -754,10 +754,10 @@
 				92C0C3C3206BB723005E3170 /* GFRangeRootViewController.m */,
 				92C0C3C6206BB723005E3170 /* GFRangeFirstViewController.h */,
 				92C0C3C2206BB723005E3170 /* GFRangeFirstViewController.m */,
-				92C0C3C1206BB723005E3170 /* GFRangeSecondViewController.h */,
-				92C0C3C5206BB723005E3170 /* GFRangeSecondViewController.m */,
 				92C0C3C4206BB723005E3170 /* GFRangeSearchViewController.h */,
 				92C0C3BF206BB723005E3170 /* GFRangeSearchViewController.m */,
+				92C0C3C1206BB723005E3170 /* GFRangeSecondViewController.h */,
+				92C0C3C5206BB723005E3170 /* GFRangeSecondViewController.m */,
 				92C0C3FB206BBF1B005E3170 /* View */,
 				92C0C3D8206BBF15005E3170 /* DLSlideView */,
 			);
