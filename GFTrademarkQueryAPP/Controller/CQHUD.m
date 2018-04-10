@@ -51,24 +51,50 @@
     
     
     
-    //beforeLabelImage
-    UIImageView *beforeLabelImage = [[UIImageView alloc]init];
-    
-    
     
     //提示关注微信号的label
-    
-    
-    
+    UILabel *labelWX = [[UILabel alloc]init];
+    [labelWX setText:@"关注【国方商标软件】微信公共号"];
+    [labelWX setFont:[UIFont systemFontOfSize:14]];
+    [totalView addSubview:labelWX];
+    [labelWX mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(totalView).with.mas_offset(6);
+        make.top.mas_equalTo(totalView).with.mas_offset(20);
+        //make.height.equalTo();
+    }];
+    //beforeLabelImage
+    UIImageView *beforeLabelImage = [[UIImageView alloc]init];
+    [totalView addSubview:beforeLabelImage];
+    [beforeLabelImage setImage:[UIImage imageNamed:@"微信"]];
+    [beforeLabelImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        //make.top.mas_equalTo(totalView).with.mas_offset(20);
+        make.centerY.equalTo(labelWX);
+        make.right.mas_equalTo(labelWX.mas_left).with.mas_offset(-3);
+        //make.height.equalTo(labelWX);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
     //微信号名称
     
+    UILabel *nameWX = [[UILabel alloc]init];
+    [totalView addSubview:nameWX];
+    [nameWX setText:@"GFTM888"];
+    [nameWX setTextColor:GFMainColor];
+    [nameWX setFont:[UIFont systemFontOfSize:13]];
+    [nameWX mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(totalView);
+        make.top.equalTo(labelWX.mas_bottom).offset(5);
+    }];
+    
     //提示语句
-    
-    
-    
-    
-    
-    
+    UILabel *textLabel = [[UILabel alloc]init];
+    [totalView addSubview:textLabel];
+    [textLabel setText:@"获取众多最新的商标资讯，小编在这里等着你哟！"];
+    [textLabel setTextColor:[UIColor grayColor]];
+    [textLabel setFont:[UIFont systemFontOfSize:12]];
+    [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(totalView);
+        make.top.equalTo(nameWX.mas_bottom).offset(5);
+    }];
     // 微信二维码图片
     [totalView addSubview:goodsImageView];
     [goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,11 +138,6 @@
         make.centerX.mas_equalTo(totalView);
         //make.left.right.mas_equalTo(goodsImageView);
     }];
-    
-    
-    
-    
-    
     //划分双button的view
     UIView  *betweenButtonView = [[UIView alloc]init];
     [totalView addSubview:betweenButtonView];
@@ -213,7 +234,7 @@
     [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(totalView).mas_offset(-2);
         make.top.mas_equalTo(totalView.mas_top).mas_offset(2);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
 }
 //复制微信号文本
