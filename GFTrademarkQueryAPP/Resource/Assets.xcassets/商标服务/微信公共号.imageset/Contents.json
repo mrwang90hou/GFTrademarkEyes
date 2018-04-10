@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "微信公共号.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "welcome_568_04@2x.png",
       "scale" : "2x"
     },
     {

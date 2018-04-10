@@ -24,4 +24,4 @@ pod 'SVProgressHUD'
 pod 'MJRefresh'
 pod 'RATreeView'
 pod 'FMDB'
-
+pod 'ReactiveCocoa','~>2.1.8'

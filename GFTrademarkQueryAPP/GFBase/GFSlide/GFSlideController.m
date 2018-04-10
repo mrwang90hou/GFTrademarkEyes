@@ -30,7 +30,7 @@
 @end
 
 @implementation GFSlideController
-+(instancetype)initWithLeftVC:(GFBasicController *)leftVc mainVc:(UIViewController *)mainVc{
++(instancetype)initWithLeftVC:(GFBasicController *)leftVc mainVc:(UIViewController *)mainVc{        //实例类型
     return  [[GFSlideController alloc]initWithLeftVC:leftVc mainVc:mainVc];
 }
 -(instancetype)initWithLeftVC:(GFBasicController *)leftVc mainVc:(UIViewController *)mainVc{

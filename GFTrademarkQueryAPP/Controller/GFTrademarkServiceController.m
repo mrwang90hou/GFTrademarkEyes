@@ -8,6 +8,7 @@
 
 #import "GFTrademarkServiceController.h"
 #import "GFControlRootController.h"
+#import "CQHUD.h"
 @interface GFTrademarkServiceController ()
 
 @end
@@ -19,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"商标服务";
     [self setupView];
-    //self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"二维码（灰色）"] style:UIBarButtonItemStylePlain target:self action:@selector(showImageAlert)];
 }
 
 
@@ -180,6 +181,13 @@
 //    [self.navigationController pushViewController:online animated:YES];
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"mailto:mrwang90hou@126.com"] options:@{} completionHandler:^(BOOL success) {
         NSLog(@"意见反馈");
+    }];
+}
+#pragma mark - 带网络图片与block回调的弹窗
+/** 带网络图片与block回调的弹窗 */
+- (void)showImageAlert{
+    [CQHUD showAlertWithImageURL:@"微信公共号" ButtonClickedBlock:^{           //http://ohbxuuf5q.bkt.clouddn.com/%E6%B3%B0%E5%A6%8D.png
+        [SVProgressHUD showSuccessWithStatus:@"点击保存图片按钮"];
     }];
 }
 
