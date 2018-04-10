@@ -59,7 +59,6 @@
 		926AE90F2064E9F400FDA8C2 /* UIBarButtonItem+SXCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8F52064E9F400FDA8C2 /* UIBarButtonItem+SXCreate.m */; };
 		926AE9102064E9F400FDA8C2 /* NSObject+SXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8F72064E9F400FDA8C2 /* NSObject+SXRuntime.m */; };
 		926AE9112064E9F400FDA8C2 /* GFLeftController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8F92064E9F400FDA8C2 /* GFLeftController.m */; };
-		926AE9122064E9F400FDA8C2 /* GFRootUseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8FB2064E9F400FDA8C2 /* GFRootUseController.m */; };
 		926AE9132064E9F400FDA8C2 /* GFTrademarkServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8FC2064E9F400FDA8C2 /* GFTrademarkServiceController.m */; };
 		926AE9142064E9F400FDA8C2 /* GFControlRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8FD2064E9F400FDA8C2 /* GFControlRootController.m */; };
 		926AE9152064E9F400FDA8C2 /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE9012064E9F400FDA8C2 /* ListCell.m */; };
@@ -122,7 +121,6 @@
 		92F168E1206948B10001CBAD /* MyFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168DF206948B10001CBAD /* MyFavoriteController.m */; };
 		92F168E4206948B90001CBAD /* AdviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E3206948B90001CBAD /* AdviceController.m */; };
 		92F168E7206948BE0001CBAD /* UpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E6206948BE0001CBAD /* UpdateController.m */; };
-		92F168EA20694A0D0001CBAD /* StyleTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F168E920694A0C0001CBAD /* StyleTableController.m */; };
 		92F168F0206956840001CBAD /* SetUpController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F168EF206956830001CBAD /* SetUpController.storyboard */; };
 		92F168F2206959400001CBAD /* LeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F168F1206959400001CBAD /* LeftView.xib */; };
 /* End PBXBuildFile section */
@@ -222,11 +220,9 @@
 		926AE8F72064E9F400FDA8C2 /* NSObject+SXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SXRuntime.m"; sourceTree = "<group>"; };
 		926AE8F92064E9F400FDA8C2 /* GFLeftController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFLeftController.m; sourceTree = "<group>"; };
 		926AE8FA2064E9F400FDA8C2 /* GFControlRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFControlRootController.h; sourceTree = "<group>"; };
-		926AE8FB2064E9F400FDA8C2 /* GFRootUseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRootUseController.m; sourceTree = "<group>"; };
 		926AE8FC2064E9F400FDA8C2 /* GFTrademarkServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTrademarkServiceController.m; sourceTree = "<group>"; };
 		926AE8FD2064E9F400FDA8C2 /* GFControlRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFControlRootController.m; sourceTree = "<group>"; };
 		926AE8FE2064E9F400FDA8C2 /* GFLeftController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFLeftController.h; sourceTree = "<group>"; };
-		926AE8FF2064E9F400FDA8C2 /* GFRootUseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRootUseController.h; sourceTree = "<group>"; };
 		926AE9012064E9F400FDA8C2 /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		926AE9022064E9F400FDA8C2 /* LeftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftView.m; sourceTree = "<group>"; };
 		926AE9032064E9F400FDA8C2 /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
@@ -346,8 +342,6 @@
 		92F168E3206948B90001CBAD /* AdviceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdviceController.m; sourceTree = "<group>"; };
 		92F168E5206948BE0001CBAD /* UpdateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateController.h; sourceTree = "<group>"; };
 		92F168E6206948BE0001CBAD /* UpdateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateController.m; sourceTree = "<group>"; };
-		92F168E820694A0C0001CBAD /* StyleTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleTableController.h; sourceTree = "<group>"; };
-		92F168E920694A0C0001CBAD /* StyleTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTableController.m; sourceTree = "<group>"; };
 		92F168EF206956830001CBAD /* SetUpController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetUpController.storyboard; sourceTree = "<group>"; };
 		92F168F1206959400001CBAD /* LeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftView.xib; sourceTree = "<group>"; };
 		AEA97D33DF0F7D6D4C8E3B54 /* Pods-GFTrademarkQueryAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPP/Pods-GFTrademarkQueryAPP.release.xcconfig"; sourceTree = "<group>"; };
@@ -421,6 +415,15 @@
 				8A3039D53BBCE9C101043E47 /* Pods-GFTrademarkQueryAPPUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9217DBE0207C4AA8001336E8 /* ImageCodeResultViewController */ = {
+			isa = PBXGroup;
+			children = (
+				929D59962071BF1D008977DC /* ImageCodeResultViewController.h */,
+				929D59952071BF1D008977DC /* ImageCodeResultViewController.m */,
+			);
+			path = ImageCodeResultViewController;
 			sourceTree = "<group>";
 		};
 		923480342079F1EA0098BF30 /* SDK */ = {
@@ -642,12 +645,10 @@
 			children = (
 				926AE8FA2064E9F400FDA8C2 /* GFControlRootController.h */,
 				926AE8FD2064E9F400FDA8C2 /* GFControlRootController.m */,
-				92E0E9652068C70100DB2172 /* 查询操作 */,
-				92E0E95E2068825B00DB2172 /* CCCycleScrollView */,
 				926AE9072064E9F400FDA8C2 /* GFTrademarkServiceController.h */,
 				926AE8FC2064E9F400FDA8C2 /* GFTrademarkServiceController.m */,
-				926AE8FF2064E9F400FDA8C2 /* GFRootUseController.h */,
-				926AE8FB2064E9F400FDA8C2 /* GFRootUseController.m */,
+				92E0E9652068C70100DB2172 /* 查询操作 */,
+				92E0E95E2068825B00DB2172 /* CCCycleScrollView */,
 				926AE9002064E9F400FDA8C2 /* LeftView */,
 			);
 			path = Controller;
@@ -826,11 +827,8 @@
 		92E0E9652068C70100DB2172 /* 查询操作 */ = {
 			isa = PBXGroup;
 			children = (
-				929D59962071BF1D008977DC /* ImageCodeResultViewController.h */,
-				929D59952071BF1D008977DC /* ImageCodeResultViewController.m */,
 				92C0C38C206A1F89005E3170 /* StyleResultViewController */,
-				92F168E820694A0C0001CBAD /* StyleTableController.h */,
-				92F168E920694A0C0001CBAD /* StyleTableController.m */,
+				9217DBE0207C4AA8001336E8 /* ImageCodeResultViewController */,
 			);
 			path = "查询操作";
 			sourceTree = "<group>";
@@ -1234,7 +1232,6 @@
 				92C0C3F4206BBF16005E3170 /* DLTabedSlideView.m in Sources */,
 				92C0C407206BBF1B005E3170 /* GFRangeVo.m in Sources */,
 				926AE90E2064E9F400FDA8C2 /* UINavigation+SXFixSpace.m in Sources */,
-				926AE9122064E9F400FDA8C2 /* GFRootUseController.m in Sources */,
 				929D5994206E18E7008977DC /* GFRangeStyleResultDao.m in Sources */,
 				92C0C3F1206BBF16005E3170 /* UIColor+IM.m in Sources */,
 				92E0E96420688EEB00DB2172 /* UIViewController+GFAlert.m in Sources */,
@@ -1262,7 +1259,6 @@
 				926AE90F2064E9F400FDA8C2 /* UIBarButtonItem+SXCreate.m in Sources */,
 				92C0C3B2206B8FE4005E3170 /* GFTradeDao.m in Sources */,
 				92C0C40A206BBF1B005E3170 /* GFTypePickerView.m in Sources */,
-				92F168EA20694A0D0001CBAD /* StyleTableController.m in Sources */,
 				926AE9262064EA0300FDA8C2 /* GFSlideController.m in Sources */,
 				926AE9152064E9F400FDA8C2 /* ListCell.m in Sources */,
 				92E0E9692068DB4700DB2172 /* ShareController.m in Sources */,

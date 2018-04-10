@@ -320,7 +320,6 @@
         make.left.equalTo(imageView.mas_right).with.offset(10);
         make.right.equalTo(secondLabel.mas_left).with.offset(-10);
     }];
-    
     return cell;
 }
 

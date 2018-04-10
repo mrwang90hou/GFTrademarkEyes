@@ -405,7 +405,6 @@
 - (void)hideInput {
     [_text_input endEditing:YES];
 }
-
 #pragma mark -实现点击文本框跳转的功能
 //点击这个方法 就相当于点击了一个按钮，在这里做自己想做的
 -(void)textFieldDidBeginEditing:(UITextField*)textField
@@ -426,22 +425,16 @@
 /*单击输入框发生的跳转事件
  */
 -(void)w{
-    
     NSInteger row = [_pickerView selectedRowInComponent:0];
     //        self.sexTF.text = [_sexArr objectAtIndex:row];
     //        [self.pickerView removeFromSuperview];
-    //
-    //
     _nextVC = [[GFBasicController alloc]init];
-    
-    
     switch (row) {
         case 0:
             _nextVC = [[StyleResultViewController alloc] init];
             break;
         case 1:
             _nextVC = [[ImageCodeResultViewController alloc] init];
-            
             break;
         case 2:
             break;
@@ -453,11 +446,7 @@
     [self.navigationController pushViewController:_nextVC animated:YES];
     
 }
-
-
-//
-//
-//#pragma mark -缓存查询数据
+/*#pragma mark -缓存查询数据
 ////保存和读取历史记录
 //-(void)viewWillAppear:(BOOL)animated
 //{
@@ -523,8 +512,7 @@
 //}
 //
 //
-///*删除历史记录
-//*/
+//删除历史记录
 ////cell允许编辑
 //-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return YES;
@@ -542,8 +530,7 @@
 //-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    return @"删除";
-//}
-//
+*/
 
 
 
