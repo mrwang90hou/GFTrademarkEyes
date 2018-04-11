@@ -640,9 +640,7 @@
         [_mSecondDatas removeAllObjects];
         for (NSInteger i = 0; i<_mSearchDatas.count + 1; i++) {
             
-            
             [_mSecondDatas addObject:@"NO"];
-            
         }
         [_mTableView reloadData];
         [_mTableView setHidden:NO];
@@ -657,8 +655,8 @@
     [self hideInput];
     [_mSearchText setText:@""];
     [_mTableView setHidden:YES];
-    [_mTreeView setHidden:NO];
-    [_confirmBtn setHidden:NO];
+    [_mTreeView setHidden:YES];
+    [_confirmBtn setHidden:true];
 }
 
 /**点击提交按钮

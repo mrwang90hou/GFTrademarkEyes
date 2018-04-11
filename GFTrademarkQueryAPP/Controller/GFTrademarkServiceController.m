@@ -188,8 +188,36 @@
 - (void)showImageAlert{
     [CQHUD showAlertWithImageURL:@"微信公共号" ButtonClickedBlock:^{           //http://ohbxuuf5q.bkt.clouddn.com/%E6%B3%B0%E5%A6%8D.png
         //[SVProgressHUD showSuccessWithStatus:@"点击保存图片按钮"];
+        [self saveImage:[UIImage imageNamed:@"微信公共号"]];
     }];
 }
+
+//image是要保存的图片
+- (void) saveImage:(UIImage *)image{
+    
+    if (image) {
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:), nil);
+        
+    };
+    
+}
+//保存完成后调用的方法
+- (void) savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
+    if (error) {
+        NSLog(@"保存图片出错%@", error.localizedDescription);
+        NSString *str = ((void)(@"保存图片出错%@"),error.localizedDescription);
+        UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(str,nil),nil] message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil];
+        [alertview show];
+    }
+    else {
+        NSLog(@"保存图片成功");
+        UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"保存图片成功",nil),nil] message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil];
+        [alertview show];
+    }
+}
+
+
 
 
 
