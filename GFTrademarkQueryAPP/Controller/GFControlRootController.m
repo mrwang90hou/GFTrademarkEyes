@@ -87,6 +87,17 @@
     [left_view_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:left_view_btn];
     
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 #pragma mark 加载数据
 -(void)loadData {
@@ -255,7 +266,19 @@
     _inquireButton.layer.cornerRadius = 4;
     _inquireButton.layer.borderWidth = 1;
     _inquireButton.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
-    //***************设置热门搜索词汇*****************8//
+    //***************设置热门搜索词汇*****************//
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 -(void)openDrawer{
@@ -392,7 +415,7 @@
     [imageCode setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:imageCode animated:YES];
 }
-//// 输入的回车键键
+/* 输入的回车键键
 //- (BOOL)textFieldShouldReturn:(UITextField *)textField {
 //    [self hideInput];
 //    if (![_text_input.text isEqualToString:@""]) {
@@ -400,7 +423,7 @@
 //    }
 //    return YES;
 //}
-
+*/
 // 隐藏键盘
 - (void)hideInput {
     [_text_input endEditing:YES];
@@ -531,7 +554,5 @@
 //{
 //    return @"删除";
 */
-
-
 
 @end
