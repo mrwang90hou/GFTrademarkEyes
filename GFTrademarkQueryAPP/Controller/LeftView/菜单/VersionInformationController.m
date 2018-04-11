@@ -27,12 +27,38 @@
     UIImageView *imageView = [UIImageView new];
     [self.view addSubview:imageView];
     [imageView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.view);
-        make.trailing.equalTo(self.view);
+//        make.leading.equalTo(self.view);
+//        make.trailing.equalTo(self.view);
         make.top.equalTo(self.view);
-        make.height.equalTo([NSNumber numberWithFloat:(Device_Height / 16 * 9)]);
+        make.height.mas_equalTo(Device_Height * 3/5);
+        make.width.equalTo(self.view);
     }];
-    [imageView assignmentWithImageView:@"GF_Black" model:UIViewContentModeScaleAspectFill];
+    //[imageView assignmentWithImageView:@"GF_Black" model:UIViewContentModeScaleAspectFill];
+    [imageView setBackgroundColor:GFMainColor];
+    
+    //logo 图标
+    UIImageView *imageLogo = [[UIImageView alloc]init];
+    [imageView addSubview:imageLogo];
+    [imageLogo setImage:[UIImage imageNamed:@"GF_Black"]];
+    [imageLogo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(imageView);
+        make.centerY.equalTo(imageView).offset(-10);
+        make.size.mas_equalTo(CGSizeMake(80, 80));
+    }];
+    //label 国方商标查询
+    UILabel *GFlabel = [[UILabel alloc]init];
+    [GFlabel setFont:[UIFont systemFontOfSize:20]];
+    [GFlabel setTextColor:[UIColor whiteColor]];
+    [imageView addSubview:GFlabel];
+    [GFlabel setText:@"国方商标查询"];
+    [GFlabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(imageView);
+        make.top.equalTo(imageLogo.mas_bottom).offset(5);
+    }];
+    
+    
+    
+    
     
     //分隔线
     UIView *lineView = [[UIView alloc]init];
