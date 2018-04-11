@@ -83,7 +83,7 @@
     [lineView setHidden:true];
     
     
-    /*【技术支持】改为图片展示
+    //【技术支持】改为图片展示
     //技术支持companyInfo
 
     UIView *companyInfoView = [[UIView alloc]init];
@@ -94,39 +94,67 @@
         make.left.equalTo(self.view).with.offset(10);
         make.right.equalTo(self.view).with.offset(-10);
         make.bottom.equalTo(self.view).with.offset(-5);
-    }];     UILabel *titleInfo = [[UILabel alloc]init];
+    }];
+    UILabel *titleInfo = [[UILabel alloc]init];
     UILabel *companyInfo = [[UILabel alloc]init];
     [companyInfoView addSubview:titleInfo];
     [companyInfoView addSubview:companyInfo];
     titleInfo.font = [UIFont fontWithName:@"Helvetica-Light" size:12.f];
     companyInfo.font =[UIFont fontWithName:@"Helvetica-Light" size:12.f];
     [titleInfo  setText:@"技术支持"];
+    /*计算label内容的大小
+//    CGSize size =  [sizeWithStr:_titleInfo.text font:titleInfo.font];
+//    [self ];
+//    CGSize size =  [sizeWithStr:_titleInfo.text font:titleInfo.font];
+//   [self ]
+    
+    NSString *tstring = @"技术支持";
+    titleInfo.text = tstring ;
+    CGSize size =CGSizeMake(300,60);
+    //    获取当前文本的属性
+    NSDictionary * tdic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Light" size:12.f],NSFontAttributeName,nil];
+    CGSize actualsize =[tstring boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin  attributes:tdic context:nil].size;
+    //CGRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
+    */
     [companyInfo setText:@"国方商标服务有限公司\n国方商标软件有限公司"];
-    [titleInfo mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(Device_Width/5);
+    [companyInfo mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(Device_Height).with.offset(24);
         make.centerY.equalTo(companyInfoView);
     }];
-    [companyInfo mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(titleInfo.mas_right).with.offset(5);
+    [titleInfo mas_updateConstraints:^(MASConstraintMaker *make) {
+        //make.size.mas_equalTo(size);
+        //make.centerX.mas_equalTo(Device_Height).mas_offset(-45);
+        //make.centerY.mas_equalTo(totalView).mas_offset(0);
+        //make.left.mas_equalTo(Device_Width/5);
         make.centerY.equalTo(companyInfoView);
+        make.right.equalTo(companyInfo.mas_left).with.offset(-6);
     }];
     [companyInfoView setBackgroundColor:[UIColor whiteColor]];
-    
-    
-    */
 
-    UIImageView *newImageView = [[UIImageView alloc]init];
-    [self.view addSubview:newImageView];
-    //[newImageView setImage:[UIImage imageNamed:@"开发单位"]];
-    [newImageView assignmentWithImageView:@"开发单位" model:UIViewContentModeScaleAspectFill];
-    [newImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom).offset(-10);
-        make.centerX.equalTo(self.view);
-        //make.height.mas_equalTo(Device_Height/9);
+    
+    
+//
+//    UIImageView *newImageView = [[UIImageView alloc]init];
+//    [self.view addSubview:newImageView];
+//    //[newImageView setImage:[UIImage imageNamed:@"开发单位"]];
+//    [newImageView assignmentWithImageView:@"开发单位" model:UIViewContentModeScaleAspectFill];
+//    [newImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.view.mas_bottom).offset(-10);
+//        make.centerX.equalTo(self.view);
+//        //make.height.mas_equalTo(Device_Height/9);
+//    }];
+//
+//
+    
+    UIView *lineView2 = [[UIView alloc]init];
+    [companyInfoView addSubview:lineView2];
+    [lineView2 setBackgroundColor:[UIColor greenColor]];
+    [lineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(companyInfoView);
+        make.height.mas_equalTo(30);
+        make.width.mas_equalTo(1);
     }];
-    
-    
+    lineView2.hidden = true;
 }
-
 @end
 
