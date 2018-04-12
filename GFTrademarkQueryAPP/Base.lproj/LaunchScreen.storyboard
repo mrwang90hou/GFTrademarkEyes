@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_9" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PAS-OK-1BC"/>
-                        <viewControllerLayoutGuide type="bottom" id="zLK-xp-ZtG"/>
-                    </layoutGuides>
+                <viewController storyboardIdentifier="LaunchScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="GF_Black" translatesAutoresizingMaskIntoConstraints="NO" id="iKb-LN-DlK">
-                                <rect key="frame" x="102.66666666666669" y="321" width="170" height="170"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="LaunchScreen" image="欢迎页1242*2208.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nek-om-Yof">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iKb-LN-DlK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9m5-aN-uPG"/>
-                            <constraint firstItem="iKb-LN-DlK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bZ8-oU-wXh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nek-om-Yof" secondAttribute="trailing" constant="-20" id="Cdc-Qr-xQ0"/>
+                            <constraint firstAttribute="bottom" secondItem="nek-om-Yof" secondAttribute="bottom" id="Mam-6u-zd7"/>
+                            <constraint firstItem="nek-om-Yof" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="RpT-it-GoQ"/>
+                            <constraint firstItem="nek-om-Yof" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TqO-zC-iOn"/>
+                            <constraint firstItem="nek-om-Yof" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="YgC-YL-EGF"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y8Q-gm-bBb"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="265"/>
+            <point key="canvasLocation" x="240.80000000000001" y="267.48768472906403"/>
         </scene>
     </scenes>
     <resources>
-        <image name="GF_Black" width="170" height="170"/>
+        <image name="欢迎页1242*2208.jpg" width="1242" height="2208"/>
     </resources>
 </document>
