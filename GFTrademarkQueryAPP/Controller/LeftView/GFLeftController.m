@@ -37,6 +37,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     //[self launchAnimation];
     //UINavigationController *w = [[UINavigationController alloc]initWithRootViewController:self];
 //    self.viewControllers(_recognitionNavigation);
