@@ -32,7 +32,7 @@
         make.top.equalTo(self.view);
         make.height.equalTo([NSNumber numberWithFloat:(Device_Height / 4 * 1)]);
     }];
-    [imageView assignmentWithImageView:@"company_image1" model:UIViewContentModeScaleAspectFill];
+    [imageView assignmentWithImageView:@"公司理念" model:UIViewContentModeScaleAspectFill];
     
     UITextView *textView = [[UITextView alloc]init];
     [textView setText:@"\t佛山市国方商标服务有限公司成立于2003年，是国家认定的高新技术企业和双软企业，也是国家商标局备案的商标代理机构，是目前国内少有的同时从事商标专业软件研发和商标代理法律服务的企业。\n\t经过10多年的发展，本公司已成为一家拥有多名资深商标专家、商标代理人、软件工程师和项目管理专家的综合型商标服务机构。在商标专业软件研发领域，公司已建立了一个动态同步更新、数据完整准确的中国商标数据库，并以此数据库为基础，成功研发了20多款商标专业软件（其中有5款软件被认定为高新技术产品），处于国内领先水平，是目前国内拥有商标专业软件著作权最多的企业。在商标代理法律服务领域，公司不仅成功通过广东商标代理服务规范审核认定小组的审核，成为目前佛山地区首家也是唯一一家符合《广东省商标代理服务规范》的商标代理机构，而且“国方商标代理服务”还在2016年被省高新技术企业协会认定为高新技术服务，这是目前国内少有的。\n\t截至日前，公司累计服务客户数过万，服务过的客户遍布全国多个省份、包括港澳台及日本等地区。本公司不仅是软件行业协会理事单位、佛山市商标协会副会长单位，而且还得到了相关部门的认可——广东省工商局于2014年委托我司为广东商标品牌战略研究活动提供相关商标数据分析服务，佛山市工商局于2013年起委托我司为佛山地区商标预警工作提供支持服务。"];

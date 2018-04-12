@@ -322,15 +322,12 @@
     }];
     return cell;
 }
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GFRangeVo *data = [_datas objectAtIndex:indexPath.row];
     data.isCheck = !data.isCheck;
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:NO];
     _mark = 0;
 }
-
 /**
  *  执行搜索
  */

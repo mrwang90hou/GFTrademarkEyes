@@ -260,7 +260,6 @@
 		929D5992206E18E7008977DC /* GFRangeStyleResultVo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFRangeStyleResultVo.h; sourceTree = "<group>"; };
 		929D59952071BF1D008977DC /* ImageCodeResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCodeResultViewController.m; sourceTree = "<group>"; };
 		929D59962071BF1D008977DC /* ImageCodeResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCodeResultViewController.h; sourceTree = "<group>"; };
-		92AAAA842079FEDA00DE1A7C /* rejected_trademark.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = rejected_trademark.db; sourceTree = "<group>"; };
 		92AAAA85207A03C800DE1A7C /* ConnectToUsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectToUsController.h; sourceTree = "<group>"; };
 		92AAAA86207A03C800DE1A7C /* ConnectToUsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectToUsController.m; sourceTree = "<group>"; };
 		92AAAA89207A047F00DE1A7C /* ConnectToUsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConnectToUsController.storyboard; sourceTree = "<group>"; };
@@ -891,7 +890,6 @@
 				92AAAA8D207A0EA300DE1A7C /* 微信公共号二维码.png */,
 				92AAAA8B207A0EA200DE1A7C /* 雅庭国际广场.jpg */,
 				926AE8BC2064E35A00FDA8C2 /* Assets.xcassets */,
-				92AAAA842079FEDA00DE1A7C /* rejected_trademark.db */,
 				92347FDD2079A5E70098BF30 /* niceclass_2018_detail.sqlite */,
 				92EA7F3C206BCA2F005D2668 /* db_image_code.sqlite */,
 			);
