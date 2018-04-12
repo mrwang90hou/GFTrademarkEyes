@@ -81,14 +81,14 @@
     [_firstKind addTarget:self action:@selector(chooseKind:) forControlEvents:UIControlEventTouchUpInside];
     [_firstKind setBackgroundColor:[UIColor whiteColor]];
     [_firstKind setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    [_firstKind setTitle:@"类别" forState:UIControlStateNormal];
     [_firstKind setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_firstKind setImage:[UIImage imageNamed:@"ic_check_yes"] forState:UIControlStateNormal];
-    //_firstKind.imageRect = CGRectMake(0, 0, 30, 30);
+    [_firstKind setTitle:@"类别" forState:UIControlStateNormal];
+//    [_firstKind setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 30)];//上、左、下、右
+//    [_firstKind setTitleEdgeInsets:UIEdgeInsetsMake(0, 50, 0, 0)];
     [_firstKind mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(40);
+        make.height.equalTo(chooseKind);
         make.top.equalTo(chooseKind);
-        make.width.equalTo(chooseKind);
         make.left.equalTo(chooseKind.mas_right);
     }];
     
@@ -105,7 +105,7 @@
     //_secondKind.imageRect = CGRectMake(0, 0, 30, 30);
     [_secondKind mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(_firstKind);
-        make.height.mas_equalTo(40);
+        make.height.equalTo(_firstKind);
         make.top.equalTo(_firstKind);
         make.left.equalTo(_firstKind.mas_right).with.offset(-10);
     }];
