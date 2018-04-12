@@ -62,5 +62,7 @@
 #import "UIViewController+GFAlert.h"
 #import "UIImageView+HTC.h"
 #import "ZWVerticalAlignLabel.h"
+#import <AFNetworking.h>
+
 //#import "CQHUD.h"
 #endif /* PrefixHeader_pch */

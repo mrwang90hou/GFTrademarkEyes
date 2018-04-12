@@ -30,18 +30,51 @@
 @property(nonatomic,strong)LeftView *header;
 @property(nonatomic,strong)UITableView *tableview;
 @property(nonatomic,strong)NSArray *imageA;
+@property(nonatomic,strong)UINavigationController *recognitionNavigation;
 @end
 
 @implementation GFLeftController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //[self launchAnimation];
+    //UINavigationController *w = [[UINavigationController alloc]initWithRootViewController:self];
+//    self.viewControllers(_recognitionNavigation);
+    //self.viewControllers = [NSArray arrayWithObjects:w, nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view addSubview:self.header];         //加载广告轮翻图
+    //UINavigationController *recognitionNavigation = [[UINavigationController alloc]initWithRootViewController:self.view];
+    //self.viewControllers = @[ recognitionNavigation];
+    //self.viewControllers = @[_recognitionNavigation];
+    //self.view = _recognitionNavigation;
     
+    [self.view addSubview:self.header];         //加载广告轮翻图
     [self.view addSubview:self.tableview];
+    
+//    // 登录按钮
+//    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(40, 40, 200, 80)];
+//    [loginButton setTitle:@"跳转至扫码登录☞" forState:UIControlStateNormal];
+//    [loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    //[loginButton setBackgroundImage:[UIImage imageNamed:@"bg_btn_login_normal"] forState:UIControlStateNormal];
+//    //[loginButton setBackgroundImage:[UIImage imageNamed:@"bg_btn_login_pressed"] forState:UIControlStateHighlighted];
+//    [loginButton addTarget:self action:@selector(w) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:loginButton];
 }
+//-(void)w{
+//
+//    AboutUsController *nextVC = [[AboutUsController alloc]init];
+//    //[self.navigationController pushViewController:nextVC animated:YES];
+//    [self presentViewController:_recognitionNavigation animated:YES completion:nil];
+//    //[myViewController presentModalViewController: navigationController];
+//}
+
+
+
+
+
 #pragma mark -显示账户图片展示LeftView.xib
 -(LeftView *)header{
     if (!_header) {
@@ -160,18 +193,31 @@
         default:
             break;
     }
+    
+//    NSInteger row = indexPath.row+1;
+//    if (self.typeClick && row != 1 && row != 2 && row != 3 && row != 4) {
+//        self.typeClick(self.imageA[indexPath.row],[nextVC class]);
+//    }
+//
+    
+    
+    
     //[self.navigationController pushViewController:nextVC animated:YES];
     //判断是否被点击
     NSInteger row = indexPath.row+1;
     if (row != 1 && row != 2 && row != 3 && row != 4) {
         GFNavController *nView = [[GFNavController alloc]initWithRootViewController:nextVC];
+        //_recognitionNavigation = [[UINavigationController alloc]initWithRootViewController:self];
         //设置翻转动画
         nextVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;       //【水平翻转】
         //nextVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;        //【闪现】
         //nextVC.modalTransitionStyle = UIModalTransitionStylePartialCurl;          //【翻页效果】
         //nextVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;        //【底部推进】
-        [nextVC setHidesBottomBarWhenPushed:YES];
+        //[nextVC setHidesBottomBarWhenPushed:YES];
         [self presentViewController:nView animated:YES completion:nil];
+//        AboutUsController *nv = [[AboutUsController alloc]init];
+        //[_recognitionNavigation pushViewController:nextVC animated:YES];
+         //[self.navigationController pushViewController:nv animated:YES];
     }
 //
 //    if (indexPath.row != 8) {
@@ -226,5 +272,35 @@
                        }
                    }
          ];}
+}
+
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    //[self launchAnimation];
+}
+
+
+//方案不可行，每次加载Tabbar的时候都会重新加载一遍这个LaunchScreenView
+#pragma mark - Private Methods
+- (void)launchAnimation {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
+    //设置要进入的页面
+    UIViewController *viewController = [storyBoard instantiateInitialViewController];
+    
+    //UIViewController *viewController = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchScreen"];
+    
+    UIView *launchView = viewController.view;
+    UIWindow *mainWindow = [UIApplication sharedApplication].keyWindow;
+    launchView.frame = [UIApplication sharedApplication].keyWindow.frame;
+    [mainWindow addSubview:launchView];
+    
+    [UIView animateWithDuration:1.0f delay:0.5f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        launchView.alpha = 0.0f;
+        launchView.layer.transform = CATransform3DScale(CATransform3DIdentity, 2.0f, 2.0f, 1.0f);
+    } completion:^(BOOL finished) {
+        [launchView removeFromSuperview];
+    }];
 }
 @end

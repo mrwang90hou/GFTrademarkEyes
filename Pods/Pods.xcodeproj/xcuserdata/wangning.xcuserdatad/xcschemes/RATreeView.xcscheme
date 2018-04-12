@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "254557460A81FA0108F648E04AA94C63"
+               BlueprintIdentifier = "2F558B52EF043991A002B8AC2ACE9270"
                BlueprintName = "RATreeView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libRATreeView.a">

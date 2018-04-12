@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "683AA86C9DD1F8FBABAB406B5407E1DE"
+               BlueprintIdentifier = "846D435A504ED772289072EB4B1563B6"
                BlueprintName = "Pods-GFTrademarkQueryAPP"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-GFTrademarkQueryAPP.a">

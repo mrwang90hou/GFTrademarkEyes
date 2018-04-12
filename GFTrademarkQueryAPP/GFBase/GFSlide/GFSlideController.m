@@ -19,6 +19,8 @@
 @interface GFSlideController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong)GFBasicController *leftVc;
 @property(nonatomic,strong)UIViewController *mainVc;
+@property(nonatomic,strong)UINavigationController *recognitionNavigation;
+
 
 @property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *pan1;//开始的边缘平移手势
 @property(nonatomic,strong)UIPanGestureRecognizer *pan2;//侧滑后的平移手势
@@ -33,12 +35,14 @@
 +(instancetype)initWithLeftVC:(GFBasicController *)leftVc mainVc:(UIViewController *)mainVc{        //实例类型
     return  [[GFSlideController alloc]initWithLeftVC:leftVc mainVc:mainVc];
 }
+//
 -(instancetype)initWithLeftVC:(GFBasicController *)leftVc mainVc:(UIViewController *)mainVc{
     
     self = [super init];
     if (self) {
         
         self.leftVc = leftVc;
+        
         self.mainVc = mainVc;
         
         [self setup];
@@ -90,6 +94,11 @@
             [weakSelf closeDrawer];//关闭抽屉
         }
     };
+    
+    //_recognitionNavigation = [[UINavigationController alloc]initWithRootViewController:leftVc];
+    
+    
+    
 }
 
 #pragma mark---手势处理

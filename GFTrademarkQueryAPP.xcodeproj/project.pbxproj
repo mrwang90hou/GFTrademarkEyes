@@ -10,6 +10,7 @@
 		2886591D5D307FEA0226E929 /* libPods-GFTrademarkQueryAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9978FF160DDF66BCBFDDB /* libPods-GFTrademarkQueryAPP.a */; };
 		631A3B7646E466505692A4FB /* libPods-GFTrademarkQueryAPPUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A704AE11FB726513C526F54 /* libPods-GFTrademarkQueryAPPUITests.a */; };
 		6F4BD6EC1AB35A3CD32222B3 /* libPods-GFTrademarkQueryAPPTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2093A7B3F797E4FB0DCB710E /* libPods-GFTrademarkQueryAPPTests.a */; };
+		92147E4E207FA72F00526609 /* 欢迎页1242*2208.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92147E4D207FA72F00526609 /* 欢迎页1242*2208.jpg */; };
 		9217DBE5207C4CEA001336E8 /* GFRootUseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217DBE3207C4CE9001336E8 /* GFRootUseController.m */; };
 		9217DBE6207C4CEA001336E8 /* StyleTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217DBE4207C4CEA001336E8 /* StyleTableController.m */; };
 		9217DBE9207C5A39001336E8 /* CQHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217DBE8207C5A38001336E8 /* CQHUD.m */; };
@@ -46,10 +47,11 @@
 		923480762079F1EB0098BF30 /* SinaWeiboConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9234805C2079F1EA0098BF30 /* SinaWeiboConnector.framework */; };
 		923480772079F1EB0098BF30 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9234805D2079F1EB0098BF30 /* ShareSDK.framework */; };
 		923480782079F1EB0098BF30 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9234805F2079F1EB0098BF30 /* MOBFoundation.framework */; };
+		92406329207EF30F00E91439 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92406328207EF30F00E91439 /* LaunchScreen.xib */; };
 		926AE8B52064E35A00FDA8C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8B42064E35A00FDA8C2 /* AppDelegate.m */; };
 		926AE8BB2064E35A00FDA8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926AE8B92064E35A00FDA8C2 /* Main.storyboard */; };
 		926AE8BD2064E35A00FDA8C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 926AE8BC2064E35A00FDA8C2 /* Assets.xcassets */; };
-		926AE8C02064E35A00FDA8C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926AE8BE2064E35A00FDA8C2 /* LaunchScreen.storyboard */; };
+		926AE8C02064E35A00FDA8C2 /* LaunchScreen(原).storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926AE8BE2064E35A00FDA8C2 /* LaunchScreen(原).storyboard */; };
 		926AE8C32064E35A00FDA8C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8C22064E35A00FDA8C2 /* main.m */; };
 		926AE8CD2064E35A00FDA8C2 /* GFTrademarkQueryAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8CC2064E35A00FDA8C2 /* GFTrademarkQueryAPPTests.m */; };
 		926AE8D82064E35A00FDA8C2 /* GFTrademarkQueryAPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AE8D72064E35A00FDA8C2 /* GFTrademarkQueryAPPUITests.m */; };
@@ -81,6 +83,7 @@
 		92AAAA8F207A0EA300DE1A7C /* 联系我们_海报.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92AAAA8C207A0EA300DE1A7C /* 联系我们_海报.jpg */; };
 		92AAAA90207A0EA300DE1A7C /* 微信公共号二维码.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AAAA8D207A0EA300DE1A7C /* 微信公共号二维码.png */; };
 		92AAAA93207A544600DE1A7C /* VersionInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AAAA92207A544600DE1A7C /* VersionInformationController.m */; };
+		92AAD0F2207F7D9600E9A549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92AAD0F0207F7D9600E9A549 /* LaunchScreen.storyboard */; };
 		92C0C38A2069F8EC005E3170 /* MyInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C3892069F8EC005E3170 /* MyInformationController.m */; };
 		92C0C390206A1F8A005E3170 /* StyleResultViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C38E206A1F89005E3170 /* StyleResultViewControllerCell.m */; };
 		92C0C391206A1F8A005E3170 /* StyleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C38F206A1F89005E3170 /* StyleResultViewController.m */; };
@@ -151,6 +154,7 @@
 		8693E082C7B9C7BF17171525 /* Pods-GFTrademarkQueryAPPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPPUITests/Pods-GFTrademarkQueryAPPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A3039D53BBCE9C101043E47 /* Pods-GFTrademarkQueryAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFTrademarkQueryAPPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFTrademarkQueryAPPUITests/Pods-GFTrademarkQueryAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A704AE11FB726513C526F54 /* libPods-GFTrademarkQueryAPPUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GFTrademarkQueryAPPUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92147E4D207FA72F00526609 /* 欢迎页1242*2208.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "欢迎页1242*2208.jpg"; sourceTree = "<group>"; };
 		9217DBE1207C4CE9001336E8 /* StyleTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleTableController.h; sourceTree = "<group>"; };
 		9217DBE2207C4CE9001336E8 /* GFRootUseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRootUseController.h; sourceTree = "<group>"; };
 		9217DBE3207C4CE9001336E8 /* GFRootUseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRootUseController.m; sourceTree = "<group>"; };
@@ -197,12 +201,13 @@
 		9234805C2079F1EA0098BF30 /* SinaWeiboConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinaWeiboConnector.framework; sourceTree = "<group>"; };
 		9234805D2079F1EB0098BF30 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
 		9234805F2079F1EB0098BF30 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		92406328207EF30F00E91439 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		926AE8B02064E35A00FDA8C2 /* GFTrademarkQueryAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GFTrademarkQueryAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926AE8B32064E35A00FDA8C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		926AE8B42064E35A00FDA8C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		926AE8BA2064E35A00FDA8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		926AE8BC2064E35A00FDA8C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		926AE8BF2064E35A00FDA8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		926AE8BF2064E35A00FDA8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/LaunchScreen(原).storyboard"; sourceTree = "<group>"; };
 		926AE8C12064E35A00FDA8C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		926AE8C22064E35A00FDA8C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		926AE8C82064E35A00FDA8C2 /* GFTrademarkQueryAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GFTrademarkQueryAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +269,7 @@
 		92AAAA8D207A0EA300DE1A7C /* 微信公共号二维码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信公共号二维码.png"; sourceTree = "<group>"; };
 		92AAAA91207A544600DE1A7C /* VersionInformationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionInformationController.h; sourceTree = "<group>"; };
 		92AAAA92207A544600DE1A7C /* VersionInformationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionInformationController.m; sourceTree = "<group>"; };
+		92AAD0F1207F7D9600E9A549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92C0C3882069F8EB005E3170 /* MyInformationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInformationController.h; sourceTree = "<group>"; };
 		92C0C3892069F8EC005E3170 /* MyInformationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInformationController.m; sourceTree = "<group>"; };
 		92C0C38B206A1F89005E3170 /* StyleResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleResultViewController.h; sourceTree = "<group>"; };
@@ -598,7 +604,9 @@
 				92EA7F41206BE7A0005D2668 /* ChooseImageCode(图形要素) */,
 				92C0C3BE206BB723005E3170 /* ChooseCommodityRange(商品范围) */,
 				926AE8B92064E35A00FDA8C2 /* Main.storyboard */,
-				926AE8BE2064E35A00FDA8C2 /* LaunchScreen.storyboard */,
+				92406328207EF30F00E91439 /* LaunchScreen.xib */,
+				92AAD0F0207F7D9600E9A549 /* LaunchScreen.storyboard */,
+				926AE8BE2064E35A00FDA8C2 /* LaunchScreen(原).storyboard */,
 				926AE8C12064E35A00FDA8C2 /* Info.plist */,
 				926AE8C22064E35A00FDA8C2 /* main.m */,
 				926AE9282064F31C00FDA8C2 /* PrefixHeader.pch */,
@@ -879,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				92AAAA8C207A0EA300DE1A7C /* 联系我们_海报.jpg */,
+				92147E4D207FA72F00526609 /* 欢迎页1242*2208.jpg */,
 				92AAAA8D207A0EA300DE1A7C /* 微信公共号二维码.png */,
 				92AAAA8B207A0EA200DE1A7C /* 雅庭国际广场.jpg */,
 				926AE8BC2064E35A00FDA8C2 /* Assets.xcassets */,
@@ -1037,7 +1046,7 @@
 				9234806D2079F1EB0098BF30 /* ShareSDKConfigFile.bundle in Resources */,
 				92AAAA8F207A0EA300DE1A7C /* 联系我们_海报.jpg in Resources */,
 				92347FE02079AA230098BF30 /* niceclass_2018_detail.sqlite in Resources */,
-				926AE8C02064E35A00FDA8C2 /* LaunchScreen.storyboard in Resources */,
+				926AE8C02064E35A00FDA8C2 /* LaunchScreen(原).storyboard in Resources */,
 				92F168F2206959400001CBAD /* LeftView.xib in Resources */,
 				926AE9172064E9F400FDA8C2 /* ListCell.xib in Resources */,
 				923480682079F1EB0098BF30 /* ShareSDK.bundle in Resources */,
@@ -1047,6 +1056,9 @@
 				923480602079F1EB0098BF30 /* WeiboSDK.bundle in Resources */,
 				926AE8BB2064E35A00FDA8C2 /* Main.storyboard in Resources */,
 				92EA7F40206BD758005D2668 /* db_image_code.sqlite in Resources */,
+				92147E4E207FA72F00526609 /* 欢迎页1242*2208.jpg in Resources */,
+				92AAD0F2207F7D9600E9A549 /* LaunchScreen.storyboard in Resources */,
+				92406329207EF30F00E91439 /* LaunchScreen.xib in Resources */,
 				923480652079F1EB0098BF30 /* README.md in Resources */,
 				923480692079F1EB0098BF30 /* ShareSDKUI.bundle in Resources */,
 				92AAAA8A207A047F00DE1A7C /* ConnectToUsController.storyboard in Resources */,
@@ -1341,10 +1353,18 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		926AE8BE2064E35A00FDA8C2 /* LaunchScreen.storyboard */ = {
+		926AE8BE2064E35A00FDA8C2 /* LaunchScreen(原).storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				926AE8BF2064E35A00FDA8C2 /* Base */,
+			);
+			name = "LaunchScreen(原).storyboard";
+			sourceTree = "<group>";
+		};
+		92AAD0F0207F7D9600E9A549 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92AAD0F1207F7D9600E9A549 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

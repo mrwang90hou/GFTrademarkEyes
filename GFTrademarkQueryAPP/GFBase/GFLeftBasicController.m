@@ -56,7 +56,7 @@
     
     // 设置导航栏左侧图标
     if ([[self.navigationController viewControllers] count] <= 0) {
-        
+
         //此方法，head头像显示异常
 //        UIBarButtonItem *left_view_btn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"head"] style:UIBarButtonItemStyleDone target:self action:@selector(openDrawer)];
 //        [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects: left_view_btn,nil]];
@@ -66,7 +66,7 @@
         [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
         [left_view_btn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:left_view_btn]];
-        
+
     } else {
         // 处于上层的ViewControllers显示返回按钮
         UIButton *backView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
@@ -118,4 +118,7 @@
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [appdelegate.gfSlideVc openDrawer];
 }
+
+
+
 @end

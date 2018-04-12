@@ -11,8 +11,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+//@property UINavigationController *recognitionNavigation;
 @property(nonatomic,strong)GFSlideController *gfSlideVc;
-
 @end
 
