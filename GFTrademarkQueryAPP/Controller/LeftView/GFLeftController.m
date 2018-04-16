@@ -159,9 +159,11 @@
             //GFBasicController *nextVC = [[GFBasicController alloc]init];
             //[SVProgressHUD showSuccessWithStatus:@"给个好评"];
             //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=529826126"]];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=529826126"] options:@{} completionHandler:^(BOOL success) {
+            //修改完成ID信息
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1372621662"] options:@{} completionHandler:^(BOOL success) {
                 NSLog(@"给个好评");
             }];
+            
             break;
         case 4:
             //nextVC = [[GFMyRechargeViewController alloc] init];

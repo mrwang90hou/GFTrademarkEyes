@@ -8,4 +8,3 @@
 #import "UIKit/UIKit.h"
 @interface VersionInformationController : GFLeftBasicController
 @end
-
