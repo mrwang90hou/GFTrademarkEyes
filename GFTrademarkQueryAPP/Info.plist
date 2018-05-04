@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MOBAppKey</key>
@@ -27,9 +27,9 @@
 	<key>MOBAppSecret</key>
 	<string>e809bdb3b32cd2cf426be0484936f521</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>App需要您的同意,才能访问相册</string>
+	<string>获取二维码在本地，方便您操作，需要您对相册权限许可</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>App需要您的同意,才能访问相册</string>
+	<string>获取二维码在本地，方便您操作，需要您对相册权限许可</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
