@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E334D50D3448091AEE3537B9CB55BB7C"
-               BlueprintName = "SVProgressHUD"
+               BlueprintIdentifier = "A34222EA560CDAF4CFF3C86E3FFC55EB"
+               BlueprintName = "Pods-GFTrademarkEyesUITests"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSVProgressHUD.a">
+               BuildableName = "libPods-GFTrademarkEyesUITests.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
