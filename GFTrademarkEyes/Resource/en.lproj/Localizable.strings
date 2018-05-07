@@ -1,0 +1,851 @@
+/*
+ Localizable.strings
+ GFTrademark
+ 
+ Created by 夏伟耀 on 16/2/27.
+ Copyright © 2016年 gf. All rights reserved.
+ */
+"test" = " test";
+"YES" = "OK";
+"NO" = "cancel";
+
+// 通用信息
+"all_loading" = "requesting data";
+"all_dialog_title" = " reminder";
+"all_request_error" = "data request error";
+"all_parse_data_error" = "data parsing error";
+"all_checkcode_over_date" = "login failure, please login again";
+"all_parse_data_timeout" = "no response from the server";
+
+// 登录界面
+"input_account_hint" = "please enter the user name";
+"input_password_hint" = "please enter the password for the user login";
+"login" = " login";
+"user_register" = "user registration";
+"change_language" = "the language switch";
+"lost_password" = "forgot password";
+"company_name" = "Foshan Guofang Trademark Service Co. Ltd \n Foshan Guofang trademark Software Co. ltd";
+"from" = " by";
+"develop" = "development";
+"sure" = "OK";
+"login_false" = "verification code does not match";
+"login_false_ceiling1" = "device authorization has reached the upper limit";
+"login_false_ceiling2" = "the same device is verified more than 1 times in a minute";
+"login_false_ceiling3" = "need to authorize the device first";
+"login_false_ceiling5" = "there are already other users that bind the device and authorize it";
+"login_false_account_password" = "the wrong account or password";
+"login_update" = "new version";
+"login_Remember_the_password" = "Remember the password";
+
+
+// 登录验证
+"login_validate" = "login authentication";
+"login_validate_message" = "Warm prompt \n, this operation will replace the main device code";
+"login_validate_code" = "verification code：";
+"login_validate_commit" = "submit";
+"login_validate_please_input" = "please enter the verification code";
+"login_validate_code_error" = "verification code error!";
+"login_validate_error" = "user login information does not exist";
+
+
+//注册界面
+"SignUp" = "user registration";
+"SignUpAccount" = "registered account number：";
+"SignUpAccountHolder" = "letters and numbers, not pure numbers";
+"SignUpPassword" = "login password：";
+"SignUpPasswordHolder" = "a combination of numbers and combinations of lengths greater than 8 digits";
+"SignUpConfirmPassword" = "password confirmation：";
+"SignUpConfirmPasswordHolder" = "please repeat the password above";
+"SignUpValidateByPhone" = "register authentication using mobile phone";
+"SignUpValidateByEmail" = " register validation using mailbox";
+"SignUpPhone" = "cell phone number：";
+"SignUpPhoneHolder" = "please enter your cell phone number";
+"SignUpEmail" = "e-mail box：";
+"SignUpEmailHolder" = "please enter your email address";
+"SignUpValidate" = "verification code：";
+"SignUpValidateHolder" = " please enter the verification code";
+"SignUpValidateGet" = "get the verification code";
+"SignUpReadTermOfService" = "I have read and agreed";
+"SignUpTermOfService" = " < service term > ";
+"SignUpRegister" = "register";
+"SignUpAccountError" = "accounts can only be letters or numbers, not less than 4 bits long, not pure numbers!";
+"SignUpPasswordValidateError" = "the password for the two input is not the same";
+"SignUpPasswordError" = " password requires a combination of letters and numbers longer than 8 digits";
+"SignUpTargetError" = "enter the phone number or e-mail format incorrectly";
+"SignUpValidateCodeError" = "the format of the input verification code is wrong";
+"SignUpValidateCodeSentSuccess" = "send successfully";
+"SignUpValidateCodeSentFalse" = "the authentication code failed to send";
+"SignUpValidateCodeSentFalseAccountError" = "the account you entered has been registered";
+"SignUpValidateCodeSentFalseTargetError" = " verify that the phone or mailbox is already in use";
+"SignUpValidateCodeSentFalseTimesADayError" = "the number of validation times exceeded the limit";
+"SignUpValidateCodeSentFalseTimesError" = "same phone number or mailbox, request more than 1 times in one minute";
+"SignUpValidateCodeSentFalseTimesDeviceError" = "the same device requests more than 1 times in a minute";
+"SignUpRegisterSuccess" = "successful registration";
+"SignUpRegisterFalse" = "failed registration";
+"SignUpRegisterFalseAccountError" = "the account you entered has been registered";
+"SignUpRegisterFalseTargetError" = "verify that the phone or mailbox is already in use";
+"SignUpRegisterFalseValidateCodeError" = "verification code error";
+"SignUpRegisterFalseValidateCodeDeviceError" = "the device has been registered by another user";
+
+
+// 修改密码
+"UpdatePasswordUserDoesNotExist" = "the user does not exist";
+"UpdatePasswordLoginInformationDoesNotExist" = "logon information does not exist";
+"UpdatePasswordTheUserIDAndLoginInformationDoesNotMatch" = "The user ID does not match the login information";
+"UpdatePasswordLoginHasExpired" = "logon has expired";
+"UpdatePasswordVerificationCodeDoesNotMatch" = "the verification code does not match";
+"UpdatePasswordChangePasswordSuccessfully" = "change password successfully. Please log in";
+"UpdatePasswordOldPasswordDoesNotMatch" = "old password does not match";
+"UpdatePasswordEnterTheVerificationCodeDoesNotMatch" = "the entered verification code does not match";
+
+
+//处理进程
+"ProcessNoTaskRecord" = " no task record ";
+
+
+// 忘记密码
+"LosePassword" = "password retrieval";
+"LosePasswordChooseWay" = "please select the way to retrieve the password";
+"LosePasswordChooseWayPhone" = "use your mobile phone to retrieve your password";
+"LosePasswordChooseWayEmail" = "use the mailbox to retrieve the password";
+"LosePasswordPhone" = "cell phone number：";
+"LosePasswordPhoneHolder" = "please enter your cell phone number";
+"LosePasswordEmail" = "e-mail box：";
+"LosePasswordEmailHolder" = " please enter your email address";
+"LosePasswordNextStep" = "next";
+"LosePasswordValidate" = "identifying code ：";
+"LosePasswordValidateHolder" = "enter the received authentication code";
+"LosePasswordNew" = "new password：";
+"LosePasswordNewHolder" = "a combination of numbers and combinations of lengths greater than 8 digits";
+"LosePasswordNewConfirm" = "password confirmation：";
+"LosePasswordNewConfirmHolder" = "please repeat the password above";
+"LosePasswordGetCodeError" = "failed to obtain the authentication code";
+"LosePasswordGetCodeErrorPhoneEmail" = " mobile phone number or e-mail box does not exist";
+"LosePasswordGetCodeErrorTimesADay" = "the number of times the number of authentication codes received exceeds that limit";
+"LosePasswordGetCodeErrorTimes1" = "same phone number or mailbox, request more than 1 times in one minute";
+"LosePasswordGetCodeErrorTimes2" = "the same device is verified more than 1 times in a minute";
+"LosePasswordChangeSuccess" = "reset password successfully";
+"LosePasswordChangeFalse" = "failed to reset password";
+"LosePasswordChangeFalsePhoneEmail" = "mobile phone number or e-mail box does not exist";
+"LosePasswordChangeFalseValidateCode" = "verification code error";
+
+
+// 商品选择界面
+"commodity_range" = "select the range of goods";
+"category_root" = "category";
+"category_child" = "similar group";
+"category_search" = "commodity inquiry";
+"choose_yes" = "ok";
+"choose_no" = "no choice";
+"choose_complete" = "select";
+"first_range" = "classification:";
+"second_range" = "similar group:";
+"search_range" = "search";
+"search_generations" = "select all";
+"range_number" = "number";
+"range_unit" = "class";
+"choose_by_name" = "select the name of commodity：";
+"commodity_name" = "commodity name：";
+"first_range_" = "category";
+"second_range_" = "similar group";
+
+
+// 算法选择界面
+"confirm_alert_content" = "your choice of algorithm has been saved";
+"confirm_alert_search_algorithm_2" = "custom status to check content";
+"choose_algorithm" = "query algorithm";
+"search_way" = "query：";
+"search_way_0" = "mixed query";
+"search_way_1" = "image features";
+"search_way_2" = "literal content";
+"search_algorithm" = "current algorithm：";
+"search_algorithm_0" = "  same";
+"search_algorithm_1" = "  approximate";
+"search_algorithm_2" = " custom";
+"custom_algorithm" = "custom query algorithm";
+"search_status" = "state filtering：";
+"search_status_0" = "all";
+"search_status_1" = "valid";
+"search_status_2" = "invalid";
+"search_status_3" = "pending";
+"time_type" = "date type：";
+"time_range" = "date range：";
+"time_to" = "to";
+"algorithm_confirm" = "ok";
+"algorithm_trademark" = "graphic features";
+"algorithm_chinese" = "Chinese";
+"algorithm_english" = "English name";
+"algorithm_graph" = "graphic elements";
+"algorithm_register_no" = "registration number";
+"algorithm_register_person_chinese" = "registered name Chinese";
+"algorithm_register_person_english" = "registered name English";
+"algorithm_register_address_chinese" = "Registrant's address in Chinese";
+"algorithm_register_address_english" = "Registrant's address in English";
+"algorithm_agent_chinese" = "Chinese agency";
+"algorithm_agent_english" = "English agency";
+"algorithm_service_chinese" = "goods and services Chinese";
+"algorithm_service_english" = "goods and services English";
+"quick_choose" = "quick selection：";
+"quick_choose_same" = "the same";
+"quick_choose_similarity" = "approximation";
+"quick_choose_custom" = "custom";
+"quick_choose_default" = "default";
+
+"algorithm_time_filter" = "Time Filter：";
+
+
+//图形特征信息
+"algorithm_trademark_0" = "Graphical feature information, the overall standard 1, the same";
+"algorithm_trademark_1" = "Graphical feature information, the overall standard 2, the same";
+"algorithm_trademark_2" = "Graphical feature information, the overall standard 3, the same";
+"algorithm_trademark_3" = "Graphical feature information, the overall standard 4, the same";
+"algorithm_trademark_4" = "Graphical feature information, the overall standard 5, the same";
+"algorithm_trademark_5" = "Graphics feature information, fixed length, standard 1, the same";
+"algorithm_trademark_6" = "Graphics feature information, fixed length, standard 2, the same";
+"algorithm_trademark_7" = "Graphics feature information, fixed length, standard 3, the same";
+"algorithm_trademark_8" = "Graphics feature information, fixed length, standard 4, the same";
+"algorithm_trademark_9" = "Graphics feature information, fixed length, standard 5, the same";
+"algorithm_trademark_10" = "Describes the same thing name";
+
+
+//中文名称算法
+"algorithm_chinese_0" = "the whole text of the trademark is the same";
+"algorithm_chinese_1" = "trademark Chinese text (sequential and reverse order) the same";
+"algorithm_chinese_2" = "trademark letter combination (sequential and reverse order) the same";
+"algorithm_chinese_3" = "the combination of trademark numbers (sequential and reverse order) is the same";
+"algorithm_chinese_4" = "trademark symbol combinations (sequential and reverse order) are the same";
+"algorithm_chinese_5" = " relative to independent elements (in order and in reverse order)";
+"algorithm_chinese_6" = "belonging to another person trademark is part of the same";
+"algorithm_chinese_7" = "into the same characters";
+"algorithm_chinese_8" = "some Chinese words are the same";
+"algorithm_chinese_9" = "some Chinese synonyms are the same vocabulary";
+"algorithm_chinese_10" = "Chinese character sequence text is the same";
+"algorithm_chinese_11" = "Chinese characters are similar in form";
+"algorithm_chinese_12" = "Chinese numerals are the same as other languages";
+"algorithm_chinese_13" = "the same pronunciation of Chinese characters";
+"algorithm_chinese_14" = "some of the adjacent characters are the same";
+"algorithm_chinese_15" = "Chinese characters are the same as the beginning and the end";
+"algorithm_chinese_16" = "some Chinese characters are the same";
+
+//西文算法
+"algorithm_english_0" = "the whole text of the trademark is the same";
+"algorithm_english_1" = "trademark Chinese text (sequential and reverse order) the same";
+"algorithm_english_2" = "trademark letter combination (sequential and reverse order) the same";
+"algorithm_english_3" = "the combination of trademark numbers (sequential and reverse order) is the same";
+"algorithm_english_4" = "trademark symbol combinations (sequential and reverse order) are the same";
+"algorithm_english_5" = "relative to independent elements (in order and in reverse order)";
+"algorithm_english_6" = "belonging to another person trademark is part of the same";
+"algorithm_english_7" = "some English synonyms are the same vocabulary";
+"algorithm_english_8" = "phonetic syllable is the same";
+"algorithm_english_9" = "some English words are the same";
+"algorithm_english_10" = "English numerals are the same as other languages";
+"algorithm_english_11" = "shape near the monogram is the same";
+"algorithm_english_12" = "the sounds are the same as the letters";
+"algorithm_english_13" = "some of the adjacent letters are the same";
+"algorithm_english_14" = "alphabetic combination is the same";
+"algorithm_english_15" = "the same as the beginning and the end letters";
+"algorithm_english_16" = "some letters are the same";
+
+
+//图形要素算法
+"algorithm_graph_0" = "graphic elements are the same";
+"algorithm_graph_1" = "some graphic elements are the same";
+"algorithm_graph_2" = "describe the same thing name";
+
+//注册号算法
+"algorithm_register_no_0" =  "the whole number and the letters are the same.";
+
+//注册人名称中文
+"algorithm_register_person_chinese_0" = "the whole text (sequence) is the same";
+"algorithm_register_person_chinese_1" = "some of the adjacent characters are the same";
+"algorithm_register_person_chinese_2" = "some Chinese characters are the same";
+
+//注册人名称英文
+"algorithm_register_person_english_0" = "whole letters, numbers, symbols (the same order)";
+"algorithm_register_person_english_1" = "some of the adjacent letters are the same";
+"algorithm_register_person_english_2" = "some words are the same.";
+
+
+//注册人地址中文
+"algorithm_register_address_chinese_0" = "the whole text (sequence) is the same";
+"algorithm_register_address_chinese_1" = "some of the adjacent characters are the same.";
+"algorithm_register_address_chinese_2" = "some Chinese characters are the same";
+
+
+//注册人地址英文
+"algorithm_register_address_english_0" = "whole letters, numbers, symbols (the same order)";
+"algorithm_register_address_english_1" = "some of the adjacent letters are the same.";
+"algorithm_register_address_english_2" = "some words are the same.";
+
+//代理机构中文
+"algorithm_agent_chinese_0" = "the whole text (sequence) is the same";
+"algorithm_agent_chinese_1" = "some of the adjacent characters are the same";
+"algorithm_agent_chinese_2" = "some Chinese characters are the same";
+
+
+//代理机构英文
+"algorithm_agent_english_0" = "whole letters, numbers, symbols (the same order)";
+"algorithm_agent_english_1" = "some of the adjacent letters are the same";
+"algorithm_agent_english_2" = "some words are the same";
+
+
+//商品服务中文
+"algorithm_service_chinese_0" = "whole commodity name, text (sequence) the same";
+"algorithm_service_chinese_1" = "commodity name, part Chinese characters are the same";
+
+//商品服务英文
+"algorithm_service_english_0" = "whole commodity name, letters, numbers, symbols (in order)";
+"algorithm_service_english_1" = "commodity name, part of the word is the same";
+
+
+// 查询结果
+"search_result" = "query results";
+"change_view" = "toggle view";
+"result_sum_tint" = "currently displays the previous %d data";
+"result_sum" = "in accordance with the recorded %@ data";
+"trademark_info" = "Article %@ No%@ \n registration: %@ \n date:%@ \n registration date:%@ \n state:%@";
+"trademark_info2" = "%@ class %@";
+"trademark_result_sort_0" = "trademark image ^";
+"trademark_result_sort_1" = "Chinese name ^";
+"trademark_result_sort_2" =  "western language name ^";
+"trademark_result_sort_3" = "trademark class ^";
+"trademark_result_sort_4" = "registrant name ^";
+"trademark_result_sort_5" = "registration number or application number ^";
+"trademark_result_sort_6" = "date of application ^";
+"trademark_result_sort_7" = "first trial date ^";
+"trademark_result_sort_8" = "registration date ^";
+
+// 商标档案
+"trademark_file" = "trademark file";
+"trademark_file_1" = "registration number:";
+"trademark_file_2" = "category:";
+"trademark_file_3" = "trademark type:";
+"trademark_file_4" = "brand name:";
+"trademark_file_5" = "date of application:";
+"trademark_file_6" = "notice period:";
+"trademark_file_7" = "registrant:";
+"trademark_file_8" = "registrant address:";
+"trademark_file_9" = "dedicated deadline:";
+"trademark_file_10" = "agency:";
+"trademark_file_11" = "similar groups:";
+"trademark_file_12" = "goods / services:";
+"trademark_file_13" = "trademark status:";
+"trademark_file_14" = "final announcement:";
+"trademark_file_15" = "final process:";
+"trademark_file_btn_check_notice" = "look at the trademark announcement.";
+"trademark_file_btn_check_process" = "view transaction flow.";
+"trademark_file_btn_check_service" = "view commodity service";
+
+
+// 商标公告
+"trademark_notic" = "trademark announcement";
+"trademark_notic_no" = "serial number";
+"trademark_notic_date" = "date of publication";
+"trademark_notic_number" = "issue";
+"trademark_notic_event" = "announcement";
+"trademark_notic_no0" = "no.";
+"trademark_notic_no1" = "class";
+"trademark_notic_no2" = "No.";
+"trademark_notic_no3" = "trademark related announcement";
+
+
+// 商标审查流程 商品服务
+"trademark_process" = "trademark review process status";
+"trademark_process_id" = "application / registration number";
+"trademark_process_type" = "category";
+
+"trademark_process_no" = "serial number";
+"trademark_process_time" = "time";
+"trademark_process_event" = "commodity flow project";
+
+"trademark_process_date" = "date";
+"trademark_process_business" = "Business name";
+"trademark_process_link" = "link name";
+"trademark_process_conclusion" = "conclusion";
+"trademark_process_registration" = "Application/registration number";
+
+"trademark_service" = "commodity service";
+"trademark_service_no" = "serial number";
+"trademark_service_kind" = "similar group";
+"trademark_service_event" = "commodity service item name";
+
+// 添加查询内容
+"search_content_title" = "add query content.";
+"search_content_type" = "content type:";
+"search_content_type_0" = "trademark Chinese name";
+"search_content_type_1" = "trademark western language name";
+"search_content_type_2" = "trademark graphic element encoding";
+"search_content_input" = "query content:";
+"search_content_image_code" = "International Classification of trademark graphic elements";
+"search_content_image_code_message" = "multiple graphical element encoding is separated by '''";
+"search_content_confirm" = "confirm";
+"search_content_notify_no_chinese" = "input, which contains non Chinese characters";
+"search_content_notify_has_chinese" = "input, which contains non English characters";
+"search_content_notify_wait" = "loading data";
+"search_content_Algorithms_same" = "algorithm: same";
+"search_content_Algorithms_approximate" = "algorithm: approximate";
+"search_content_Algorithms_same_custom" = "algorithm: Custom";
+"search_content_Algorithms_other" = "other: default";
+"search_content_Algorithms_other_custom" = "other: custom";
+
+
+// 图形要素
+"image_code" = "graphical elements";
+"image_code_search" = "find";
+"image_code_delete" = "delete";
+"image_code_confirm" = "confirm";
+"image_code_data" = "graphical elements";
+"image_desc_data" = "graphical description";
+
+
+//商标识别
+"recognition_home_title" = "trademark identification";
+"recognition_get_trademark_way" = "please choose the way to enter the trade mark.:";
+"recognition_get_trademark_album" = "photo album gets the logo";
+"recognition_get_trademark_camera" = "camera acquires trademark";
+"recognition_get_zitu" = "no identification approximation is found.";
+"recognition_Chinese" = "chinese";
+"recognition_English" = "english";
+"recognition_image_code" = "graphical elements";
+"recognition_image_nothing" = "nothing";
+"recognition_image_warning1" = "warm prompt: the query mode could not add query content";
+
+//编辑识别图案
+"trademark_edit_title" = "identifying trademark editors.";
+"trademark_edit_cut" = "cut";
+"trademark_edit_confirm" = "OK";
+"trademark_edti_cancel" = "cancel";
+"trademark_edit_notice" = "cut off content independent content, increase the accuracy of identification.";
+"trademark_edit_choose_shape" = "select shape:";
+
+
+//添加识别条件
+"recognition_prepare_title_ordinary" = "general recognition of the query";
+"recognition_prepare_title_senior" = "senior recognition query";
+"recognition_prepare_title_seniorlabel" = "senior recognition";
+"recognition_prepare_album" = "photo album";
+"recognition_prepare_camera" = "camera";
+"recognition_prapare_reset" = "picture";
+"recognition_prepare_cut" = "cut";
+"recognition_prapare_trademark_title" = "to trademark pattern recognition";
+"recognition_prepare_combination" = "trademark pattern split combination";
+"recognition_prepare_familiar" = "add or replace approximate pattern";
+"recognition_prepare_set_keyword" = "Add text query content";
+"recognition_prepare_select_range" = "select the range of goods";
+"recognition_prepare_set_condition" = "Query condition setting";
+"recognition_prepare_go_recognize" = "recognition of the query";
+"recognition_prepare_go_typeString" = "Query content";
+"recognition_prepare_go_shopString" = "no choice";
+"recognition_prepare_go_recognize_image" = "trademark pattern";
+"recognition_prepare_go_Auxiliary_operation" = "auxiliary operation";
+"recognition_prepare_go_recognize_type" = "query:";
+"recognition_prepare_go_recognize_other_type" = "modify";
+"recognition_prepare_go_recognize_content" = "Add text query content";
+"recognition_prepare_go_recognize_other_content" = "add";
+"recognition_prepare_go_recognize_range" = "categories of goods";
+"recognition_prepare_go_recognize_other_range" = "classification table";
+"recognition_prepare_go_recognize_set" = "query condition";
+"recognition_prepare_go_recognize_other_set" = "custom";
+"recognition_prepare_go_Auxiliary_operation_0" = "album get";
+"recognition_prepare_go_Auxiliary_operation_1" = "take photos";
+"recognition_prepare_go_Auxiliary_operation_2" = "cut";
+"recognition_prepare_go_Auxiliary_operation_3" = "spin off";
+"recognition_prepare_go_Auxiliary_operation_4" = "replace append";
+"recognition_prepare_go_Auxiliary_operation_5" = "card pattern";
+
+
+//图像分拆组合
+"image_combination_title" = "image split combination";
+"image_combination_notice" = "following the outline of the graphics system is to separate the graph, you can click through a combination of graphic trademark split subgraph no.";
+"image_combination_combine" = "spin off";
+"image_combination_reset" = "reset";
+"image_combination_preview" = "preview the spin off combination results.";
+"image_combination_done" = "finished";
+"image_combination_conditions" = "combination";
+"image_combination_limit" = "please select the required spin off combination.";
+"image_combination_onlyone" = "can only choose an approximate graph";
+"image_combination_photo" = "picture cache, please wait a moment";
+"image_combination_photo_error" = "picture cache error";
+"image_combination_photo_NoOne" = "the number of combinations of subgraphs is empty.";
+"image_combination_photo_NO" = "please select a combination subgraph.";
+"image_combination_NO" = "please select an approximation diagram.";
+"image_combination_Choose" = "the number of recognized pictures must be greater than 1.";
+
+
+// 商标查询
+"trademark_search_type" = "query type:";
+"trademark_search_content" = "query content:";
+"trademark_search_image_code" = "trademark graphic elements";
+"trademark_search_type_0" = "brand name Chinese";
+"trademark_search_type_1" = "trademark name western language";
+"trademark_search_type_2" = "trademark graphic elements";
+"trademark_search_type_3" = "registration number";
+"trademark_search_type_4" = "registrant name, chinese";
+"trademark_search_type_5" = " registrant name english";
+"trademark_search_type_6" = "registrant address chinese";
+"trademark_search_type_7" = "registrant address in English";
+"trademark_search_type_8" = "agency chinese";
+"trademark_search_type_9" = "agency English";
+"trademark_search_type_10" = "commodity service Chinese";
+"trademark_search_type_11" = "commodity service English";
+"trademark_search_choose_type_first" = "please select the type of query first.";
+"trademark_search_choose_range" = "commodity range selection";
+"trademark_search_set" = "query condition setting";
+"trademark_search" = "trademark query";
+"trademark_search_advance" = "advanced query";
+"trademark_search_QueriesCanBeEmpty" = "Please add query content first.";
+"trademark_search_ChineseRestrictions" = "query content format error";
+"trademark_search_EnglishRestrictions" = "query content format error";
+"trademark_search_choose_range_category_warning" = "please change the category status first.";
+"trademark_search_limit" = "query upper limit is 5";
+"trademark_search_mChooseRange" = "merchandise range of service: all types";
+"trademark_search_mChooseResultRange" = "you have not chosen the query criteria.";
+"trademark_search_mChooseResultRange_label" = "scope of merchandise services:";
+"trademark_search_mChooseResultRangeNul" = "query condition cannot be null";
+"trademark_search_mChooseResultRange_complete" = "the algorithm has been saved.";
+"trademark_search_TypeChoose" = "click select query type";
+"trademark_search_Placeholder" = "Enter query content";
+"trademark_search_ContentInput_Placeholder" = "click the right button";
+"trademark_search_ContentInput_Buttom" = "please click the button below.";
+"trademark_search_ContentInput_TypeChoose" = "please select query type";
+"trademark_search_ContentInput_Date_Type" = "the date type has no time slot to choose from";
+"trademark_search_ContentInput_Date_Algorithms_is_empty" = "the custom algorithm is empty.";
+"trademark_search_ContentInput_Date_Time_is_empty" = "date type cannot be empty";
+"trademark_search_ContentInput_Date__timeStart" = "the start time is not empty.";
+"trademark_search_ContentInput_Date__timeEnd" = "end time cannot be empty";
+"trademark_search_ContentInput_Data_Time_compare" = "the cut-off time must be greater than or equal to the start time.";
+"trademark_search_ContentInput_Data_Not_ilter" = "do not filter";
+"time_Too_longrademark_search_ContentInput_Data_Application_date" = "date of application";
+"time_Too_longrademark_search_ContentInput_Data_Examination_announcement" = "first trial notice date";
+"trademark_search_ContentInput_Data_Registered_announcement" = "registration notice date";
+"trademark_search_ContentInput_Data_algorithm_0" = "same";
+"trademark_search_ContentInput_Data_algorithm_1" = "approximate";
+"trademark_search_ContentInput_Data_algorithm_2" = "custom";
+"trademark_search_ContentInput_Data_filter_0" = "all";
+"trademark_search_ContentInput_Data_filter_1" = "valid";
+"trademark_search_ContentInput_Data_filter_2" = "invalid";
+"trademark_search_ContentInput_Data_filter_3" = "pending";
+"trademark_search_ContentInput_Data_algorithm_name" = "query algorithm:";
+"trademark_search_ContentInput_Data_filter_name" = "status filtering:";
+"trademark_search_ContentInput_Data_Type_name" = "date type:";
+"trademark_search_ContentInput_Data_Time_name" = "date range:";
+"trademark_search_ContentInput_Time_Too_long" = "query time is too long, do you want to continue?";
+"Time_Too_long" = "query time is too long, do you want to continue?";
+"results_number_NO" = "no corresponding query results";
+"Warm_prompt" = "commodity range data will be reset";
+"Warm_prompt1" = "authentication method is not to select verification code validation";
+"Warm_prompt2" = "enter password or phone, the mailbox received verification code does not match";
+
+//高级查询
+"advance_search_title" = "trademark query";
+"advance_search_type" = "type:";
+"advance_search_content" = "content:";
+"advance_search_type_placeholder" = "select type";
+"advance_search_content_placeholder" = "Enter query content";
+"advance_search_reset" = "reset";
+"advance_search_add_combination" = "add a combination query content.";
+"advance_search_choose_range" = "commodity range selection";
+"advance_search_condition" = "query condition setting";
+"advance_search_relationship" = "relationship:";
+"advance_search_relationship_and" = "and";
+"advance_search_relationship_or" = " or ";
+"advance_search_relationship_nand" = "yes and no";
+"advance_search_relationship_nor" = "or or non";
+"advamce_search_algorithm_title" = "query algorithm:";
+"advance_search_state" = "status filtering:";
+"advance_search_action" = "trademark query";
+"advance_search_please_input_option_type" = "first select the type of combination query";
+"advance_search_please_input_option_content" = "enter the contents of the combination query first.";
+
+
+// 网上服务
+"web_service_title" = "Online services";
+"web_service_choose_way" = "please choose the online service mode:";
+"web_service_apply" = "online application for trademark registration";
+"web_service_online" = "online commissioning of trademark matters";
+"web_service_delegate_type" = "entrusted matter:";
+"web_service_delegate_content" = "abstract:";
+"web_service_tell_your_info" = "please tell me your contact information:";
+"web_service_company" = "company name:";
+"web_service_connect" = "contact person:";
+"web_service_qq" = "QQ:";
+"web_service_phone" = "telephone:";
+"web_service_email" = "E-mail:";
+"web_service_hint" = "prompt: after the submission is successful, our trademark service officer will contact you as soon as possible and reply to your question.";
+"web_service_confirm" = "submit";
+"web_service_prompt" = "submission success";
+"web_service_warning1" = "non shop user";
+"web_service_warning2" = "abstract cannot be empty";
+"web_service_warning3" = "company name cannot be empty";
+"web_service_warning4" = "contacts cannot be null";
+"web_service_warning5" = "the phone cannot be empty";
+
+
+
+// 我的
+"my_title" = "my";
+"my_welcome_label" = "welcome into my account%@ !";
+"my_function_0" = "processing process";
+"my_function_1" = "registration information";
+"my_function_2" = "replace master device";
+"my_function_3" = "change password";
+"my_function_4" = "manage by card";
+"my_function_5" = "card purchase in china";
+"my_function_6" = "my order";
+"my_function_7" = "use log";
+"my_function_8" = "cancel current user";
+"my_logout_success" = "write off successfully";
+"my_logout_warning" = "warm prompt: \n does exit the current account?";
+
+
+
+
+// 处理进程
+"my_process_title" = "task not seen or processed";
+"my_process_desc" = "task description:";
+"my_process_start_time" = "submission time:";
+"my_process_end_time" = "return time:";
+"my_process_check" = "View > ";
+"my_process_doing" = "processing";
+
+
+// 注册信息
+"my_info_title" = "registration information";
+"my_registered_info_way" = "registered authentication mode";
+"my_now_registered_way" = "current authentication mode:";
+"my_personal_info" = "personal information";
+"my_info_account" = "login account:";
+"my_info_way" = "change authentication mode:";
+"my_info_way_phone" = "mobile phone";
+"my_info_way_email" = "mailbox";
+"my_info_0_0" = "mobile phone number:";
+"my_info_0_1" = "e-mail:";
+"my_info_1" = "the user's real name:";
+"my_info_2" = "user address:";
+"my_info_3" = "user nationality:";
+"my_info_4" = "the administrative area under which it belongs:";
+"my_info_5" = "contact person:";
+"my_info_6" = "contact number:";
+"my_info_7" = "contact mobile phone:";
+"my_info_8" = "E-mail:";
+"my_info_9" = "modify personal information";
+"my_info_10" = "modify verification mode";
+"my_info_authorization" = "authorized device";
+"my_info_authorization2" = "modify host device alias";
+"my_info_authorization3" = "enter an alias";
+"my_info_authorization4" = "alias is empty";
+"my_info_motify_message" = "to protect your account, the system needs to verify the information you bind to ensure the security of the following operation.";
+"my_info_get_code" = "get the verification code";
+"my_info_code_sent" = "the authentication code has been sent.";
+"my_info_code_err1" = "the same device has been verified more than 1 times in 1 minutes.";
+"my_info_code_err2" = "mobile phone number or e-mail box is repeated with other users";
+
+
+"my_info_old_message" = "enter the verification code sent to your original binding phone or mailbox:";
+"my_info_new_message" = "enter the verification code sent to your newly bound phone or mailbox:";
+"my_info_old" = "break binding verification code";
+"my_info_new" = "bind verification code";
+"my_info_update_success" = "modify successfully";
+"my_info_update_fail" = "modify failed";
+"my_info_target_error" = "verify phone or verify mailbox formatting error.";
+"my_info_target_here" = "your binding phone or mailbox is already in use!";
+"my_info_target_error1" = "verify that the phone number or mailbox has been changed, but no authentication has been set";
+"my_info_unbind_error" =  "bind verify error!";
+"my_info_bind_error" = "bind validation error!";
+"my_info_update_fail" = "modify failed";
+
+
+// 授权使用设备
+"my_Authorization_info" = "authorized use of device";
+"my_Authorization_title" = " authorized device ";
+"my_Authorization_choose" = "select";
+"my_Authorization_state" = "device authorization status";
+"my_Authorization_name" = "self naming";
+"my_Authorization_save" = "save";
+"my_Authorization_save_warning_1" = "the user's real name cannot be empty";
+"my_Authorization_save_warning_2" = "contact mobile phone cannot be empty";
+"my_Authorization_save_warning_3" = "mailbox cannot be empty";
+"my_Authorization_save_successful" = "save successfully";
+"my_Authorization_openAuthor" = "authorization";
+"my_Authorization_openAuthor_successful" = "authorized success";
+"my_Authorization_stopAuthor" = "termination of authorization";
+"my_Authorization_stopAuthor_successful" = "termination of authorization success";
+"my_Authorization_warning_1" = "self naming cannot be null";
+"my_Authorization_warning_2" = "change the object to null";
+
+
+//替换主设备
+"my_Replace_info" = "replace master device";
+"my_Replace_choose_title" = "current device alias:";
+"my_Replace_choose_name" = "select replace device alias:";
+"my_Replace_choose_validation" = "get the authentication code for the current registration mode:";
+"my_Replace_choose_phone" = "enter your cell phone, please.:";
+"my_Replace_choose_email" = "enter mailbox:";
+"my_Replace_warning_01" = "the cell phone number is empty.";
+"my_Replace_warning_02" = "mailbox is empty";
+"my_Replace_warning_03" = "the verification code is empty.";
+"my_Replace_error_01" = "cell phone number format is wrong.";
+"my_Replace_error_02" = "mailbox format error";
+"my_Replace_error_03" = "you have no authorized devices";
+"my_Replace_successful" = "replace successfully";
+"my_Replace_ero1" = "you have no device to replace.";
+"my_Replace_ero2" = "because your current device has an upper limit of 0, if you want to perform the replacement of the primary device function, you can only execute again by logging in again. \n Do you want to log in again?";
+
+
+// 修改登录密码
+"my_password_title" = "modify login password";
+"my_password_code" = "verification code:";
+"my_password_get_code" = "get the verification code";
+"my_password_code_sent" = "the authentication code has been sent.";
+"my_password_old" = "old password:";
+"my_password_new" = "new password:";
+"my_password_repeat" = "confirm new password:";
+"my_password_confirm" = "submit";
+"my_password_prompt" = "the same device is verified more than 1 times in a minute.";
+"my_password_prompt2" = "mobile phone number or e-mail verification times more than the day limit.";
+
+
+// 交易账簿
+"my_trade_title" = "transaction book";
+"my_trade_account" = "user name:%@";
+"my_trade_unit" = "unit:";
+"my_trade_time" = "trading time";
+"my_trade_time_star" = "up";
+"my_trade_time_end" = "stop";
+"my_trade_search" = "query";
+"my_trade_log" = "transaction record";
+"my_trade_log_date" = "date";
+"my_trade_log_content" = "transaction summary";
+"my_trade_log_in" = "deposit";
+"my_trade_log_out" = "expenditure";
+"my_trade_log_all" = "balance";
+"my_trade_log_start" = "initial balance";
+
+
+// 用卡管理
+"my_card_title" = "China card management";
+"my_card_no_use" = "no card number is enabled.:";
+"my_card_type" = "card:";
+"my_card_effective" = "expiration date:";
+"my_card_set_start_time" = "set the enable date:";
+"my_card_confirm_way" = "confirm the rule with the card and deduction fee";
+"my_card_way_password" = "password authentication";
+"my_card_way_setpassword" = "please enter your password.";
+"my_card_way_code" = "verification of authentication code";
+"my_card_way_none" = "no authentication required";
+
+
+"my_card_confirm_way2" = "please set the custom chargeback password (hint: length 6 digits, alphanumeric combination).";
+
+"my_card_confirm_way3" = "enter format: 6 digits long, more alphanumeric.";
+
+"my_card_way_password2" = "set password";
+
+
+"my_card_use" = "enabled";
+"my_card_use2" = "modify the rule";
+"my_card_0" = "card number";
+"my_card_1" = "status";
+"my_card_2" = "enable - expiration date";
+"my_card_3" = "remaining times / days";
+"my_card_message_content" = "there is no unused card in the account.";
+"my_card_message_warning_01" = "please select the chargeback rule";
+"my_card_message_warning_02" = "the currently activated card does not exist.";
+"my_card_message_warning_03" = "the currently activated card does not belong to the logged in user";
+"my_card_message_warning_04" = "the currently activated card is enabled";
+"my_card_message_warning_05" = "the currently activated card has been purchased but not paid successfully.";
+"my_card_message_warning_06" = "the current activation card has expired and cannot be operated";
+
+
+//修改规则
+"my_Modify_title" = "modify the rule";
+"my_Modify_card" = "current activation card number:";
+
+
+// 购卡充值
+"my_sell_card_title" = "card recharge";
+"my_sell_card_current" = "current account authorized by the China card:";
+"my_sell_card_no" = "card number:";
+"my_sell_card_value" = "face value:";
+"my_sell_card_date" = "period of use to:";
+"my_sell_card_surplus" = "remaining number of times used:";
+"my_sell_card_rule" = "confirm the rule with the card and deduction fee:";
+"my_sell_card_surplus0" = "password authentication";
+"my_sell_card_surplus1" = "verification of authentication code";
+"my_sell_card_surplus2" = "no authentication required";
+"my_sell_card_buy" = "card purchase";
+"my_sell_card_can" = "accept";
+"my_sell_card_use_rule" = "《 use term 》";
+"my_sell_card_notify_subtitle" = "the current user does not have a card in";
+"my_sell_card_Phase" = "registration card:";
+"my_sell_card_Time" = "registration card:";
+"my_sell_card_currency" = "unit:";
+"my_sell_card_RMB" = "RMB";
+"my_sell_card_pay" = "please choose payment method:";
+"my_sell_card_prompt" = "prompt:";
+"my_sell_card_prompt_content" = "Dear user, Hello, your offline payment has been requested. Please contact our staff. After remittance is completed, please go to my order and complete payment confirmation.";
+
+//用户的国方卡信息
+"CardList_data_prompt1" = "the current card has expired. Please go to my card to manage the activation card";
+"CardList_data_prompt2" = "the card has expired, please go to buy my country card - Card purchase";
+
+
+// 订单号信息确认
+"my_order_title" = "confirm and pay";
+"my_order_name" = "commodity name";
+"my_order_number" = "quantity";
+"my_order_money" = "unit price / amount";
+"my_order_god_money" = "commodity amount:";
+"my_order_god_discount" = "discount:";
+"my_order_god_pay_money" = "real payment of rmb";
+"my_order_god_order_number" = "order number:";
+"my_order_god_order_generate" = "generation time:";
+"my_order_god_order_Currency_type" = "currency type:";
+"my_order_god_pay" = "payment:";
+"my_order_god_online_button" = "online payment";
+"my_order_god_offline_button" = "offline payment.";
+"my_order_offline_name" = "the name of the payee:";
+"my_order_offline_bank" = "Bank of account:";
+"my_order_offline_bankNumber" = "bank account number:";
+"my_order_pay" = "payment";
+"my_order_confirm" = "confirm";
+"my_order_confirm_1" = "operation confirmation";
+"my_order_confirm_2" = "remittance confirmation";
+"my_order_confirm_3" = "the user has remitted the money, please notify our staff to follow up the order.";
+
+//支付状态，操作结果
+"my_ststus_success_title" = "payment completed";
+"my_ststus_success_name" = "you have paid to complete!";
+"my_ststus_success_money" = "payment amount:";
+"my_ststus_failure_title" = "failed to pay";
+"my_ststus_failure_name" = "sorry the payment failed!";
+"my_ststus_failure1" = "verify an error occurred during purchase.";
+"my_ststus_operation_title" = "complete operation";
+"my_ststus_operation_name" = "you have completed the operation!";
+"my_ststus_warning" = "warm prompt: \n, you will give up the payment operation \n , you can continue the order operation at my order.";
+"my_ststus_warning2" = "warm prompt: \n, this operation represents that you have remitted the remittance to the country party \n, after choosing and confirming, it will be unable to change";
+"my_ststus_warning3" = "warm prompt : \n does enter the payment phase?";
+"my_ststus_warning4" = "commodity ID error, no merchandise available.";
+
+
+//我的订单
+"my_orderDetails_title" = "order list";
+"my_orderDetails_pay" = "paid";
+"my_orderDetails_notpay" = "PAYABLE";
+"my_orderDetails_time_title" = "time:";
+"my_orderDetails_to" = "to";
+"my_orderDetails_success" = "delete successfully";
+"my_orderDetails_warning1" = "is the deletion of the order confirmed?";
+
+
+// 使用日志
+"my_log_title" = "use log";
+"my_log_message" = "the login usage log for this account";
+"my_log_0" = "serial number";
+"my_log_1" = "date";
+"my_log_2" = "logon device";
+"my_log_3" = "action description";
+"my_log_prompt1" = "there is no record in this time period.";
+"my_log_prompt2" = "the start time must not be greater than the end time.";
+
+

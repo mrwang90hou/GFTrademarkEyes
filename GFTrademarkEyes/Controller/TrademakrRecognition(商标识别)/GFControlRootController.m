@@ -14,6 +14,7 @@
 #import "ImageCodeResultViewController.h"
 #import "GFRangeRootViewController.h"
 #import "GFImageCodeViewController.h"
+#import "lhScanQCodeViewController.h"
 @interface GFControlRootController ()<CCCycleScrollViewClickActionDeleage,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>//UITableViewDelegate,UITableViewDataSource,
 @property (nonatomic, strong)CCCycleScrollView *cyclePlayView;
 @property (nonatomic, strong) UIButton *inquireButton;
@@ -93,7 +94,6 @@
     [self.view addSubview:left_view_btn];
     */
 }
-
 
 #pragma mark 设置布局
 - (void)setupSunbviews {
@@ -187,6 +187,63 @@
     [cameraButton addTarget:self action:@selector(selectImageAction:) forControlEvents:UIControlEventTouchUpInside];
     
 }
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    NSLog(@"Original Image : %@", originalImage);
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(originalImage, nil, nil, nil);
+    }
+    
+    
+    ////    旧界面
+    //    GFPrepareImageViewController *prepareVC = [[GFPrepareImageViewController alloc] init];
+    //    prepareVC.originalImage = originalImage;
+    //    prepareVC.hidesBottomBarWhenPushed = YES;
+    //    [self.navigationController pushViewController:prepareVC animated:YES];
+    //
+    //    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    //新界面
+    GFRecognitionHomeImageViewController *prepareVC = [[GFRecognitionHomeImageViewController alloc] init];
+    prepareVC.originalImage = originalImage;
+    prepareVC.originalToImage = originalImage;
+    prepareVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:prepareVC animated:YES];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+#pragma mark - Event Response 事件响应
+
+- (void)selectImageAction:(UIButton *)button {
+    
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+    imagePickerController.delegate = self;
+    
+    if (button.tag == 2200) {
+        //从相册选择图片
+        
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+    } else if (button.tag == 2201) {
+        //从相机选择图片
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        } else {
+            [self showAlertViewWithTitle:@"相机不可用！" message:nil cancelButtonTitle:@"确定"];
+            return;
+        }
+    }
+    
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+    
+}
+
 #pragma mark 加载数据
 -(void)loadData {
     //需要展示的数据以数组的形式保存
@@ -629,5 +686,15 @@
 //{
 //    return @"删除";
 */
+
+#pragma mark - Event Response 二维码事件响应（第二种）
+-(void)qrCode2:(UIButton *)button{
+    lhScanQCodeViewController * sqVC = [[lhScanQCodeViewController alloc]init];
+    UINavigationController * nVC = [[UINavigationController alloc]initWithRootViewController:sqVC];
+    [self presentViewController:nVC animated:YES completion:^{
+    }];
+}
+
+
 
 @end

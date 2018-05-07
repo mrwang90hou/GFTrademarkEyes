@@ -97,6 +97,19 @@
 		9232B359209C346A00102AB0 /* ImageCodeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232B300209C346A00102AB0 /* ImageCodeResultViewController.m */; };
 		9232B35A209C346A00102AB0 /* GFMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232B303209C346A00102AB0 /* GFMyViewController.m */; };
 		92681FD5209FF6AD00E4B1D2 /* GFSearchHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92681FD4209FF6AD00E4B1D2 /* GFSearchHomeViewController.m */; };
+		92681FE3209FFA3D00E4B1D2 /* noticeMusic2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 92681FDA209FFA3D00E4B1D2 /* noticeMusic2.wav */; };
+		92681FE4209FFA3D00E4B1D2 /* scanscanBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92681FDB209FFA3D00E4B1D2 /* scanscanBg.png */; };
+		92681FE5209FFA3D00E4B1D2 /* scanLine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92681FDC209FFA3D00E4B1D2 /* scanLine@3x.png */; };
+		92681FE6209FFA3D00E4B1D2 /* lightSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 92681FDD209FFA3D00E4B1D2 /* lightSelect.png */; };
+		92681FE7209FFA3D00E4B1D2 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92681FDE209FFA3D00E4B1D2 /* QRCodeReaderView.m */; };
+		92681FE8209FFA3D00E4B1D2 /* scanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92681FDF209FFA3D00E4B1D2 /* scanLine@2x.png */; };
+		92681FE9209FFA3D00E4B1D2 /* lightNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 92681FE0209FFA3D00E4B1D2 /* lightNormal.png */; };
+		92681FEA209FFA3D00E4B1D2 /* noticeMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 92681FE1209FFA3D00E4B1D2 /* noticeMusic.wav */; };
+		92681FEB209FFA3D00E4B1D2 /* lhScanQCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92681FE2209FFA3D00E4B1D2 /* lhScanQCodeViewController.m */; };
+		92681FF1209FFAA000E4B1D2 /* ConfirmLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92681FEE209FFA9F00E4B1D2 /* ConfirmLoginViewController.storyboard */; };
+		92681FF2209FFAA000E4B1D2 /* ConfirmLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92681FEF209FFA9F00E4B1D2 /* ConfirmLoginViewController.m */; };
+		92681FF6209FFB1A00E4B1D2 /* ConfirmLoginSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92681FF4209FFB1900E4B1D2 /* ConfirmLoginSecondViewController.m */; };
+		92681FFB209FFC4300E4B1D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92681FF9209FFC4200E4B1D2 /* Localizable.strings */; };
 		92BB4FBE209C4241007303F0 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92BB4F97209C4240007303F0 /* WeiboSDK.bundle */; };
 		92BB4FBF209C4241007303F0 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BB4F98209C4240007303F0 /* libWeiboSDK.a */; };
 		92BB4FC0209C4241007303F0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 92BB4F9E209C4240007303F0 /* README.txt */; };
@@ -322,6 +335,24 @@
 		9232B304209C346A00102AB0 /* GFTrademarkServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTrademarkServiceController.h; sourceTree = "<group>"; };
 		92681FD3209FF6A100E4B1D2 /* GFSearchHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSearchHomeViewController.h; sourceTree = "<group>"; };
 		92681FD4209FF6AD00E4B1D2 /* GFSearchHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSearchHomeViewController.m; sourceTree = "<group>"; };
+		92681FD7209FFA3D00E4B1D2 /* lhScanQCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhScanQCodeViewController.h; sourceTree = "<group>"; };
+		92681FD9209FFA3D00E4B1D2 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
+		92681FDA209FFA3D00E4B1D2 /* noticeMusic2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noticeMusic2.wav; sourceTree = "<group>"; };
+		92681FDB209FFA3D00E4B1D2 /* scanscanBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanscanBg.png; sourceTree = "<group>"; };
+		92681FDC209FFA3D00E4B1D2 /* scanLine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@3x.png"; sourceTree = "<group>"; };
+		92681FDD209FFA3D00E4B1D2 /* lightSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightSelect.png; sourceTree = "<group>"; };
+		92681FDE209FFA3D00E4B1D2 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
+		92681FDF209FFA3D00E4B1D2 /* scanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@2x.png"; sourceTree = "<group>"; };
+		92681FE0209FFA3D00E4B1D2 /* lightNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightNormal.png; sourceTree = "<group>"; };
+		92681FE1209FFA3D00E4B1D2 /* noticeMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noticeMusic.wav; sourceTree = "<group>"; };
+		92681FE2209FFA3D00E4B1D2 /* lhScanQCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lhScanQCodeViewController.m; sourceTree = "<group>"; };
+		92681FEE209FFA9F00E4B1D2 /* ConfirmLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfirmLoginViewController.storyboard; sourceTree = "<group>"; };
+		92681FEF209FFA9F00E4B1D2 /* ConfirmLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmLoginViewController.m; sourceTree = "<group>"; };
+		92681FF0209FFA9F00E4B1D2 /* ConfirmLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmLoginViewController.h; sourceTree = "<group>"; };
+		92681FF4209FFB1900E4B1D2 /* ConfirmLoginSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmLoginSecondViewController.m; sourceTree = "<group>"; };
+		92681FF5209FFB1900E4B1D2 /* ConfirmLoginSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmLoginSecondViewController.h; sourceTree = "<group>"; };
+		92681FFA209FFC4200E4B1D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		92681FFC209FFC5A00E4B1D2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		92BB4F97209C4240007303F0 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		92BB4F98209C4240007303F0 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		92BB4F99209C4240007303F0 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
@@ -625,18 +656,18 @@
 			children = (
 				9232B29B209C346900102AB0 /* UILabel+GFLabel.h */,
 				9232B29C209C346900102AB0 /* UINavigationController+FDFullscreenPopGesture.h */,
-				9232B29D209C346900102AB0 /* UIImage+GFImage.m */,
 				9232B29E209C346900102AB0 /* ZWVerticalAlignLabel.h */,
-				9232B29F209C346900102AB0 /* UIView+GF_Frame.h */,
 				9232B2A0209C346900102AB0 /* NSObject+SXRuntime.h */,
 				9232B2A1209C346900102AB0 /* UINavigation+SXFixSpace.h */,
 				9232B2A2209C346900102AB0 /* UIBarButtonItem+SXCreate.h */,
 				9232B2A3209C346900102AB0 /* UIColor+Expanded.h */,
 				9232B2A4209C346900102AB0 /* UILabel+GFLabel.m */,
 				9232B2A5209C346900102AB0 /* UINavigationController+FDFullscreenPopGesture.m */,
+				9232B29F209C346900102AB0 /* UIView+GF_Frame.h */,
 				9232B2A6209C346900102AB0 /* UIView+GF_Frame.m */,
 				9232B2A7209C346900102AB0 /* ZWVerticalAlignLabel.m */,
 				9232B2A8209C346900102AB0 /* UIImage+GFImage.h */,
+				9232B29D209C346900102AB0 /* UIImage+GFImage.m */,
 				9232B2A9209C346900102AB0 /* UIColor+Expanded.m */,
 				9232B2AA209C346900102AB0 /* UINavigation+SXFixSpace.m */,
 				9232B2AB209C346900102AB0 /* UIBarButtonItem+SXCreate.m */,
@@ -655,6 +686,7 @@
 				9232B2B4209C346900102AB0 /* 微信公共号二维码.png */,
 				9232B2B5209C346900102AB0 /* Assets.xcassets */,
 				9232B2B6209C346900102AB0 /* 联系我们_海报.jpg */,
+				92681FF9209FFC4200E4B1D2 /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -691,8 +723,7 @@
 		9232B2CC209C346A00102AB0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9232B2F3209C346A00102AB0 /* GFControlRootController.h */,
-				9232B2CD209C346A00102AB0 /* GFControlRootController.m */,
+				92681FEC209FFA4500E4B1D2 /* TrademakrRecognition(商标识别) */,
 				92681FD3209FF6A100E4B1D2 /* GFSearchHomeViewController.h */,
 				92681FD4209FF6AD00E4B1D2 /* GFSearchHomeViewController.m */,
 				9232B304209C346A00102AB0 /* GFTrademarkServiceController.h */,
@@ -793,6 +824,63 @@
 				9232B300209C346A00102AB0 /* ImageCodeResultViewController.m */,
 			);
 			path = ImageCodeResultViewController;
+			sourceTree = "<group>";
+		};
+		92681FD6209FFA3D00E4B1D2 /* lhScanQCode（扫码登录第三种） */ = {
+			isa = PBXGroup;
+			children = (
+				92681FD7209FFA3D00E4B1D2 /* lhScanQCodeViewController.h */,
+				92681FD8209FFA3D00E4B1D2 /* 二维码扫描 */,
+				92681FE2209FFA3D00E4B1D2 /* lhScanQCodeViewController.m */,
+			);
+			path = "lhScanQCode（扫码登录第三种）";
+			sourceTree = "<group>";
+		};
+		92681FD8209FFA3D00E4B1D2 /* 二维码扫描 */ = {
+			isa = PBXGroup;
+			children = (
+				92681FD9209FFA3D00E4B1D2 /* QRCodeReaderView.h */,
+				92681FDA209FFA3D00E4B1D2 /* noticeMusic2.wav */,
+				92681FDB209FFA3D00E4B1D2 /* scanscanBg.png */,
+				92681FDC209FFA3D00E4B1D2 /* scanLine@3x.png */,
+				92681FDD209FFA3D00E4B1D2 /* lightSelect.png */,
+				92681FDE209FFA3D00E4B1D2 /* QRCodeReaderView.m */,
+				92681FDF209FFA3D00E4B1D2 /* scanLine@2x.png */,
+				92681FE0209FFA3D00E4B1D2 /* lightNormal.png */,
+				92681FE1209FFA3D00E4B1D2 /* noticeMusic.wav */,
+			);
+			path = "二维码扫描";
+			sourceTree = "<group>";
+		};
+		92681FEC209FFA4500E4B1D2 /* TrademakrRecognition(商标识别) */ = {
+			isa = PBXGroup;
+			children = (
+				92681FED209FFA9F00E4B1D2 /* ConfirmLogin */,
+				92681FF3209FFB1900E4B1D2 /* ConfirmLoginSecond */,
+				92681FD6209FFA3D00E4B1D2 /* lhScanQCode（扫码登录第三种） */,
+				9232B2F3209C346A00102AB0 /* GFControlRootController.h */,
+				9232B2CD209C346A00102AB0 /* GFControlRootController.m */,
+			);
+			path = "TrademakrRecognition(商标识别)";
+			sourceTree = "<group>";
+		};
+		92681FED209FFA9F00E4B1D2 /* ConfirmLogin */ = {
+			isa = PBXGroup;
+			children = (
+				92681FEE209FFA9F00E4B1D2 /* ConfirmLoginViewController.storyboard */,
+				92681FEF209FFA9F00E4B1D2 /* ConfirmLoginViewController.m */,
+				92681FF0209FFA9F00E4B1D2 /* ConfirmLoginViewController.h */,
+			);
+			path = ConfirmLogin;
+			sourceTree = "<group>";
+		};
+		92681FF3209FFB1900E4B1D2 /* ConfirmLoginSecond */ = {
+			isa = PBXGroup;
+			children = (
+				92681FF4209FFB1900E4B1D2 /* ConfirmLoginSecondViewController.m */,
+				92681FF5209FFB1900E4B1D2 /* ConfirmLoginSecondViewController.h */,
+			);
+			path = ConfirmLoginSecond;
 			sourceTree = "<group>";
 		};
 		92BB4F92209C4240007303F0 /* SDK */ = {
@@ -1058,16 +1146,25 @@
 				9232B32F209C346A00102AB0 /* LaunchScreen.xib in Resources */,
 				9232B334209C346A00102AB0 /* 微信公共号二维码.png in Resources */,
 				9232B333209C346A00102AB0 /* niceclass_2018_detail.sqlite in Resources */,
+				92681FE3209FFA3D00E4B1D2 /* noticeMusic2.wav in Resources */,
+				92681FE4209FFA3D00E4B1D2 /* scanscanBg.png in Resources */,
 				9232B353209C346A00102AB0 /* LeftView.xib in Resources */,
+				92681FE6209FFA3D00E4B1D2 /* lightSelect.png in Resources */,
+				92681FE9209FFA3D00E4B1D2 /* lightNormal.png in Resources */,
+				92681FE5209FFA3D00E4B1D2 /* scanLine@3x.png in Resources */,
+				92681FEA209FFA3D00E4B1D2 /* noticeMusic.wav in Resources */,
 				92BB4FCB209C4241007303F0 /* ShareSDKConfigFile.bundle in Resources */,
 				9232B33D209C346A00102AB0 /* LaunchScreen.storyboard in Resources */,
 				9232B352209C346A00102AB0 /* ListCell.xib in Resources */,
 				9232B33F209C346A00102AB0 /* LaunchScreen(原).storyboard in Resources */,
 				9232B324209C346A00102AB0 /* Info.plist in Resources */,
 				9232B33E209C346A00102AB0 /* Main.storyboard in Resources */,
+				92681FFB209FFC4300E4B1D2 /* Localizable.strings in Resources */,
 				9232B331209C346A00102AB0 /* 雅庭国际广场.jpg in Resources */,
 				92BB4FC0209C4241007303F0 /* README.txt in Resources */,
 				9232B330209C346A00102AB0 /* db_image_code.sqlite in Resources */,
+				92681FE8209FFA3D00E4B1D2 /* scanLine@2x.png in Resources */,
+				92681FF1209FFAA000E4B1D2 /* ConfirmLoginViewController.storyboard in Resources */,
 				9232B336209C346A00102AB0 /* 联系我们_海报.jpg in Resources */,
 				92BB4FC3209C4241007303F0 /* README.md in Resources */,
 				9232B34F209C346A00102AB0 /* SetUpController.storyboard in Resources */,
@@ -1258,10 +1355,13 @@
 				9232B327209C346A00102AB0 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				9232B30B209C346A00102AB0 /* GFRangeSecondViewController.m in Sources */,
 				9232B347209C346A00102AB0 /* UpdateController.m in Sources */,
+				92681FF6209FFB1A00E4B1D2 /* ConfirmLoginSecondViewController.m in Sources */,
 				9232B306209C346A00102AB0 /* GFImageCodeViewController.m in Sources */,
 				9232B33B209C346A00102AB0 /* GFBaseVo.m in Sources */,
+				92681FF2209FFAA000E4B1D2 /* ConfirmLoginViewController.m in Sources */,
 				9232B342209C346A00102AB0 /* CQHUD.m in Sources */,
 				9232B33A209C346A00102AB0 /* GFUserVo.m in Sources */,
+				92681FE7209FFA3D00E4B1D2 /* QRCodeReaderView.m in Sources */,
 				9232B31F209C346A00102AB0 /* UIViewController+GFAlert.m in Sources */,
 				9232B30C209C346A00102AB0 /* UIImageView+HTC.m in Sources */,
 				9232B357209C346A00102AB0 /* StyleResultViewController.m in Sources */,
@@ -1270,6 +1370,7 @@
 				9232B340209C346A00102AB0 /* GFControlRootController.m in Sources */,
 				9232B32C209C346A00102AB0 /* UIBarButtonItem+SXCreate.m in Sources */,
 				9232B341209C346A00102AB0 /* CCCycleScrollView.m in Sources */,
+				92681FEB209FFA3D00E4B1D2 /* lhScanQCodeViewController.m in Sources */,
 				9232B34A209C346A00102AB0 /* AboutUsController.m in Sources */,
 				9232B343209C346A00102AB0 /* StyleTableController.m in Sources */,
 				9232B311209C346A00102AB0 /* GFButton.m in Sources */,
@@ -1381,6 +1482,15 @@
 				9232B2CB209C346A00102AB0 /* Base */,
 			);
 			name = "LaunchScreen(原).storyboard";
+			sourceTree = "<group>";
+		};
+		92681FF9209FFC4200E4B1D2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92681FFA209FFC4200E4B1D2 /* en */,
+				92681FFC209FFC5A00E4B1D2 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
