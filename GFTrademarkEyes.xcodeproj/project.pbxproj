@@ -95,7 +95,8 @@
 		9232B357209C346A00102AB0 /* StyleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232B2FB209C346A00102AB0 /* StyleResultViewController.m */; };
 		9232B358209C346A00102AB0 /* StyleResultViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232B2FC209C346A00102AB0 /* StyleResultViewControllerCell.m */; };
 		9232B359209C346A00102AB0 /* ImageCodeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232B300209C346A00102AB0 /* ImageCodeResultViewController.m */; };
-		9232B35A209C346A00102AB0 /* GFRootUseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232B303209C346A00102AB0 /* GFRootUseController.m */; };
+		9232B35A209C346A00102AB0 /* GFMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232B303209C346A00102AB0 /* GFMyViewController.m */; };
+		92681FD5209FF6AD00E4B1D2 /* GFSearchHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92681FD4209FF6AD00E4B1D2 /* GFSearchHomeViewController.m */; };
 		92BB4FBE209C4241007303F0 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92BB4F97209C4240007303F0 /* WeiboSDK.bundle */; };
 		92BB4FBF209C4241007303F0 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BB4F98209C4240007303F0 /* libWeiboSDK.a */; };
 		92BB4FC0209C4241007303F0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 92BB4F9E209C4240007303F0 /* README.txt */; };
@@ -272,7 +273,7 @@
 		9232B2CD209C346A00102AB0 /* GFControlRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFControlRootController.m; sourceTree = "<group>"; };
 		9232B2CF209C346A00102AB0 /* CCCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCycleScrollView.h; sourceTree = "<group>"; };
 		9232B2D0209C346A00102AB0 /* CCCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCycleScrollView.m; sourceTree = "<group>"; };
-		9232B2D1209C346A00102AB0 /* GFRootUseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRootUseController.h; sourceTree = "<group>"; };
+		9232B2D1209C346A00102AB0 /* GFMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMyViewController.h; sourceTree = "<group>"; };
 		9232B2D2209C346A00102AB0 /* CQHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQHUD.m; sourceTree = "<group>"; };
 		9232B2D3209C346A00102AB0 /* StyleTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleTableController.m; sourceTree = "<group>"; };
 		9232B2D5209C346A00102AB0 /* GFLeftController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFLeftController.h; sourceTree = "<group>"; };
@@ -317,8 +318,10 @@
 		9232B300209C346A00102AB0 /* ImageCodeResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCodeResultViewController.m; sourceTree = "<group>"; };
 		9232B301209C346A00102AB0 /* StyleTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleTableController.h; sourceTree = "<group>"; };
 		9232B302209C346A00102AB0 /* CQHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQHUD.h; sourceTree = "<group>"; };
-		9232B303209C346A00102AB0 /* GFRootUseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRootUseController.m; sourceTree = "<group>"; };
+		9232B303209C346A00102AB0 /* GFMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMyViewController.m; sourceTree = "<group>"; };
 		9232B304209C346A00102AB0 /* GFTrademarkServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTrademarkServiceController.h; sourceTree = "<group>"; };
+		92681FD3209FF6A100E4B1D2 /* GFSearchHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFSearchHomeViewController.h; sourceTree = "<group>"; };
+		92681FD4209FF6AD00E4B1D2 /* GFSearchHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFSearchHomeViewController.m; sourceTree = "<group>"; };
 		92BB4F97209C4240007303F0 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		92BB4F98209C4240007303F0 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		92BB4F99209C4240007303F0 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
@@ -690,10 +693,12 @@
 			children = (
 				9232B2F3209C346A00102AB0 /* GFControlRootController.h */,
 				9232B2CD209C346A00102AB0 /* GFControlRootController.m */,
+				92681FD3209FF6A100E4B1D2 /* GFSearchHomeViewController.h */,
+				92681FD4209FF6AD00E4B1D2 /* GFSearchHomeViewController.m */,
 				9232B304209C346A00102AB0 /* GFTrademarkServiceController.h */,
 				9232B2F2209C346A00102AB0 /* GFTrademarkServiceController.m */,
-				9232B2D1209C346A00102AB0 /* GFRootUseController.h */,
-				9232B303209C346A00102AB0 /* GFRootUseController.m */,
+				9232B2D1209C346A00102AB0 /* GFMyViewController.h */,
+				9232B303209C346A00102AB0 /* GFMyViewController.m */,
 				9232B2D3209C346A00102AB0 /* StyleTableController.m */,
 				9232B301209C346A00102AB0 /* StyleTableController.h */,
 				9232B302209C346A00102AB0 /* CQHUD.h */,
@@ -1268,11 +1273,12 @@
 				9232B34A209C346A00102AB0 /* AboutUsController.m in Sources */,
 				9232B343209C346A00102AB0 /* StyleTableController.m in Sources */,
 				9232B311209C346A00102AB0 /* GFButton.m in Sources */,
+				92681FD5209FF6AD00E4B1D2 /* GFSearchHomeViewController.m in Sources */,
 				9232B32D209C346A00102AB0 /* NSObject+SXRuntime.m in Sources */,
 				9232B315209C346A00102AB0 /* NSString+RegularExpression.m in Sources */,
 				9232B348209C346A00102AB0 /* ShareController.m in Sources */,
 				9232B326209C346A00102AB0 /* UILabel+GFLabel.m in Sources */,
-				9232B35A209C346A00102AB0 /* GFRootUseController.m in Sources */,
+				9232B35A209C346A00102AB0 /* GFMyViewController.m in Sources */,
 				9232B354209C346A00102AB0 /* GFTrademarkServiceController.m in Sources */,
 				9232B325209C346A00102AB0 /* UIImage+GFImage.m in Sources */,
 				9232B31B209C346A00102AB0 /* DLCustomSlideView.m in Sources */,
