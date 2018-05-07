@@ -35,11 +35,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //self.navigationItem.title = @"商标查询";
+    self.navigationItem.title = @"商标查询";
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"head"] style:UIBarButtonItemStylePlain target:self action:@selector(openDrawer)];
     //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:left_view_btn]];
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"code"] style:UIBarButtonItemStylePlain target:self action:@selector(qrCode2:)];
     [self cycleScrollView];
-    [self setupView];
+    //[self setupView];
+    [self setupSunbviews];
+    /*
     //获取需要展示的数据
     [self loadData];
     // 初始化pickerView
@@ -56,6 +59,8 @@
     //指定数据源和委托
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
+    
+    
     //商品分类表按钮
     _style_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
     [_style_btn setImage:[UIImage imageNamed:@"商品分类_bule"] forState:UIControlStateNormal];
@@ -75,6 +80,7 @@
     [_reject_btn addTarget:self action:@selector(clickImageCode) forControlEvents:UIControlEventTouchUpInside];
     [_reject_btn setHidden:true];
 //
+    
 //    //total_btn
 //    _total_btn = [[UIButton alloc]initWithFrame:CGRectMake(Device_Width/4*3+30, Device_Height/4+27, 30 , 30)];
 //    [_total_btn setImage:[UIImage imageNamed:@"商品分类表-点击"] forState:UIControlStateNormal];
@@ -86,17 +92,100 @@
     [left_view_btn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
     [left_view_btn addTarget:self action:@selector(openDrawer) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:left_view_btn];
-    
-    
+    */
+}
 
+
+#pragma mark 设置布局
+- (void)setupSunbviews {
+//    UIButton *qrCodeBtn02=[UIButton buttonWithType:(UIButtonTypeCustom)];
+//    //[qrCodeBtn02 setTitle:@"删除" forState:(UIControlStateNormal)];
+//    [qrCodeBtn02 setImage:[UIImage imageNamed:@"code2"] forState:UIControlStateNormal];
+//    [qrCodeBtn02 setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+//    qrCodeBtn02.layer.masksToBounds=YES;
+//    qrCodeBtn02.layer.cornerRadius=3;
+//    qrCodeBtn02.titleLabel.font=[UIFont systemFontOfSize:15];
+//    //qrCodeBtn02.backgroundColor=[UIColor greenColor];
+//    [qrCodeBtn02 addTarget:self action:@selector(qrCode2:) forControlEvents:UIControlEventTouchUpInside];
+//    //qrCodeBtn.frame = CGRectMake(0, 0, 30, 30);
+//    qrCodeBtn02.frame=CGRectMake(0, 0, 30, 30);
+//    //UIBarButtonItem *pulish = [[UIBarButtonItem alloc] initWithCustomView:qrCodeBtn];
+//    UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithCustomView:qrCodeBtn02];
+//    //[self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: save,pulish,nil]];
+//    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: save,nil]];
+    //
+    //[self setBack_btn:_back_btn];
+    //[self.navigationItem setLeftBarButtonItem:_back_btn];
     
+    //”商标查询“图片
+    UIImageView *adView = [UIImageView new];
+    [self.view addSubview:adView];
+    [adView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view);
+        make.trailing.equalTo(self.view);
+        make.top.equalTo(self.view);
+        make.height.equalTo([NSNumber numberWithFloat:(Device_Width / 16 * 9)]);
+    }];
+    [adView setHidden:true];
+    UIView *titleView = [UIView new];
+    [self.view addSubview:titleView];
+    [titleView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view).with.offset(8);
+        make.top.equalTo(adView.mas_bottom).with.offset(16);
+        make.height.equalTo(@24);
+        make.width.equalTo(@4);
+    }];
     
+    UILabel *titleLabel = [UILabel new];
+    [self.view addSubview:titleLabel];
+    [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(titleView.mas_trailing).with.offset(8);
+        make.centerY.equalTo(titleView);
+    }];
     
+    UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:albumButton];
+    [albumButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view).with.offset(10);
+        make.trailing.equalTo(self.view).with.offset(-10);
+        make.top.equalTo(adView.mas_bottom).with.offset(70);
+        make.height.equalTo(@40);
+    }];
     
+    UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:cameraButton];
+    [cameraButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(albumButton);
+        make.trailing.equalTo(albumButton);
+        make.top.equalTo(albumButton.mas_bottom).with.offset(32);
+        make.height.equalTo(@40);
+    }];
+    //[adView assignmentWithImageView:@"GF_Black" model:UIViewContentModeScaleAspectFill];
+    titleView.backgroundColor = [UIColor colorWithRed:37/255.0 green:124/255.0 blue:223/255.0 alpha:1];
+    titleLabel.text = @"请选择输入识别商标的方式：";
+    titleLabel.font = [UIFont systemFontOfSize:15];
+    UIImage *normalBackground = [UIImage imageNamed:@"ic_blue bow_normal"];
+    normalBackground = [normalBackground resizableImageWithCapInsets:UIEdgeInsetsMake(12, 12, 12, 12) resizingMode:UIImageResizingModeStretch];
+    UIImage *pressedBackground = [UIImage imageNamed:@"ic_blue bow_pressed"];
+    pressedBackground = [pressedBackground resizableImageWithCapInsets:UIEdgeInsetsMake(12, 12, 12, 12) resizingMode:UIImageResizingModeStretch];
     
+    [albumButton setImage:[UIImage imageNamed:@"ic_photo_normal"] forState:UIControlStateNormal];
+    [albumButton setTitle:@"相册获取商标" forState:UIControlStateNormal];
+    [albumButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [albumButton setBackgroundImage:normalBackground forState:UIControlStateNormal];
+    [albumButton setBackgroundImage:pressedBackground forState:UIControlStateHighlighted];
+    albumButton.tag = 2200;
+    albumButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [albumButton addTarget:self action:@selector(selectImageAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    
+    [cameraButton setImage:[UIImage imageNamed:@"ic_photograph_normal"] forState:UIControlStateNormal];
+    [cameraButton setTitle:@"相机获取商标" forState:UIControlStateNormal];
+    [cameraButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cameraButton setBackgroundImage:normalBackground forState:UIControlStateNormal];
+    [cameraButton setBackgroundImage:pressedBackground forState:UIControlStateHighlighted];
+    cameraButton.tag = 2201;
+    cameraButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [cameraButton addTarget:self action:@selector(selectImageAction:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 #pragma mark 加载数据
@@ -267,19 +356,6 @@
     _inquireButton.layer.borderWidth = 1;
     _inquireButton.layer.borderColor = [UIColor colorWithRed:178.0/255 green:228.0/255 blue:253.0/255 alpha:1].CGColor;
     //***************设置热门搜索词汇*****************//
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 -(void)openDrawer{
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -372,7 +448,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     //隐藏背景色
     //[self.navigationController.navigationBar setValue:@0 forKeyPath:@"backgroundView.alpha"];
 }

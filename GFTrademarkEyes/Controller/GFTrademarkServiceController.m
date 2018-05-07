@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"商标服务";
+    
     [self setupView];
     self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithImage:[UIImage GF_imageWithOriginalName:@"二维码（灰色）"] style:UIBarButtonItemStylePlain target:self action:@selector(showImageAlert)];
 }

@@ -688,19 +688,19 @@
 		9232B2CC209C346A00102AB0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9232B2CD209C346A00102AB0 /* GFControlRootController.m */,
-				9232B2CE209C346A00102AB0 /* CCCycleScrollView */,
-				9232B2D1209C346A00102AB0 /* GFRootUseController.h */,
-				9232B2D2209C346A00102AB0 /* CQHUD.m */,
-				9232B2D3209C346A00102AB0 /* StyleTableController.m */,
-				9232B2D4209C346A00102AB0 /* LeftView */,
-				9232B2F2209C346A00102AB0 /* GFTrademarkServiceController.m */,
 				9232B2F3209C346A00102AB0 /* GFControlRootController.h */,
-				9232B2F4209C346A00102AB0 /* 查询操作 */,
+				9232B2CD209C346A00102AB0 /* GFControlRootController.m */,
+				9232B304209C346A00102AB0 /* GFTrademarkServiceController.h */,
+				9232B2F2209C346A00102AB0 /* GFTrademarkServiceController.m */,
+				9232B2D1209C346A00102AB0 /* GFRootUseController.h */,
+				9232B303209C346A00102AB0 /* GFRootUseController.m */,
+				9232B2D3209C346A00102AB0 /* StyleTableController.m */,
 				9232B301209C346A00102AB0 /* StyleTableController.h */,
 				9232B302209C346A00102AB0 /* CQHUD.h */,
-				9232B303209C346A00102AB0 /* GFRootUseController.m */,
-				9232B304209C346A00102AB0 /* GFTrademarkServiceController.h */,
+				9232B2D2209C346A00102AB0 /* CQHUD.m */,
+				9232B2CE209C346A00102AB0 /* CCCycleScrollView */,
+				9232B2D4209C346A00102AB0 /* LeftView */,
+				9232B2F4209C346A00102AB0 /* 查询操作 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1031,6 +1031,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9232B213209C33F400102AB0;
 			productRefGroup = 9232B21D209C33F400102AB0 /* Products */;
