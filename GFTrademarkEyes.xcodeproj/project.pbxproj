@@ -718,14 +718,14 @@
 			isa = PBXGroup;
 			children = (
 				9232B2D5209C346A00102AB0 /* GFLeftController.h */,
-				9232B2D6209C346A00102AB0 /* ListCell.m */,
-				9232B2D7209C346A00102AB0 /* LeftView.m */,
-				9232B2D8209C346A00102AB0 /* 菜单 */,
 				9232B2ED209C346A00102AB0 /* GFLeftController.m */,
-				9232B2EE209C346A00102AB0 /* ListCell.xib */,
-				9232B2EF209C346A00102AB0 /* ListCell.h */,
 				9232B2F0209C346A00102AB0 /* LeftView.h */,
+				9232B2D7209C346A00102AB0 /* LeftView.m */,
 				9232B2F1209C346A00102AB0 /* LeftView.xib */,
+				9232B2EF209C346A00102AB0 /* ListCell.h */,
+				9232B2D6209C346A00102AB0 /* ListCell.m */,
+				9232B2EE209C346A00102AB0 /* ListCell.xib */,
+				9232B2D8209C346A00102AB0 /* 菜单 */,
 			);
 			path = LeftView;
 			sourceTree = "<group>";

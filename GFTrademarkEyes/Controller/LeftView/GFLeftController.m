@@ -51,9 +51,17 @@
     //self.viewControllers = @[ recognitionNavigation];
     //self.viewControllers = @[_recognitionNavigation];
     //self.view = _recognitionNavigation;
-    
+    [self.view setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:self.header];         //加载广告轮翻图
-    [self.view addSubview:self.tableview];
+    [self.view addSubview:self.tableview];      //加载左视图的菜单列表
+    [_tableview setBackgroundColor:[UIColor blackColor]];
+    [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.view);
+        make.size.equalTo(self.view);
+        //make.top.equalTo(self.view).offset(0);
+    }];
+    //1、在viewDidLoad中添加观察者
+    [_tableview addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
     
 //    // 登录按钮
 //    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(40, 40, 200, 80)];
@@ -71,15 +79,19 @@
 //    [self presentViewController:_recognitionNavigation animated:YES completion:nil];
 //    //[myViewController presentModalViewController: navigationController];
 //}
-
-
+//2、重写observeValueForKeyPath方法，一旦UITableView的contentSize发生改变，就会调用这个方法
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    CGRect frame = _tableview.frame;
+    frame.size = _tableview.contentSize;
+    _tableview.frame = frame;
+}
 
 
 
 #pragma mark -显示账户图片展示LeftView.xib
 -(LeftView *)header{
     if (!_header) {
-        _header =[LeftView showView];
+        //_header =[LeftView showView];
         _header.frame = CGRectMake(0, 0, Device_Width, Device_Height/3);
     }
     return _header;
@@ -93,6 +105,7 @@
         _tableview.showsVerticalScrollIndicator = NO;       //显示垂直滚动指标：NO
         _tableview.showsHorizontalScrollIndicator = NO;     //显示水平滚动指标：NO
         _tableview.tableFooterView = [UIView new];          //表页脚视图
+        
 #pragma mark -tableView每个元素的高度改为：屏幕按比例分配
         _tableview.rowHeight = 50;                          //行高：50
 //        [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -109,6 +122,7 @@
     }
     cell.icon.image =[UIImage imageNamed:self.imageA[indexPath.row]];
     cell.typeLabel.text = self.imageA[indexPath.row];
+    cell.backgroundColor = [UIColor blackColor];
     return cell;
 }
 //-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

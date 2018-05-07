@@ -14,7 +14,7 @@
 
 
 //#define MAXLEFTSLIDEWIDTH (Device_Width -100)//左滑宽度100   应该改成按照比例分配
-#define MAXLEFTSLIDEWIDTH (Device_Width -Device_Width/3*2)//主视图剩余宽度为主屏幕宽度的2/3
+#define MAXLEFTSLIDEWIDTH (Device_Width -Device_Width/3*1.8)//主视图剩余宽度为主屏幕宽度的2/3
 #define MAXSPEED 800
 @interface GFSlideController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong)GFBasicController *leftVc;
